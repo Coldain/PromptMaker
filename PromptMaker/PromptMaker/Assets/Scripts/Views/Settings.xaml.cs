@@ -55,5 +55,29 @@ namespace PromptMaker.Assets.Scripts.Views
                 }
             }
         }
+
+        private void ButtonUp_Click(object sender, RoutedEventArgs e)
+        {
+            Button cmd = (Button)sender;
+            if (cmd.DataContext is SubDirectory)
+            {
+                SubDirectory moveUp = (SubDirectory)cmd.DataContext;
+                int i = currentSetting.SubDirectories.IndexOf(moveUp);
+                if (i > 0)
+                    currentSetting.SubDirectories.Move(i, i - 1);
+            }
+        }
+
+        private void ButtonDown_Click(object sender, RoutedEventArgs e)
+        {
+            Button cmd = (Button)sender;
+            if (cmd.DataContext is SubDirectory)
+            {
+                SubDirectory moveDown = (SubDirectory)cmd.DataContext;
+                int i = currentSetting.SubDirectories.IndexOf(moveDown);
+                if (i < currentSetting.SubDirectories.Count())
+                currentSetting.SubDirectories.Move(i,i+1);
+            }
+        }
     }
 }

@@ -14,10 +14,14 @@
             <StackPanel Margin="-5,-5,5,0">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="190"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="5"/>
                         <ColumnDefinition Width="25"/>
                     </Grid.ColumnDefinitions>
-                    <Rectangle Width="235" Margin="-10,0,0,0" Grid.ColumnSpan="2">
+                    <Rectangle Margin="-10,0,0,0" Grid.ColumnSpan="6">
                         <Rectangle.Style>
                             <Style TargetType="Rectangle">
                                 <Setter Property="Fill">
@@ -45,7 +49,9 @@
                         </Rectangle.Style>
                     </Rectangle>
                     <TextBox HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}"/>
-                    <CheckBox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Inuse}"/>
+                    <Button Content="⇧" Click="ButtonUp_Click" Grid.Column="1" />
+                    <Button Content="⇩" Click="ButtonDown_Click" Grid.Column="3"/>
+                    <CheckBox Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Inuse}"/>
                 </Grid>
             </StackPanel>
         </DataTemplate>
@@ -92,6 +98,8 @@
             </Grid.RowDefinitions>
             <Label Content="Project Number:" Margin="0,0,0,0.2" Padding="0" Grid.Row="1"/>
             <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="1" Background="White" Text="{Binding ProjectNumber}"/>
+            <Label Content="Base Directory:" Margin="0,0,0,0.2" Padding="0" Grid.Row="3"/>
+            <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="3" Background="White" Text="{Binding ProjectNumber}"/>
         </Grid>
         <Grid Margin="0" Grid.Row="3" Grid.Column="1" Grid.RowSpan="3" >
             <Grid.RowDefinitions>
