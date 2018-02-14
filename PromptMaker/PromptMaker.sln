@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+VisualStudioVersion = 15.0.26823.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PromptMaker", "WpfApp1\PromptMaker.csproj", "{1DEEF1C4-68A1-484C-A900-AD6C7E5B345F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PromptMaker", "PromptMaker\PromptMaker.csproj", "{1DEEF1C4-68A1-484C-A900-AD6C7E5B345F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +20,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {C2156D23-D5CE-4B2A-81BC-ACD9E92B8D8A}
+		SolutionGuid = {CA1B3480-42D6-431D-8861-E390C63DE594}
 	EndGlobalSection
 EndGlobal
