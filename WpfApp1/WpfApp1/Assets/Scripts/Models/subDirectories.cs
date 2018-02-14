@@ -22,9 +22,7 @@ namespace PromptMaker.Assets.Scripts.Models
             false,
             false
         };
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        #endregion
+        #endregion    
 
         #region Properties
         public List<string> Name
@@ -46,11 +44,13 @@ namespace PromptMaker.Assets.Scripts.Models
         #endregion
 
         #region Methods
-        NotifyPropertyChanged(String info)
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyPropertyChanged(String info)
         {
             if (PropertyChanged != null)
             {
-                PropertyChanged(this, new PropertyChangedEventArgs(info));            
+                PropertyChanged(this, new PropertyChangedEventArgs(info));
             }
         }
         #endregion
