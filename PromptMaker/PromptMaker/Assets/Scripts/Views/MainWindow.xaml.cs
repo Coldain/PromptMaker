@@ -23,8 +23,7 @@ namespace PromptMaker.Assets.Scripts.Views
     {
         public MainWindow()
         {
-            Setting setting = new Setting();
-            Settings frameSettings = new Settings(setting);
+            Settings frameSettings = new Settings();
 
             InitializeComponent();
 

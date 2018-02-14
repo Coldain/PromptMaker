@@ -7,37 +7,16 @@ using System.Threading.Tasks;
 
 namespace PromptMaker.Assets.Scripts.Models
 {
-    public class SubDirectories : INotifyPropertyChanged
+    public class SubDirectory: INotifyPropertyChanged
     {
         #region Fields
-        List<string> _name = new List<string>()
-                {
-                    "ProdLevel",
-                    "Region",
-                    "Lang"
-                };
-        List<bool> _inuse = new List<bool>()
-        {
-            false,
-            false,
-            false
-        };
+        string _path;
+        bool _inuse;
+        int _filled;
         #endregion    
 
         #region Properties
-        public List<string> Name
-        {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                _name = value;
-                NotifyPropertyChanged("Build");
-            }
-        }
-        public List<bool> Inuse
+        public bool Inuse
         {
             get
             {
@@ -49,10 +28,39 @@ namespace PromptMaker.Assets.Scripts.Models
                 NotifyPropertyChanged("Inuse");
             }
         }
+        public int Filled
+        {
+            get
+            {
+                return _filled;
+            }
+            set
+            {
+                _filled = value;
+                NotifyPropertyChanged("Filled");
+            }
+        }
+        public string Path
+        {
+            get
+            {
+                return _path;
+            }
+            set
+            {
+                _path = value;
+                NotifyPropertyChanged("_path");
+            }
+        }
         #endregion
 
         #region Constructors
-
+        public SubDirectory(string tempName, int i)
+        {
+            Path = tempName;
+            Inuse = false;
+            Filled = i;
+        }
         #endregion
 
         #region Methods

@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 namespace PromptMaker.Assets.Scripts.Models
 {
     public class Setting : INotifyPropertyChanged
-    {        
+    {
         #region Fields
-        SubDirectories _subDirectories = new SubDirectories();
+        List<SubDirectory> _subDirectories;
         int _projectNumber;
         #endregion    
 
         #region Properties
-        public SubDirectories SubDirectories
+        public List<SubDirectory> SubDirectories
         {
             get
             {
@@ -42,7 +42,14 @@ namespace PromptMaker.Assets.Scripts.Models
         #endregion
 
         #region Constructors
-
+        public Setting()
+        {
+            SubDirectories = new List<SubDirectory>();
+            SubDirectories.Add(new SubDirectory("ProdLevel",0));
+            SubDirectories.Add(new SubDirectory("Region",1));
+            SubDirectories.Add(new SubDirectory("Lang",0));
+            ProjectNumber = 0;
+        }
         #endregion
 
         #region Methods

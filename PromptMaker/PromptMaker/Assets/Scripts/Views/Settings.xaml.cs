@@ -22,12 +22,19 @@ namespace PromptMaker.Assets.Scripts.Views
     /// </summary>
     public partial class Settings : Page
     {
-        public Settings(Setting setting)
+        public Settings()
         {
-            DataContext = new {
-                setting = setting,
-            };
+            Setting currentSetting = new Setting();
+            this.DataContext = currentSetting;
+            //DataContext = new {
+            //    setting = currentSetting,
+            //};
             InitializeComponent();
+        }
+
+        private void Button+_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
