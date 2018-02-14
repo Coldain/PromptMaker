@@ -37,6 +37,18 @@ namespace PromptMaker.Assets.Scripts.Models
                 NotifyPropertyChanged("Build");
             }
         }
+        public List<bool> Inuse
+        {
+            get
+            {
+                return _inuse;
+            }
+            set
+            {
+                _inuse = value;
+                NotifyPropertyChanged("Inuse");
+            }
+        }
         #endregion
 
         #region Constructors
