@@ -26,6 +26,7 @@ namespace PromptMaker.Assets.Scripts.Models
             {
                 _inuse = value;
                 NotifyPropertyChanged("Inuse");
+                NotifyPropertyChanged("SubDirectories");
             }
         }
         public int Filled
@@ -38,6 +39,7 @@ namespace PromptMaker.Assets.Scripts.Models
             {
                 _filled = value;
                 NotifyPropertyChanged("Filled");
+                NotifyPropertyChanged("SubDirectories");
             }
         }
         public string Path
@@ -49,7 +51,8 @@ namespace PromptMaker.Assets.Scripts.Models
             set
             {
                 _path = value;
-                NotifyPropertyChanged("_path");
+                NotifyPropertyChanged("Path");
+                NotifyPropertyChanged("SubDirectories");
             }
         }
         #endregion

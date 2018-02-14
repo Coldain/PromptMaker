@@ -25,6 +25,7 @@ namespace PromptMaker.Assets.Scripts.Models
             {
                 _subDirectories = value;
                 NotifyPropertyChanged("SubDirectories");
+                NotifyPropertyChanged("Setting");
             }
         }
         public int ProjectNumber
@@ -37,6 +38,7 @@ namespace PromptMaker.Assets.Scripts.Models
             {
                 _projectNumber = value;
                 NotifyPropertyChanged("ProjectNumber");
+                NotifyPropertyChanged("Setting");
             }
         }
         #endregion

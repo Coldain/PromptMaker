@@ -50,7 +50,7 @@
                 <RowDefinition Height="0.5" />
             </Grid.RowDefinitions>
             <Label Content="Project Number:" Margin="0,0,0,0.2" Padding="0" Grid.Row="1"/>
-            <TextBlock Margin="1" Padding="0" Grid.Column="3" Grid.Row="1" Background="White" Text="{Binding ProjectNumber}"/>
+            <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="1" Background="White" Text="{Binding ProjectNumber}"/>
         </Grid>
         <Grid Margin="0" Grid.Row="3" Grid.Column="1" Grid.RowSpan="3" >
             <Grid.RowDefinitions>
@@ -69,8 +69,8 @@
                     <ColumnDefinition Width="25"/>
                     <ColumnDefinition Width="5"/>
                 </Grid.ColumnDefinitions>
-                <Button  Content="+" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Cursor="Hand" Grid.Column="2" Click="Button+_Click"/>
-                <Button  Content="-" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Cursor="Hand" Grid.Column="4"/>
+                <Button  Content="+" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Cursor="Hand" Grid.Column="2" Click="ButtonPlus_Click"/>
+                <Button  Content="-" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Cursor="Hand" Grid.Column="4" Click="ButtonMinus_Click"/>
             </Grid>
             <Grid Grid.Row="2">
                 <Label Content="Subdirectory" VerticalAlignment="Bottom" HorizontalAlignment="Left" Padding="0"/>
@@ -112,7 +112,7 @@
                                         </Style>
                                     </Rectangle.Style>
                                 </Rectangle>
-                                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path}"/>
+                                <TextBox HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}"/>
                                 <CheckBox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Inuse}"/>
                             </Grid>
                         </StackPanel>

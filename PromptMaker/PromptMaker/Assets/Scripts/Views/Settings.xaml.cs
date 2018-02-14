@@ -22,9 +22,10 @@ namespace PromptMaker.Assets.Scripts.Views
     /// </summary>
     public partial class Settings : Page
     {
+        Setting currentSetting;
         public Settings()
         {
-            Setting currentSetting = new Setting();
+            currentSetting = new Setting();
             this.DataContext = currentSetting;
             //DataContext = new {
             //    setting = currentSetting,
@@ -32,9 +33,17 @@ namespace PromptMaker.Assets.Scripts.Views
             InitializeComponent();
         }
 
-        private void Button+_Click(object sender, RoutedEventArgs e)
+        private void ButtonPlus_Click(object sender, RoutedEventArgs e)
         {
+            
+            SubDirectory newSubDirectory = new SubDirectory("Change Text Here", (currentSetting.SubDirectories.Count()) % 2);
+            currentSetting.SubDirectories.Add(newSubDirectory);
+        }
 
+        private void ButtonMinus_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentSetting.SubDirectories.Count() > 0)
+                currentSetting.SubDirectories.RemoveAt(currentSetting.SubDirectories.Count() - 1);
         }
     }
 }
