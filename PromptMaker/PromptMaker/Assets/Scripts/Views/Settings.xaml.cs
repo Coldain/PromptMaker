@@ -43,7 +43,17 @@ namespace PromptMaker.Assets.Scripts.Views
         private void ButtonMinus_Click(object sender, RoutedEventArgs e)
         {
             if (currentSetting.SubDirectories.Count() > 0)
+            {
                 currentSetting.SubDirectories.RemoveAt(currentSetting.SubDirectories.Count() - 1);
+                Button cmd = (Button)sender;
+                if (cmd.DataContext is SubDirectory)
+                {
+
+                    SubDirectory deleteme = (SubDirectory)cmd.DataContext;
+                    currentSetting.SubDirectories.Remove(deleteme);
+
+                }
+            }
         }
     }
 }

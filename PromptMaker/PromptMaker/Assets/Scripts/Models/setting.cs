@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -10,12 +11,12 @@ namespace PromptMaker.Assets.Scripts.Models
     public class Setting : INotifyPropertyChanged
     {
         #region Fields
-        List<SubDirectory> _subDirectories;
+        ObservableCollection<SubDirectory> _subDirectories;
         int _projectNumber;
         #endregion    
 
         #region Properties
-        public List<SubDirectory> SubDirectories
+        public ObservableCollection<SubDirectory> SubDirectories
         {
             get
             {
@@ -46,7 +47,7 @@ namespace PromptMaker.Assets.Scripts.Models
         #region Constructors
         public Setting()
         {
-            SubDirectories = new List<SubDirectory>();
+            SubDirectories = new ObservableCollection<SubDirectory>();
             SubDirectories.Add(new SubDirectory("ProdLevel",0));
             SubDirectories.Add(new SubDirectory("Region",1));
             SubDirectories.Add(new SubDirectory("Lang",0));
