@@ -99,8 +99,8 @@
                 <RowDefinition Height="18" />
                 <RowDefinition Height="0.5" />
             </Grid.RowDefinitions>
-            <Label Content="Project Number:" Margin="0,0,0,0.2" Padding="0" Grid.Row="1" Foreground="Black" FontWeight="Bold"/>
-            <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="1" Background="#FFB2B2B2" Text="{Binding ProjectNumber}"/>
+            <Label Content="Script Name:" Margin="0,0,0,0.2" Padding="0" Grid.Row="1" Foreground="Black" FontWeight="Bold"/>
+            <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="1" Background="#FFB2B2B2" Text="{Binding Name}"/>
             <Label Content="Base Directory:" Margin="0,0,0,0.2" Padding="0" Grid.Row="3" FontWeight="Bold"/>
             <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="3" Background="#FFB2B2B2" Text="{Binding BaseDirectory}"/>
         </Grid>

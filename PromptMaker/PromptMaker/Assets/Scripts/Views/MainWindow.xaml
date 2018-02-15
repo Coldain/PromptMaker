@@ -26,8 +26,7 @@
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
-
-            <Frame Name="mainFrame" Grid.Row="1" />
+            <Frame Name="mainFrame" Grid.Row="1" NavigationUIVisibility="Hidden"/>
             <Grid  Grid.Row="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>

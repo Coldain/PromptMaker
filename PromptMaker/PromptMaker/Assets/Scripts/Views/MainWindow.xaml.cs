@@ -30,7 +30,6 @@ namespace PromptMaker.Assets.Scripts.Views
             pages.Add(frameSettings);
             this.DataContext = pages;
             InitializeComponent();
-
             mainFrame.Content = frameSettings;
         }
 
@@ -38,28 +37,55 @@ namespace PromptMaker.Assets.Scripts.Views
         {
             Script newScriptData = new Script();
             Scripts newScript = new Scripts(newScriptData);
+            newScript.Name=("Script" + pages.Count());
             pages.Add(newScript);
             mainFrame.Content = newScript;
         }
 
         private void ButtonDeleteScript_Click(object sender, RoutedEventArgs e)
         {
-
+            if (pages.Count() > 1)
+            {
+                ButtonPreviousPage_Click(sender, e);
+                pages.RemoveAt(pages.Count() - 1);
+                Button cmd = (Button)sender;
+                if (cmd.DataContext is Scripts)
+                {
+                    Scripts deleteme = (Scripts)cmd.DataContext;
+                    pages.Remove(deleteme);
+                }
+            }
         }
 
         private void ButtonNextPage_Click(object sender, RoutedEventArgs e)
         {
-
+            Button cmd = (Button)sender;
+            if (cmd.DataContext is Scripts)
+            {
+                Scripts nextPage = (Scripts)cmd.DataContext;
+                int i = pages.IndexOf(nextPage);
+                if (i < pages.Count())
+                    mainFrame.Content= pages[i + 1];
+            }
         }
 
         private void ButtonPreviousPage_Click(object sender, RoutedEventArgs e)
         {
-
+            Button cmd = (Button)sender;
+            if (cmd.DataContext is Scripts)
+            {
+                Scripts priorPage = (Scripts)cmd.DataContext;
+                int i = pages.IndexOf(priorPage);
+                if (i > 0)
+                    mainFrame.Content = pages[i - 1];
+            }
         }
 
         private void ButtonSelectPage_Click(object sender, RoutedEventArgs e)
         {
-
+            Button cmd = (Button)sender;
+            Page gotoPage = (Page)cmd.DataContext;
+            mainFrame.Content = pages.IndexOf(gotoPage);
         }
     }
 }
