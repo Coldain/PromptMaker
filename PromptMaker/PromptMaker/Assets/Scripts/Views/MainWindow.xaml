@@ -14,19 +14,27 @@
                 <RowDefinition Height="500"/>
                 <RowDefinition Height="25"/>
             </Grid.RowDefinitions>
-            <ItemsControl x:Name="tStack" Grid.Column="0">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Button Content="{Binding Name}" Foreground="White" Background="#FF444444" Click="ButtonSelectPage_Click"/>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-            <Frame Name="mainFrame" Grid.Row="1" NavigationUIVisibility="Hidden"/>
+            <!-- Check for how to from here https://stackoverflow.com/questions/3468866/tabcontrol-with-add-new-tab-button  -->
+            <TabControl Background="{x:Null}" Grid.RowSpan="2">
+                <TabItem Background="{x:Null}">
+                    <TabItem.Header>
+                        <Grid>
+                            <Rectangle Fill="#FF444444" Margin="-7,-2,-7,-4"/>
+                            <StackPanel Orientation="Horizontal" >
+                                <TextBox Text="Setting" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                                <TextBox Text="X" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Red"/>
+                            </StackPanel>
+                        </Grid>
+                    </TabItem.Header>
+                    <Frame Name="mainFrame" NavigationUIVisibility="Hidden"/>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <Button Content="+" Margin="-8,-3,-8,-4" Width="25" Height="25" BorderBrush="#FF979797"/>
+                    </TabItem.Header>
+                </TabItem>
+            </TabControl>
+            
             <Grid  Grid.Row="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>

@@ -30,7 +30,6 @@ namespace PromptMaker.Assets.Scripts.Views
             pages.Add(frameSettings);
             this.DataContext = pages;
             InitializeComponent();
-
             mainFrame.Content = frameSettings;
             //tStack.ItemsSource = pages;
         }
@@ -48,14 +47,16 @@ namespace PromptMaker.Assets.Scripts.Views
         {
             if (pages.Count() > 1)
             {
+                int i = pages.IndexOf((Page)mainFrame.Content);
                 ButtonPreviousPage_Click(sender, e);
-                pages.RemoveAt(pages.Count() - 1);
+                pages.RemoveAt(i);
                 Button cmd = (Button)sender;
                 if (cmd.DataContext is Scripts)
                 {
                     Scripts deleteme = (Scripts)cmd.DataContext;
                     pages.Remove(deleteme);
                 }
+
             }
         }
 
