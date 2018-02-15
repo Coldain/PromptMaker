@@ -43,6 +43,12 @@ namespace PromptMaker.Assets.Scripts.Views
             mainFrame.Content = newScript;
         }
 
+        private void ButtonInsertScript_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonAddScript_Click(sender, e);
+            pages.Move(pages.IndexOf((Page)mainFrame.Content) + 1, pages.Count());
+        }
+
         private void ButtonDeleteScript_Click(object sender, RoutedEventArgs e)
         {
             if (pages.Count() > 1)
@@ -56,14 +62,13 @@ namespace PromptMaker.Assets.Scripts.Views
                     Scripts deleteme = (Scripts)cmd.DataContext;
                     pages.Remove(deleteme);
                 }
-
             }
         }
 
         private void ButtonNextPage_Click(object sender, RoutedEventArgs e)
         {
             int i = pages.IndexOf((Page)mainFrame.Content);
-            if (i < pages.Count())
+            if (i < pages.Count() - 1)
                 mainFrame.Content = pages[i + 1];
         }
 

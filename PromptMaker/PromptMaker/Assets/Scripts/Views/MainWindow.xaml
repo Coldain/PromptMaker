@@ -42,15 +42,18 @@
                     <ColumnDefinition Width="55"/>
                     <ColumnDefinition Width="5"/>
                     <ColumnDefinition Width="55"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="55"/>
                     <ColumnDefinition Width="20"/>
                     <ColumnDefinition Width="55"/>
                     <ColumnDefinition Width="5"/>
                     <ColumnDefinition Width="55"/>
                 </Grid.ColumnDefinitions>
                 <Button Content="Add" Foreground="White" Background="#FF444444" Grid.Column="2" Click="ButtonAddScript_Click"/>
-                <Button Content="Delete" Foreground="White" Background="#FF444444" Grid.Column="4" Click="ButtonDeleteScript_Click"/>
-                <Button Content="Previous" Foreground="White" Background="#FF444444" Grid.Column="6" Click="ButtonPreviousPage_Click" />
-                <Button Content="Next" Foreground="White" Background="#FF444444" Grid.Column="8" Click="ButtonNextPage_Click"/>
+                <Button Content="Insert" Foreground="White" Background="#FF444444" Grid.Column="4" Click="ButtonInsertScript_Click"/>
+                <Button Content="Delete" Foreground="White" Background="#FF444444" Grid.Column="6" Click="ButtonDeleteScript_Click"/>
+                <Button Content="Previous" Foreground="White" Background="#FF444444" Grid.Column="8" Click="ButtonPreviousPage_Click" />
+                <Button Content="Next" Foreground="White" Background="#FF444444" Grid.Column="10" Click="ButtonNextPage_Click"/>
             </Grid>
         </Grid>
     </Viewbox>
