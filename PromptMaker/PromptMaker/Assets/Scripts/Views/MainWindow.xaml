@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:PromptMaker.Assets.Scripts.Views"
         mc:Ignorable="d"
         Background="#FF575757"
-        Title="PromptMaker"  Height="585" Width="600">
-    <Viewbox Stretch="Uniform" MaxHeight="1080">
-        <Grid Height="585" Width="600">            
+        Title="PromptMaker"  Height="550" Width="600">
+    <Viewbox Stretch="Uniform" >
+        <Grid Height="550" Width="600">            
             <Grid.RowDefinitions>
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="500"/>
@@ -41,8 +41,8 @@
                 </Grid.ColumnDefinitions>
                 <Button Content="Add" Foreground="White" Background="#FF444444" Grid.Column="2" Click="ButtonAddScript_Click"/>
                 <Button Content="Delete" Foreground="White" Background="#FF444444" Grid.Column="4" Click="ButtonDeleteScript_Click"/>
-                <Button Content="Previous" Foreground="White" Background="#FF444444" Grid.Column="6" Click="ButtonNextPage_Click" />
-                <Button Content="Next" Foreground="White" Background="#FF444444" Grid.Column="8" Click="ButtonPreviousPage_Click"/>
+                <Button Content="Previous" Foreground="White" Background="#FF444444" Grid.Column="6" Click="ButtonPreviousPage_Click" />
+                <Button Content="Next" Foreground="White" Background="#FF444444" Grid.Column="8" Click="ButtonNextPage_Click"/>
             </Grid>
         </Grid>
     </Viewbox>

@@ -30,7 +30,9 @@ namespace PromptMaker.Assets.Scripts.Views
             pages.Add(frameSettings);
             this.DataContext = pages;
             InitializeComponent();
+
             mainFrame.Content = frameSettings;
+            //tStack.ItemsSource = pages;
         }
 
         private void ButtonAddScript_Click(object sender, RoutedEventArgs e)
@@ -59,33 +61,26 @@ namespace PromptMaker.Assets.Scripts.Views
 
         private void ButtonNextPage_Click(object sender, RoutedEventArgs e)
         {
-            Button cmd = (Button)sender;
-            if (cmd.DataContext is Scripts)
-            {
-                Scripts nextPage = (Scripts)cmd.DataContext;
-                int i = pages.IndexOf(nextPage);
-                if (i < pages.Count())
-                    mainFrame.Content= pages[i + 1];
-            }
+            int i = pages.IndexOf((Page)mainFrame.Content);
+            if (i < pages.Count())
+                mainFrame.Content = pages[i + 1];
         }
 
         private void ButtonPreviousPage_Click(object sender, RoutedEventArgs e)
         {
-            Button cmd = (Button)sender;
-            if (cmd.DataContext is Scripts)
-            {
-                Scripts priorPage = (Scripts)cmd.DataContext;
-                int i = pages.IndexOf(priorPage);
+            int i = pages.IndexOf((Page)mainFrame.Content);
                 if (i > 0)
-                    mainFrame.Content = pages[i - 1];
-            }
+                    mainFrame.Content = pages[i - 1];            
         }
 
         private void ButtonSelectPage_Click(object sender, RoutedEventArgs e)
         {
             Button cmd = (Button)sender;
-            Page gotoPage = (Page)cmd.DataContext;
-            mainFrame.Content = pages.IndexOf(gotoPage);
+            if (cmd.DataContext is Scripts || cmd.DataContext is Settings)
+            {
+                Page gotoPage = (Page)cmd.DataContext;
+                mainFrame.Content = pages.IndexOf(gotoPage);
+            }
         }
     }
 }
