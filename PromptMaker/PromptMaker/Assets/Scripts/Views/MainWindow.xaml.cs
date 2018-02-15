@@ -28,7 +28,6 @@ namespace PromptMaker.Assets.Scripts.Views
             InitializeComponent();
 
             mainFrame.Content = frameSettings;
-            mainFrame.Content
         }
 
         private void ButtonAddScript_Click(object sender, RoutedEventArgs e)
