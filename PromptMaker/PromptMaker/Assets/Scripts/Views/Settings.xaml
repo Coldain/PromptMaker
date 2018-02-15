@@ -8,7 +8,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="600"
       Title="Settings"
-      Background="DarkGray">
+      Background="#FF686868">
     <Page.Resources>
         <DataTemplate x:Key="directories" DataType="{x:Type binder:Setting}">
             <StackPanel Margin="-5,-5,5,0">
@@ -96,7 +96,7 @@
                 <RowDefinition Height="18" />
                 <RowDefinition Height="0.5" />
             </Grid.RowDefinitions>
-            <Label Content="Project Number:" Margin="0,0,0,0.2" Padding="0" Grid.Row="1"/>
+            <Label Content="Project Number:" Margin="0,0,0,0.2" Padding="0" Grid.Row="1" Foreground="#FF67C0E2"/>
             <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="1" Background="White" Text="{Binding ProjectNumber}"/>
             <Label Content="Base Directory:" Margin="0,0,0,0.2" Padding="0" Grid.Row="3"/>
             <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="3" Background="White" Text="{Binding ProjectNumber}"/>

@@ -5,23 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PromptMaker.Assets.Scripts.Views"
         mc:Ignorable="d"
-        Background="DimGray"
-        Title="PromptMaker" Height="540" Width="625">
+        Background="#FF2D2D30"
+        Title="PromptMaker" Height="585" Width="600">
     <Grid>
-        <Grid.ColumnDefinitions>
+        <!--<Grid.ColumnDefinitions>
+            <ColumnDefinition Width="595*"/>
+            <ColumnDefinition Width="22*"/>
             <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="20"/>            
-        </Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>-->
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="20"/>
-            
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="500"/>
+            <RowDefinition Height="25"/>
         </Grid.RowDefinitions>
-        <Frame Name="mainFrame" Grid.Row="1" Grid.Column="1">
-        
-        </Frame>
-        
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Settings" Foreground="White" Background="#FF1A1A1A" Click="ButtonSelectPage_Click"/>
+            <Button Content="Greet US" Foreground="White" Background="#FF1A1A1A"/>
+        </StackPanel>
+        <Frame Name="mainFrame" Grid.Row="1" Grid.ColumnSpan="2"/>
+        <Grid  Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="55"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="55"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="55"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="55"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Add" Foreground="White" Background="#FF1A1A1A" Grid.Column="2" Click="ButtonAddScript_Click"/>
+            <Button Content="Delete" Foreground="White" Background="#FF1A1A1A" Grid.Column="4" Click="ButtonDeleteScript_Click"/>
+            <Button Content="Previous" Foreground="White" Background="#FF1A1A1A" Grid.Column="6" Click="ButtonNextPage_Click" />
+            <Button Content="Next" Foreground="White" Background="#FF1A1A1A" Grid.Column="8" Click="ButtonPreviousPage_Click"/>
+            
+        </Grid>
     </Grid>
 </Window>

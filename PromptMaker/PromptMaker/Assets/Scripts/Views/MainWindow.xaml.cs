@@ -28,6 +28,32 @@ namespace PromptMaker.Assets.Scripts.Views
             InitializeComponent();
 
             mainFrame.Content = frameSettings;
+            mainFrame.Content
+        }
+
+        private void ButtonAddScript_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonDeleteScript_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonNextPage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonPreviousPage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonSelectPage_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
