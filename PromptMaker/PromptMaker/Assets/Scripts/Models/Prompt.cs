@@ -8,62 +8,57 @@ using System.Threading.Tasks;
 
 namespace PromptMaker.Assets.Scripts.Models
 {
-    public class Script : INotifyPropertyChanged
+    class Prompt : INotifyPropertyChanged
     {
         #region Fields
-        ObservableCollection<SubDirectory> _prompts;
-        int _projectNumber;
-        string _scriptName;
+        string _promptName;
+        string _sequence;
+        string _phrase;
         #endregion    
 
         #region Properties
-        public ObservableCollection<SubDirectory> Prompts
+        public string PromptName
         {
             get
             {
-                return _prompts;
+                return _promptName;
             }
             set
             {
-                _prompts = value;
-                NotifyPropertyChanged("Prompts");
+                _promptName = value;
+                NotifyPropertyChanged("PromptName");
             }
         }
-        public int ProjectNumber
+        public string Sequence
         {
             get
             {
-                return _projectNumber;
+                return _sequence;
             }
             set
             {
-                _projectNumber = value;
-                NotifyPropertyChanged("ProjectNumber");
+                _sequence = value;
+                NotifyPropertyChanged("Sequence");
             }
         }
-        public string ScriptName
+        public string Phrase
         {
             get
             {
-                return _scriptName;
+                return _phrase;
             }
             set
             {
-                _scriptName = value;
-                NotifyPropertyChanged("ScriptName");
+                _phrase = value;
+                NotifyPropertyChanged("Phrase");
             }
         }
         #endregion
 
         #region Constructors
-        public Script()
+        public Prompt()
         {
-            Prompts = new ObservableCollection<SubDirectory>();
-            Prompts.Add(new SubDirectory("ProdLevel", 0));
-            Prompts.Add(new SubDirectory("Region", 1));
-            Prompts.Add(new SubDirectory("Lang", 0));
-            ProjectNumber = 0;
-            ScriptName = "Example: Script will add _s for you";
+
         }
         #endregion
 
