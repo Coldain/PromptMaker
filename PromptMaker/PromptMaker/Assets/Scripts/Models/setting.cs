@@ -13,6 +13,7 @@ namespace PromptMaker.Assets.Scripts.Models
         #region Fields
         ObservableCollection<SubDirectory> _subDirectories;
         int _projectNumber;
+        string _baseDirectory;
         #endregion    
 
         #region Properties
@@ -26,7 +27,6 @@ namespace PromptMaker.Assets.Scripts.Models
             {
                 _subDirectories = value;
                 NotifyPropertyChanged("SubDirectories");
-                NotifyPropertyChanged("Setting");
             }
         }
         public int ProjectNumber
@@ -39,7 +39,18 @@ namespace PromptMaker.Assets.Scripts.Models
             {
                 _projectNumber = value;
                 NotifyPropertyChanged("ProjectNumber");
-                NotifyPropertyChanged("Setting");
+            }
+        }
+        public string BaseDirectory
+        {
+            get
+            {
+                return _baseDirectory;
+            }
+            set
+            {
+                _baseDirectory = value;
+                NotifyPropertyChanged("BaseDirectory");
             }
         }
         #endregion
@@ -52,6 +63,7 @@ namespace PromptMaker.Assets.Scripts.Models
             SubDirectories.Add(new SubDirectory("Region",1));
             SubDirectories.Add(new SubDirectory("Lang",0));
             ProjectNumber = 0;
+            BaseDirectory = "Prompts\\";
         }
         #endregion
 
