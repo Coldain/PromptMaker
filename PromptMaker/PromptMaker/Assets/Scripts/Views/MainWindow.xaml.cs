@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using PromptMaker.Assets.Scripts.Models;
+using System.Collections.ObjectModel;
 
 namespace PromptMaker.Assets.Scripts.Views
 {
@@ -24,7 +25,9 @@ namespace PromptMaker.Assets.Scripts.Views
         public MainWindow()
         {
             Settings frameSettings = new Settings();
-
+            ObservableCollection<Page> pages = new ObservableCollection<Page>();
+            pages.Add(frameSettings);
+            this.DataContext = pages;
             InitializeComponent();
 
             mainFrame.Content = frameSettings;
