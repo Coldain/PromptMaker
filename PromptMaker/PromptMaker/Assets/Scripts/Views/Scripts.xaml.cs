@@ -21,9 +21,59 @@ namespace PromptMaker.Assets.Scripts.Views
     /// </summary>
     public partial class Scripts : Page
     {
+        Script currentScript;
         public Scripts(Script _script)
         {
+            currentScript = new Script();
+            this.DataContext = currentScript;
             InitializeComponent();
+        }
+
+        private void ButtonPlus_Click(object sender, RoutedEventArgs e)
+        {
+
+            SubDirectory newSubDirectory = new SubDirectory("Change Text Here", (currentScript.Prompts.Count()) % 2);
+            currentScript.Prompts.Add(newSubDirectory);
+        }
+
+        private void ButtonMinus_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentScript.Prompts.Count() > 0)
+            {
+                currentScript.Prompts.RemoveAt(currentScript.Prompts.Count() - 1);
+                Button cmd = (Button)sender;
+                if (cmd.DataContext is SubDirectory)
+                {
+
+                    SubDirectory deleteme = (SubDirectory)cmd.DataContext;
+                    currentScript.Prompts.Remove(deleteme);
+
+                }
+            }
+        }
+
+        private void ButtonUp_Click(object sender, RoutedEventArgs e)
+        {
+            Button cmd = (Button)sender;
+            if (cmd.DataContext is SubDirectory)
+            {
+                SubDirectory moveUp = (SubDirectory)cmd.DataContext;
+                int i = currentScript.Prompts.IndexOf(moveUp);
+                if (i > 0)
+                    currentScript.Prompts.Move(i, i - 1);
+            }
+        }
+
+        private void ButtonDown_Click(object sender, RoutedEventArgs e)
+        {
+            Button cmd = (Button)sender;
+            if (cmd.DataContext is SubDirectory)
+            {
+                SubDirectory moveDown = (SubDirectory)cmd.DataContext;
+                int i = currentScript.Prompts.IndexOf(moveDown);
+                if (i < currentScript.Prompts.Count())
+                    currentScript.Prompts.Move(i, i + 1);
+            }
         }
     }
 }

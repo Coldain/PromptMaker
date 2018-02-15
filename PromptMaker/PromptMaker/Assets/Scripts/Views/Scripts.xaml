@@ -4,13 +4,16 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PromptMaker.Assets.Scripts.Views"
+      xmlns:binder="clr-namespace:PromptMaker.Assets.Scripts.Models"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="600"
       Title="Script"
       Name="Script"
       Background="#FF666666">
     <Page.Resources>
-        <DataTemplate x:Key="directories" DataType="{x:Type binder:Setting}">
+        <!--Need to have button for adanced prompt. That will pop open a user control to insert variables or wrap things in <spell> or add % @ # in the " "
+        Also need to add ... for the regular one to display a bigger textbox-->
+        <DataTemplate x:Key="prompts" DataType="{x:Type binder:Setting}">
             <StackPanel Margin="-5,-5,5,0">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -126,7 +129,7 @@
                 <Label Content="In-Use" VerticalAlignment="Bottom" HorizontalAlignment="Right" Padding="0" FontWeight="Bold"/>
             </Grid>
             <ListBox Name="listViewSubDirectories" ItemsSource="{Binding SubDirectories}" BorderBrush="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" 
-                     Grid.Row="3" Margin="0,0,-1,0" IsSynchronizedWithCurrentItem="True" ItemTemplate="{StaticResource directories}" Background="#FFB2B2B2"/>
+                     Grid.Row="3" Margin="0,0,-1,0" IsSynchronizedWithCurrentItem="True" ItemTemplate="{StaticResource prompts}" Background="#FFB2B2B2"/>
         </Grid>
     </Grid>
 </Page>

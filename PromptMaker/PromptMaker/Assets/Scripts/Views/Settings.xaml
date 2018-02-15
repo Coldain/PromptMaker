@@ -7,8 +7,8 @@
       xmlns:binder="clr-namespace:PromptMaker.Assets.Scripts.Models"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="600"
-      Title="Settings"
-      Name="Settings"
+      Title="Setting"
+      Name="Setting"
       Background="#FF666666">
     <Page.Resources>
         <DataTemplate x:Key="directories" DataType="{x:Type binder:Setting}">
