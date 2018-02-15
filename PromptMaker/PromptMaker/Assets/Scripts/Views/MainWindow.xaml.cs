@@ -22,10 +22,11 @@ namespace PromptMaker.Assets.Scripts.Views
     /// </summary>
     public partial class MainWindow : Window
     {
+        public ObservableCollection<Page> pages;
         public MainWindow()
         {
             Settings frameSettings = new Settings();
-            ObservableCollection<Page> pages = new ObservableCollection<Page>();
+            pages = new ObservableCollection<Page>();
             pages.Add(frameSettings);
             this.DataContext = pages;
             InitializeComponent();
@@ -35,7 +36,10 @@ namespace PromptMaker.Assets.Scripts.Views
 
         private void ButtonAddScript_Click(object sender, RoutedEventArgs e)
         {
-
+            Script newScriptData = new Script();
+            Scripts newScript = new Scripts(newScriptData);
+            pages.Add(newScript);
+            mainFrame.Content = newScript;
         }
 
         private void ButtonDeleteScript_Click(object sender, RoutedEventArgs e)

@@ -65,13 +65,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Assets\Scripts\Models\Script.cs" />
     <Compile Include="Assets\Scripts\Models\Setting.cs" />
     <Compile Include="Assets\Scripts\Models\SubDirectory.cs" />
     <Compile Include="Assets\Scripts\Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Assets\Scripts\Views\Script.xaml">
+    <Page Include="Assets\Scripts\Views\Scripts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -81,8 +82,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Views\Script.xaml.cs">
-      <DependentUpon>Script.xaml</DependentUpon>
+    <Compile Include="Assets\Scripts\Views\Scripts.xaml.cs">
+      <DependentUpon>Scripts.xaml</DependentUpon>
     </Compile>
     <Compile Include="Assets\Scripts\Views\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>

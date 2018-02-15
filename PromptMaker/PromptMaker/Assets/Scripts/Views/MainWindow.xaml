@@ -14,10 +14,19 @@
                 <RowDefinition Height="500"/>
                 <RowDefinition Height="25"/>
             </Grid.RowDefinitions>
-            <StackPanel Orientation="Horizontal">
-                <Button Content="Settings" Foreground="White" Background="#FF444444" Click="ButtonSelectPage_Click"/>
-                <Button Content="Greet US" Foreground="White" Background="#FF444444" Click="ButtonSelectPage_Click"/>
-            </StackPanel>
+            <ItemsControl x:Name="tStack" Grid.Column="0">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Content="{Binding Name}" Foreground="White" Background="#FF444444" Click="ButtonSelectPage_Click"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
             <Frame Name="mainFrame" Grid.Row="1" />
             <Grid  Grid.Row="2">
                 <Grid.ColumnDefinitions>

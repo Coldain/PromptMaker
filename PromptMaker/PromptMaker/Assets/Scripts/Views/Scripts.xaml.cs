@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PromptMaker.Assets.Scripts.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,9 +19,9 @@ namespace PromptMaker.Assets.Scripts.Views
     /// <summary>
     /// Interaction logic for Script.xaml
     /// </summary>
-    public partial class Script : Page
+    public partial class Scripts : Page
     {
-        public Script()
+        public Scripts(Script _script)
         {
             InitializeComponent();
         }
