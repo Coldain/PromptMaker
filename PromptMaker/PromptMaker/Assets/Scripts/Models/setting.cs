@@ -17,7 +17,7 @@ namespace PromptMaker.Assets.Scripts.Models
         string _userEmail;
         string _businessNumber;
         string _URI;
-        string _userID
+        string _userID;
         #endregion    
 
         #region Properties
@@ -67,6 +67,42 @@ namespace PromptMaker.Assets.Scripts.Models
             {
                 _userEmail = value;
                 NotifyPropertyChanged("UserEmail");
+            }
+        }        
+        public string BusinessNumber
+        {
+            get
+            {
+                return _businessNumber;
+            }
+            set
+            {
+                _businessNumber = value;
+                NotifyPropertyChanged("BusinessNumber");
+            }
+        }
+        public string URI
+        {
+            get
+            {
+                return _URI;
+            }
+            set
+            {
+                _URI = value;
+                NotifyPropertyChanged("URI");
+            }
+        }
+        public string UserID
+        {
+            get
+            {
+                return _userID;
+            }
+            set
+            {
+                _userID = value;
+                NotifyPropertyChanged("UserID");
             }
         }
         #endregion
