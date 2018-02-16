@@ -101,6 +101,8 @@
             <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="1" Background="#FFB2B2B2" Text="{Binding ProjectNumber}"/>
             <Label Content="Base Directory:" Margin="0,0,0,0.2" Padding="0" Grid.Row="3" FontWeight="Bold"/>
             <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="3" Background="#FFB2B2B2" Text="{Binding BaseDirectory}"/>
+            <Label Content="User Cluster Email:" Margin="0,0,0,0.2" Padding="0" Grid.Row="5" FontWeight="Bold"/>
+            <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="5" Background="#FFB2B2B2" Text="{Binding UserEmail}"/>
         </Grid>
         <Grid Margin="0" Grid.Row="3" Grid.Column="1" Grid.RowSpan="3" >
             <Grid.RowDefinitions>

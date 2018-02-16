@@ -14,6 +14,10 @@ namespace PromptMaker.Assets.Scripts.Models
         ObservableCollection<SubDirectory> _subDirectories;
         int _projectNumber;
         string _baseDirectory;
+        string _userEmail;
+        string _businessNumber;
+        string _URI;
+        string _userID
         #endregion    
 
         #region Properties
@@ -51,6 +55,18 @@ namespace PromptMaker.Assets.Scripts.Models
             {
                 _baseDirectory = value;
                 NotifyPropertyChanged("BaseDirectory");
+            }
+        }
+        public string UserEmail
+        {
+            get
+            {
+                return _userEmail;
+            }
+            set
+            {
+                _userEmail = value;
+                NotifyPropertyChanged("UserEmail");
             }
         }
         #endregion

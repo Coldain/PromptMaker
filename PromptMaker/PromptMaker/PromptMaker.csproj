@@ -117,5 +117,14 @@
   <ItemGroup>
     <Resource Include="Assets\Images\speaker_9Z8_icon.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Scripts\Models\Template w Data.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Scripts\Models\Actions.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Scripts\Models\Record_Prompts_Here.XML" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

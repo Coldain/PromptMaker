@@ -1,0 +1,995 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ScriptContainer xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" noNamespaceSchemaLocation="http://lab-iniws01/scriptcontainer.xsd" BusNo="258" UserID="6817135">
+  <Actions>
+    <ActionStruct>
+      <ActionID>25</ActionID>
+      <Action>RUNSUB</Action>
+      <Caption>Record Prompts Here</Caption>
+      <Parameters>
+        <string>Record_Prompts_Here</string>
+        <string />
+        <string>RTN</string>
+      </Parameters>
+      <Branches />
+      <Cases />
+      <X>208</X>
+      <Y>64</Y>
+      <DependencyOrder>24</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>f8b958d0-8cd3-40df-97d3-5862930b0807</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>24</ActionID>
+      <Action>PLAY</Action>
+      <Caption>PLACEHOLDER_Script2 PLACEHOLDER Ita PLACEHOLDER DEV</Caption>
+      <Parameters>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Ita.wav
+PLACEHOLDER Phrase Details 1
+
+PLACEHOLDER Prompt_Name_2_PLACEHOLDER Ita.wav
+PLACEHOLDER Phrase Details 2
+
+PLACEHOLDER Prompt_Name_3_PLACEHOLDER Ita.wav
+PLACEHOLDER Phrase Details 3
+
+PLACEHOLDER Prompt_Name_4_PLACEHOLDER Ita.wav
+PLACEHOLDER Phrase Details 4
+</string>
+        <string>True</string>
+        <string>True</string>
+        <string />
+        <string />
+        <string />
+        <string />
+      </Parameters>
+      <Branches />
+      <Cases />
+      <X>1056</X>
+      <Y>288</Y>
+      <DependencyOrder>19</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b1b9a2dd-65b6-4626-9cf5-9cfa69cf59e2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>23</ActionID>
+      <Action>PLAY</Action>
+      <Caption>PLACEHOLDER_Script2 PLACEHOLDER Pol PLACEHOLDER DEV</Caption>
+      <Parameters>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Pol\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Pol\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Pol\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Pol\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Pol.wav
+PLACEHOLDER Phrase Details 1
+
+PLACEHOLDER Prompt_Name_2_PLACEHOLDER Pol.wav
+PLACEHOLDER Phrase Details 2
+
+PLACEHOLDER Prompt_Name_3_PLACEHOLDER Pol.wav
+PLACEHOLDER Phrase Details 3
+
+PLACEHOLDER Prompt_Name_4_PLACEHOLDER Pol.wav
+PLACEHOLDER Phrase Details 4
+</string>
+        <string>True</string>
+        <string>True</string>
+        <string />
+        <string />
+        <string />
+        <string />
+      </Parameters>
+      <Branches />
+      <Cases />
+      <X>976</X>
+      <Y>288</Y>
+      <DependencyOrder>18</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b1b9a2dd-65b6-4626-9cf5-9cfa69cf59e2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>22</ActionID>
+      <Action>PLAY</Action>
+      <Caption>PLACEHOLDER_Script2 PLACEHOLDER Rus PLACEHOLDER DEV</Caption>
+      <Parameters>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Rus\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Rus\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Rus\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Rus\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Rus.wav
+PLACEHOLDER Phrase Details 1
+
+PLACEHOLDER Prompt_Name_2_PLACEHOLDER Rus.wav
+PLACEHOLDER Phrase Details 2
+
+PLACEHOLDER Prompt_Name_3_PLACEHOLDER Rus.wav
+PLACEHOLDER Phrase Details 3
+
+PLACEHOLDER Prompt_Name_4_PLACEHOLDER Rus.wav
+PLACEHOLDER Phrase Details 4
+</string>
+        <string>True</string>
+        <string>True</string>
+        <string />
+        <string />
+        <string />
+        <string />
+      </Parameters>
+      <Branches />
+      <Cases />
+      <X>896</X>
+      <Y>288</Y>
+      <DependencyOrder>17</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b1b9a2dd-65b6-4626-9cf5-9cfa69cf59e2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>21</ActionID>
+      <Action>PLAY</Action>
+      <Caption>PLACEHOLDER_Script2 PLACEHOLDER Por PLACEHOLDER DEV</Caption>
+      <Parameters>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Por\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Por\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Por\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Por\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Por.wav
+PLACEHOLDER Phrase Details 1
+
+PLACEHOLDER Prompt_Name_2_PLACEHOLDER Por.wav
+PLACEHOLDER Phrase Details 2
+
+PLACEHOLDER Prompt_Name_3_PLACEHOLDER Por.wav
+PLACEHOLDER Phrase Details 3
+
+PLACEHOLDER Prompt_Name_4_PLACEHOLDER Por.wav
+PLACEHOLDER Phrase Details 4
+</string>
+        <string>True</string>
+        <string>True</string>
+        <string />
+        <string />
+        <string />
+        <string />
+      </Parameters>
+      <Branches />
+      <Cases />
+      <X>816</X>
+      <Y>288</Y>
+      <DependencyOrder>16</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b1b9a2dd-65b6-4626-9cf5-9cfa69cf59e2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>20</ActionID>
+      <Action>PLAY</Action>
+      <Caption>PLACEHOLDER_Script2 PLACEHOLDER Ger PLACEHOLDER DEV</Caption>
+      <Parameters>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Ger\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ger\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ger\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ger\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Ger.wav
+PLACEHOLDER Phrase Details 1
+
+PLACEHOLDER Prompt_Name_2_PLACEHOLDER Ger.wav
+PLACEHOLDER Phrase Details 2
+
+PLACEHOLDER Prompt_Name_3_PLACEHOLDER Ger.wav
+PLACEHOLDER Phrase Details 3
+
+PLACEHOLDER Prompt_Name_4_PLACEHOLDER Ger.wav
+PLACEHOLDER Phrase Details 4
+</string>
+        <string>True</string>
+        <string>True</string>
+        <string />
+        <string />
+        <string />
+        <string />
+      </Parameters>
+      <Branches />
+      <Cases />
+      <X>736</X>
+      <Y>288</Y>
+      <DependencyOrder>15</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b1b9a2dd-65b6-4626-9cf5-9cfa69cf59e2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>19</ActionID>
+      <Action>PLAY</Action>
+      <Caption>PLACEHOLDER_Script2 PLACEHOLDER Dut PLACEHOLDER DEV</Caption>
+      <Parameters>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Dut\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Dut\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Dut\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Dut\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Dut.wav
+PLACEHOLDER Phrase Details 1
+
+PLACEHOLDER Prompt_Name_2_PLACEHOLDER Dut.wav
+PLACEHOLDER Phrase Details 2
+
+PLACEHOLDER Prompt_Name_3_PLACEHOLDER Dut.wav
+PLACEHOLDER Phrase Details 3
+
+PLACEHOLDER Prompt_Name_4_PLACEHOLDER Dut.wav
+PLACEHOLDER Phrase Details 4
+</string>
+        <string>True</string>
+        <string>True</string>
+        <string />
+        <string />
+        <string />
+        <string />
+      </Parameters>
+      <Branches />
+      <Cases />
+      <X>656</X>
+      <Y>288</Y>
+      <DependencyOrder>14</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b1b9a2dd-65b6-4626-9cf5-9cfa69cf59e2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>18</ActionID>
+      <Action>PLAY</Action>
+      <Caption>PLACEHOLDER_Script2 PLACEHOLDER Fre PLACEHOLDER DEV</Caption>
+      <Parameters>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Fre\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Fre\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Fre\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Fre\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Fre.wav
+PLACEHOLDER Phrase Details 1
+
+PLACEHOLDER Prompt_Name_2_PLACEHOLDER Fre.wav
+PLACEHOLDER Phrase Details 2
+
+PLACEHOLDER Prompt_Name_3_PLACEHOLDER Fre.wav
+PLACEHOLDER Phrase Details 3
+
+PLACEHOLDER Prompt_Name_4_PLACEHOLDER Fre.wav
+PLACEHOLDER Phrase Details 4
+</string>
+        <string>True</string>
+        <string>True</string>
+        <string />
+        <string />
+        <string />
+        <string />
+      </Parameters>
+      <Branches />
+      <Cases />
+      <X>576</X>
+      <Y>288</Y>
+      <DependencyOrder>13</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b1b9a2dd-65b6-4626-9cf5-9cfa69cf59e2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>17</ActionID>
+      <Action>PLAY</Action>
+      <Caption>PLACEHOLDER_Script2 PLACEHOLDER Spa PLACEHOLDER DEV</Caption>
+      <Parameters>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Spa\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Spa\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Spa\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Spa\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Spa.wav
+PLACEHOLDER Phrase Details 1
+
+PLACEHOLDER Prompt_Name_2_PLACEHOLDER Spa.wav
+PLACEHOLDER Phrase Details 2
+
+PLACEHOLDER Prompt_Name_3_PLACEHOLDER Spa.wav
+PLACEHOLDER Phrase Details 3
+
+PLACEHOLDER Prompt_Name_4_PLACEHOLDER Spa.wav
+PLACEHOLDER Phrase Details 4
+</string>
+        <string>True</string>
+        <string>True</string>
+        <string />
+        <string />
+        <string />
+        <string />
+      </Parameters>
+      <Branches />
+      <Cases />
+      <X>496</X>
+      <Y>288</Y>
+      <DependencyOrder>12</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b1b9a2dd-65b6-4626-9cf5-9cfa69cf59e2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>16</ActionID>
+      <Action>PLAY</Action>
+      <Caption>PLACEHOLDER_Script2 PLACEHOLDER Eng PLACEHOLDER DEV</Caption>
+      <Parameters>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Eng\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Eng\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Eng\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Eng\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Eng.wav
+PLACEHOLDER Phrase Details 1
+
+PLACEHOLDER Prompt_Name_2_PLACEHOLDER Eng.wav
+PLACEHOLDER Phrase Details 2
+
+PLACEHOLDER Prompt_Name_3_PLACEHOLDER Eng.wav
+PLACEHOLDER Phrase Details 3
+
+PLACEHOLDER Prompt_Name_4_PLACEHOLDER Eng.wav
+PLACEHOLDER Phrase Details 4
+</string>
+        <string>True</string>
+        <string>True</string>
+        <string />
+        <string />
+        <string />
+        <string />
+      </Parameters>
+      <Branches />
+      <Cases />
+      <X>416</X>
+      <Y>288</Y>
+      <DependencyOrder>11</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b1b9a2dd-65b6-4626-9cf5-9cfa69cf59e2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>15</ActionID>
+      <Action>MENU</Action>
+      <Caption>PLACEHOLDER_Script2 {Lang} {ProdLevel}</Caption>
+      <Parameters>
+        <string>"{ProdLevel}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "{ProdLevel}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "{ProdLevel}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "{ProdLevel}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>PLACEHOLDER Prompt_Name_1_{Lang}.wav
+PLACEHOLDER Phrase Details 1
+
+PLACEHOLDER Prompt_Name_2_{Lang}.wav
+PLACEHOLDER Phrase Details 2
+
+PLACEHOLDER Prompt_Name_3_{Lang}.wav
+PLACEHOLDER Phrase Details 3
+
+PLACEHOLDER Prompt_Name_4_{Lang}.wav
+PLACEHOLDER Phrase Details 4
+</string>
+        <string>True</string>
+        <string>1</string>
+        <string>#-</string>
+        <string>5</string>
+        <string>5</string>
+        <string>MRES</string>
+      </Parameters>
+      <Branches />
+      <Cases />
+      <X>288</X>
+      <Y>288</Y>
+      <DependencyOrder>10</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>daee9c00-12ce-4222-a42e-307c37d53b7f</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>14</ActionID>
+      <Action>PLAY</Action>
+      <Caption>PLACEHOLDER_Script2 {Lang} {ProdLevel}</Caption>
+      <Parameters>
+        <string>"{ProdLevel}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "{ProdLevel}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "{ProdLevel}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "{ProdLevel}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>PLACEHOLDER Prompt_Name_1_{Lang}.wav
+PLACEHOLDER Phrase Details 1
+
+PLACEHOLDER Prompt_Name_2_{Lang}.wav
+PLACEHOLDER Phrase Details 2
+
+PLACEHOLDER Prompt_Name_3_{Lang}.wav
+PLACEHOLDER Phrase Details 3
+
+PLACEHOLDER Prompt_Name_4_{Lang}.wav
+PLACEHOLDER Phrase Details 4
+</string>
+        <string>True</string>
+        <string>True</string>
+        <string />
+        <string />
+        <string />
+        <string />
+      </Parameters>
+      <Branches />
+      <Cases />
+      <X>208</X>
+      <Y>288</Y>
+      <DependencyOrder>9</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b1b9a2dd-65b6-4626-9cf5-9cfa69cf59e2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>13</ActionID>
+      <Action>ANNOTATION</Action>
+      <Caption>Annotation</Caption>
+      <Parameters>
+        <string>PLACEHOLDER Caption2</string>
+        <string>148</string>
+        <string>33</string>
+      </Parameters>
+      <Branches />
+      <Cases />
+      <X>16</X>
+      <Y>288</Y>
+      <DependencyOrder>20</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>d28d2b39-d4db-499a-9b8b-f3879e4c5b25</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>12</ActionID>
+      <Action>PLAY</Action>
+      <Caption>PLACEHOLDER_Script PLACEHOLDER Ita PLACEHOLDER DEV</Caption>
+      <Parameters>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Ita.wav
+PLACEHOLDER Phrase Details 1
+
+PLACEHOLDER Prompt_Name_2_PLACEHOLDER Ita.wav
+PLACEHOLDER Phrase Details 2
+
+PLACEHOLDER Prompt_Name_3_PLACEHOLDER Ita.wav
+PLACEHOLDER Phrase Details 3
+
+PLACEHOLDER Prompt_Name_4_PLACEHOLDER Ita.wav
+PLACEHOLDER Phrase Details 4
+</string>
+        <string>True</string>
+        <string>True</string>
+        <string />
+        <string />
+        <string />
+        <string />
+      </Parameters>
+      <Branches />
+      <Cases />
+      <X>1056</X>
+      <Y>160</Y>
+      <DependencyOrder>8</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b1b9a2dd-65b6-4626-9cf5-9cfa69cf59e2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>11</ActionID>
+      <Action>PLAY</Action>
+      <Caption>PLACEHOLDER_Script PLACEHOLDER Pol PLACEHOLDER DEV</Caption>
+      <Parameters>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Pol\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Pol\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Pol\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Pol\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Pol.wav
+PLACEHOLDER Phrase Details 1
+
+PLACEHOLDER Prompt_Name_2_PLACEHOLDER Pol.wav
+PLACEHOLDER Phrase Details 2
+
+PLACEHOLDER Prompt_Name_3_PLACEHOLDER Pol.wav
+PLACEHOLDER Phrase Details 3
+
+PLACEHOLDER Prompt_Name_4_PLACEHOLDER Pol.wav
+PLACEHOLDER Phrase Details 4
+</string>
+        <string>True</string>
+        <string>True</string>
+        <string />
+        <string />
+        <string />
+        <string />
+      </Parameters>
+      <Branches />
+      <Cases />
+      <X>976</X>
+      <Y>160</Y>
+      <DependencyOrder>7</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b1b9a2dd-65b6-4626-9cf5-9cfa69cf59e2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>10</ActionID>
+      <Action>PLAY</Action>
+      <Caption>PLACEHOLDER_Script PLACEHOLDER Rus PLACEHOLDER DEV</Caption>
+      <Parameters>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Rus\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Rus\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Rus\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Rus\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Rus.wav
+PLACEHOLDER Phrase Details 1
+
+PLACEHOLDER Prompt_Name_2_PLACEHOLDER Rus.wav
+PLACEHOLDER Phrase Details 2
+
+PLACEHOLDER Prompt_Name_3_PLACEHOLDER Rus.wav
+PLACEHOLDER Phrase Details 3
+
+PLACEHOLDER Prompt_Name_4_PLACEHOLDER Rus.wav
+PLACEHOLDER Phrase Details 4
+</string>
+        <string>True</string>
+        <string>True</string>
+        <string />
+        <string />
+        <string />
+        <string />
+      </Parameters>
+      <Branches />
+      <Cases />
+      <X>896</X>
+      <Y>160</Y>
+      <DependencyOrder>6</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b1b9a2dd-65b6-4626-9cf5-9cfa69cf59e2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>9</ActionID>
+      <Action>PLAY</Action>
+      <Caption>PLACEHOLDER_Script PLACEHOLDER Por PLACEHOLDER DEV</Caption>
+      <Parameters>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Por\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Por\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Por\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Por\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Por.wav
+PLACEHOLDER Phrase Details 1
+
+PLACEHOLDER Prompt_Name_2_PLACEHOLDER Por.wav
+PLACEHOLDER Phrase Details 2
+
+PLACEHOLDER Prompt_Name_3_PLACEHOLDER Por.wav
+PLACEHOLDER Phrase Details 3
+
+PLACEHOLDER Prompt_Name_4_PLACEHOLDER Por.wav
+PLACEHOLDER Phrase Details 4
+</string>
+        <string>True</string>
+        <string>True</string>
+        <string />
+        <string />
+        <string />
+        <string />
+      </Parameters>
+      <Branches />
+      <Cases />
+      <X>816</X>
+      <Y>160</Y>
+      <DependencyOrder>5</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b1b9a2dd-65b6-4626-9cf5-9cfa69cf59e2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>8</ActionID>
+      <Action>PLAY</Action>
+      <Caption>PLACEHOLDER_Script PLACEHOLDER Ger PLACEHOLDER DEV</Caption>
+      <Parameters>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Ger\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ger\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ger\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ger\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Ger.wav
+PLACEHOLDER Phrase Details 1
+
+PLACEHOLDER Prompt_Name_2_PLACEHOLDER Ger.wav
+PLACEHOLDER Phrase Details 2
+
+PLACEHOLDER Prompt_Name_3_PLACEHOLDER Ger.wav
+PLACEHOLDER Phrase Details 3
+
+PLACEHOLDER Prompt_Name_4_PLACEHOLDER Ger.wav
+PLACEHOLDER Phrase Details 4
+</string>
+        <string>True</string>
+        <string>True</string>
+        <string />
+        <string />
+        <string />
+        <string />
+      </Parameters>
+      <Branches />
+      <Cases />
+      <X>736</X>
+      <Y>160</Y>
+      <DependencyOrder>4</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b1b9a2dd-65b6-4626-9cf5-9cfa69cf59e2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>7</ActionID>
+      <Action>PLAY</Action>
+      <Caption>PLACEHOLDER_Script PLACEHOLDER Dut PLACEHOLDER DEV</Caption>
+      <Parameters>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Dut\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Dut\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Dut\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Dut\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Dut.wav
+PLACEHOLDER Phrase Details 1
+
+PLACEHOLDER Prompt_Name_2_PLACEHOLDER Dut.wav
+PLACEHOLDER Phrase Details 2
+
+PLACEHOLDER Prompt_Name_3_PLACEHOLDER Dut.wav
+PLACEHOLDER Phrase Details 3
+
+PLACEHOLDER Prompt_Name_4_PLACEHOLDER Dut.wav
+PLACEHOLDER Phrase Details 4
+</string>
+        <string>True</string>
+        <string>True</string>
+        <string />
+        <string />
+        <string />
+        <string />
+      </Parameters>
+      <Branches />
+      <Cases />
+      <X>656</X>
+      <Y>160</Y>
+      <DependencyOrder>3</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b1b9a2dd-65b6-4626-9cf5-9cfa69cf59e2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>6</ActionID>
+      <Action>PLAY</Action>
+      <Caption>PLACEHOLDER_Script PLACEHOLDER Fre PLACEHOLDER DEV</Caption>
+      <Parameters>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Fre\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Fre\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Fre\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Fre\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Fre.wav
+PLACEHOLDER Phrase Details 1
+
+PLACEHOLDER Prompt_Name_2_PLACEHOLDER Fre.wav
+PLACEHOLDER Phrase Details 2
+
+PLACEHOLDER Prompt_Name_3_PLACEHOLDER Fre.wav
+PLACEHOLDER Phrase Details 3
+
+PLACEHOLDER Prompt_Name_4_PLACEHOLDER Fre.wav
+PLACEHOLDER Phrase Details 4
+</string>
+        <string>True</string>
+        <string>True</string>
+        <string />
+        <string />
+        <string />
+        <string />
+      </Parameters>
+      <Branches />
+      <Cases />
+      <X>576</X>
+      <Y>160</Y>
+      <DependencyOrder>2</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b1b9a2dd-65b6-4626-9cf5-9cfa69cf59e2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>5</ActionID>
+      <Action>PLAY</Action>
+      <Caption>PLACEHOLDER_Script PLACEHOLDER Spa PLACEHOLDER DEV</Caption>
+      <Parameters>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Spa\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Spa\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Spa\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Spa\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Spa.wav
+PLACEHOLDER Phrase Details 1
+
+PLACEHOLDER Prompt_Name_2_PLACEHOLDER Spa.wav
+PLACEHOLDER Phrase Details 2
+
+PLACEHOLDER Prompt_Name_3_PLACEHOLDER Spa.wav
+PLACEHOLDER Phrase Details 3
+
+PLACEHOLDER Prompt_Name_4_PLACEHOLDER Spa.wav
+PLACEHOLDER Phrase Details 4
+</string>
+        <string>True</string>
+        <string>True</string>
+        <string />
+        <string />
+        <string />
+        <string />
+      </Parameters>
+      <Branches />
+      <Cases />
+      <X>496</X>
+      <Y>160</Y>
+      <DependencyOrder>1</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b1b9a2dd-65b6-4626-9cf5-9cfa69cf59e2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>4</ActionID>
+      <Action>PLAY</Action>
+      <Caption>PLACEHOLDER_Script PLACEHOLDER Eng PLACEHOLDER DEV</Caption>
+      <Parameters>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Eng\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Eng\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Eng\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Eng\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Eng.wav
+PLACEHOLDER Phrase Details 1
+
+PLACEHOLDER Prompt_Name_2_PLACEHOLDER Eng.wav
+PLACEHOLDER Phrase Details 2
+
+PLACEHOLDER Prompt_Name_3_PLACEHOLDER Eng.wav
+PLACEHOLDER Phrase Details 3
+
+PLACEHOLDER Prompt_Name_4_PLACEHOLDER Eng.wav
+PLACEHOLDER Phrase Details 4
+</string>
+        <string>True</string>
+        <string>True</string>
+        <string />
+        <string />
+        <string />
+        <string />
+      </Parameters>
+      <Branches />
+      <Cases />
+      <X>416</X>
+      <Y>160</Y>
+      <DependencyOrder>22</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b1b9a2dd-65b6-4626-9cf5-9cfa69cf59e2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>3</ActionID>
+      <Action>MENU</Action>
+      <Caption>PLACEHOLDER_Script {Lang} {ProdLevel}</Caption>
+      <Parameters>
+        <string>"{ProdLevel}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "{ProdLevel}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "{ProdLevel}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "{ProdLevel}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>PLACEHOLDER Prompt_Name_1_{Lang}.wav
+PLACEHOLDER Phrase Details 1
+
+PLACEHOLDER Prompt_Name_2_{Lang}.wav
+PLACEHOLDER Phrase Details 2
+
+PLACEHOLDER Prompt_Name_3_{Lang}.wav
+PLACEHOLDER Phrase Details 3
+
+PLACEHOLDER Prompt_Name_4_{Lang}.wav
+PLACEHOLDER Phrase Details 4
+</string>
+        <string>True</string>
+        <string>1</string>
+        <string>#-</string>
+        <string>5</string>
+        <string>5</string>
+        <string>MRES</string>
+      </Parameters>
+      <Branches />
+      <Cases />
+      <X>288</X>
+      <Y>160</Y>
+      <DependencyOrder>0</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>daee9c00-12ce-4222-a42e-307c37d53b7f</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>2</ActionID>
+      <Action>PLAY</Action>
+      <Caption>PLACEHOLDER_Script {Lang} {ProdLevel}</Caption>
+      <Parameters>
+        <string>"{ProdLevel}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "{ProdLevel}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "{ProdLevel}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "{ProdLevel}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>PLACEHOLDER Prompt_Name_1_{Lang}.wav
+PLACEHOLDER Phrase Details 1
+
+PLACEHOLDER Prompt_Name_2_{Lang}.wav
+PLACEHOLDER Phrase Details 2
+
+PLACEHOLDER Prompt_Name_3_{Lang}.wav
+PLACEHOLDER Phrase Details 3
+
+PLACEHOLDER Prompt_Name_4_{Lang}.wav
+PLACEHOLDER Phrase Details 4
+</string>
+        <string>True</string>
+        <string>True</string>
+        <string />
+        <string />
+        <string />
+        <string />
+      </Parameters>
+      <Branches />
+      <Cases />
+      <X>208</X>
+      <Y>160</Y>
+      <DependencyOrder>21</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b1b9a2dd-65b6-4626-9cf5-9cfa69cf59e2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>1</ActionID>
+      <Action>ANNOTATION</Action>
+      <Caption>Annotation</Caption>
+      <Parameters>
+        <string>PLACEHOLDER Caption</string>
+        <string>148</string>
+        <string>33</string>
+      </Parameters>
+      <Branches />
+      <Cases />
+      <X>16</X>
+      <Y>160</Y>
+      <DependencyOrder>23</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>d28d2b39-d4db-499a-9b8b-f3879e4c5b25</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+    </ActionStruct>
+  </Actions>
+  <LibraryItem LibraryID="bb6c7752-421e-45c1-ba38-cc5824550c0a" ApiClassificationId="0" BusNo="258" Name="Record_Prompts_Here" Alias="Record_Prompts_Here" MediaType="4" VariableRedaction="">
+    <Icon>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</Icon>
+    <ImplPath>EthanJ\Record_Prompts_Here</ImplPath>
+    <CreateDate>0001-01-01T00:00:00</CreateDate>
+    <ModifyDate>0001-01-01T00:00:00</ModifyDate>
+    <ModifyUserID>6817135</ModifyUserID>
+    <URI>/custom/258/Record_Prompts_Here</URI>
+    <DefaultTimeZone>Mountain Standard Time</DefaultTimeZone>
+    <Parameters />
+    <Branches />
+  </LibraryItem>
+  <MediaType>4</MediaType>
+  <ModifyDate>0001-01-01T00:00:00</ModifyDate>
+</ScriptContainer>
