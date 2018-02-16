@@ -118,13 +118,22 @@
     <Resource Include="Assets\Images\speaker_9Z8_icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Scripts\Models\Template w Data.XML" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Assets\Scripts\Models\Actions.XML" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Scripts\Models\Record_Prompts_Here.XML" />
+    <Resource Include="Assets\Scripts\Models\Template w Data.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Scripts\Models\Menus.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Scripts\Models\Annotations.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Scripts\Models\Plays.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Scripts\Models\RunSubs.XML" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

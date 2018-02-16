@@ -1,0 +1,26 @@
+﻿<ActionStruct>
+  <ActionID>1</ActionID>
+  <Action>RUNSUB</Action>
+  <Caption>Record Prompts Here</Caption>
+  <Parameters>
+    <string>Record_Prompts_Here</string>
+    <string />
+    <string>RTN</string>
+  </Parameters>
+  <Branches />
+  <Cases />
+  <X>208</X>
+  <Y>64</Y>
+  <DependencyOrder>24</DependencyOrder>
+  <Impl_Type>0</Impl_Type>
+  <LibraryID>f8b958d0-8cd3-40df-97d3-5862930b0807</LibraryID>
+  <ExtraInfo>
+    <DefaultBranch>
+      <ActionId>-1</ActionId>
+      <Segments />
+    </DefaultBranch>
+    <Branches />
+    <CaseBranches />
+  </ExtraInfo>
+</ActionStruct>
+    

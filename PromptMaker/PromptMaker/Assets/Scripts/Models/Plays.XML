@@ -1,0 +1,42 @@
+﻿
+<ActionStruct>
+  <ActionID>24</ActionID>
+  <Action>PLAY</Action>
+  <Caption>PLACEHOLDER_Script2 PLACEHOLDER Ita PLACEHOLDER DEV</Caption>
+  <Parameters>
+    <string>"PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+    <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Ita.wav
+PLACEHOLDER Phrase Details 1
+
+PLACEHOLDER Prompt_Name_2_PLACEHOLDER Ita.wav
+PLACEHOLDER Phrase Details 2
+
+PLACEHOLDER Prompt_Name_3_PLACEHOLDER Ita.wav
+PLACEHOLDER Phrase Details 3
+
+PLACEHOLDER Prompt_Name_4_PLACEHOLDER Ita.wav
+PLACEHOLDER Phrase Details 4
+</string>
+    <string>True</string>
+    <string>True</string>
+    <string />
+    <string />
+    <string />
+    <string />
+  </Parameters>
+  <Branches />
+  <Cases />
+  <X>1056</X>
+  <Y>288</Y>
+  <DependencyOrder>19</DependencyOrder>
+  <Impl_Type>0</Impl_Type>
+  <LibraryID>b1b9a2dd-65b6-4626-9cf5-9cfa69cf59e2</LibraryID>
+  <ExtraInfo>
+    <DefaultBranch>
+      <ActionId>-1</ActionId>
+      <Segments />
+    </DefaultBranch>
+    <Branches />
+    <CaseBranches />
+  </ExtraInfo>
+</ActionStruct>

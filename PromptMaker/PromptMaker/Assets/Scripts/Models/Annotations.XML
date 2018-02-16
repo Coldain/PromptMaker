@@ -1,0 +1,25 @@
+﻿<ActionStruct>
+  <ActionID>13</ActionID>
+  <Action>ANNOTATION</Action>
+  <Caption>Annotation</Caption>
+  <Parameters>
+    <string>PLACEHOLDER Caption2</string>
+    <string>148</string>
+    <string>33</string>
+  </Parameters>
+  <Branches />
+  <Cases />
+  <X>16</X>
+  <Y>288</Y>
+  <DependencyOrder>20</DependencyOrder>
+  <Impl_Type>0</Impl_Type>
+  <LibraryID>d28d2b39-d4db-499a-9b8b-f3879e4c5b25</LibraryID>
+  <ExtraInfo>
+    <DefaultBranch>
+      <ActionId>-1</ActionId>
+      <Segments />
+    </DefaultBranch>
+    <Branches />
+    <CaseBranches />
+  </ExtraInfo>
+</ActionStruct>
