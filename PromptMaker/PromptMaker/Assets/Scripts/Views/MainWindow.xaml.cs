@@ -48,7 +48,7 @@ namespace PromptMaker.Assets.Scripts.Views
                 if (tabController.Items.IndexOf(tabitem) != 0 && tabController.Items.IndexOf(tabitem) != tabController.Items.Count)
                     tabController.Items.Remove(tabitem);
 
-                if (tabController.SelectedIndex > 1 && tabController.SelectedIndex != tabController.Items.Count)
+                if (tabController.SelectedIndex > 0 && tabController.SelectedIndex != tabController.Items.Count)
                 {
                     tabController.Items.RemoveAt(tabController.SelectedIndex);
                     //int i = pages.IndexOf((Page)mainFrame.Content);

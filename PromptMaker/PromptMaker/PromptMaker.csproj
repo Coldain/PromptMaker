@@ -65,6 +65,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Assets\Scripts\Models\InUse.cs" />
     <Compile Include="Assets\Scripts\Models\Prompt.cs" />
     <Compile Include="Assets\Scripts\Models\Script.cs" />
     <Compile Include="Assets\Scripts\Models\Setting.cs" />

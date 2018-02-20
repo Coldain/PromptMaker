@@ -68,7 +68,7 @@
             <TextBlock Text="{Binding Path}" TextWrapping="Wrap" Margin="0,0,-0.8,-0.4" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <Grid Grid.Row="1">
                 <Label Content="Subdirectory" VerticalAlignment="Bottom" HorizontalAlignment="Left" Padding="0" FontWeight="Bold"/>
-                <Label Content="In-Use" VerticalAlignment="Bottom" HorizontalAlignment="Right" Padding="0" FontWeight="Bold" Margin="0,0,25,0"/>
+                <Label Content="In-Use" VerticalAlignment="Bottom" HorizontalAlignment="Right" Padding="0" FontWeight="Bold" Margin="0"/>
             </Grid>
             <ListBox Name="listViewSubDirectories" ItemsSource="{Binding Variations}" BorderBrush="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" 
                      Grid.Row="2" Margin="0,4,-1,0" IsSynchronizedWithCurrentItem="True" ItemTemplate="{StaticResource directories}" Background="#FFB2B2B2" Width="225" Height="250" VerticalAlignment="Top"/>
