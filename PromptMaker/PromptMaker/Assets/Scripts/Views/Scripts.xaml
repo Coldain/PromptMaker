@@ -7,17 +7,18 @@
       xmlns:binder="clr-namespace:PromptMaker.Assets.Scripts.Models"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="600"
-      Title="Script"
-      Name="Script"
+      Title="{Binding ScriptName}"
       Background="#FF666666">
     <Page.Resources>
         <!--Need to have button for adanced prompt. That will pop open a user control to insert variables or wrap things in <spell> or add % @ # in the " "
         Also need to add ... for the regular one to display a bigger textbox-->
-        <DataTemplate x:Key="prompts" DataType="{x:Type binder:Setting}">
+        <DataTemplate x:Key="prompts" DataType="{x:Type binder:SubDirectory}">
             <StackPanel Margin="-5,-5,5,0">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="5"/>
                         <ColumnDefinition Width="25"/>
                         <ColumnDefinition Width="5"/>
                         <ColumnDefinition Width="25"/>
@@ -54,7 +55,8 @@
                     <TextBox HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}"/>
                     <Button Content="⇧" Click="ButtonUp_Click" Grid.Column="1" />
                     <Button Content="⇩" Click="ButtonDown_Click" Grid.Column="3"/>
-                    <CheckBox Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Inuse}"/>
+                    <CheckBox Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Button Content="..." Click="ButtonMore_Click" Grid.Column="7" Height="17" Width="20" Padding="0" Margin="0" VerticalContentAlignment="Center"/>
                 </Grid>
             </StackPanel>
         </DataTemplate>
@@ -100,7 +102,7 @@
                 <RowDefinition Height="0.5" />
             </Grid.RowDefinitions>
             <Label Content="Script Name:" Margin="0,0,0,0.2" Padding="0" Grid.Row="1" Foreground="Black" FontWeight="Bold"/>
-            <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="1" Background="#FFB2B2B2" Text="{Binding Name}"/>
+            <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="1" Background="#FFB2B2B2" Text="{Binding ScriptName}"/>
             <Label Content="Base Directory:" Margin="0,0,0,0.2" Padding="0" Grid.Row="3" FontWeight="Bold"/>
             <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="3" Background="#FFB2B2B2" Text="{Binding BaseDirectory}"/>
         </Grid>
@@ -111,7 +113,7 @@
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="105*"/>
             </Grid.RowDefinitions>
-            <TextBlock Text="If you have subdirectories you want to or remove press the plus or minus buttons." TextWrapping="Wrap" Margin="0,0,-0.8,-0.4" Grid.RowSpan="2"/>
+            <TextBlock Text="Try to set the subdirectories before adding scripts if possible." TextWrapping="Wrap" Margin="0,0,-0.8,-0.4" Grid.RowSpan="2"/>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -126,7 +128,7 @@
             </Grid>
             <Grid Grid.Row="2">
                 <Label Content="Subdirectory" VerticalAlignment="Bottom" HorizontalAlignment="Left" Padding="0" FontWeight="Bold"/>
-                <Label Content="In-Use" VerticalAlignment="Bottom" HorizontalAlignment="Right" Padding="0" FontWeight="Bold"/>
+                <Label Content="In-Use" VerticalAlignment="Bottom" HorizontalAlignment="Right" Padding="0" FontWeight="Bold" RenderTransformOrigin="-0.564,0.655" Margin="0,0,25,0"/>
             </Grid>
             <ListBox Name="listViewSubDirectories" ItemsSource="{Binding SubDirectories}" BorderBrush="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" 
                      Grid.Row="3" Margin="0,0,-1,0" IsSynchronizedWithCurrentItem="True" ItemTemplate="{StaticResource prompts}" Background="#FFB2B2B2"/>

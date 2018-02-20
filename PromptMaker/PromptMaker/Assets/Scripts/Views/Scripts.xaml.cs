@@ -1,6 +1,7 @@
 ﻿using PromptMaker.Assets.Scripts.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,29 +25,31 @@ namespace PromptMaker.Assets.Scripts.Views
         Script currentScript;
         public Scripts(Script _script)
         {
-            currentScript = new Script();
+            currentScript = _script;
             this.DataContext = currentScript;
             InitializeComponent();
         }
 
         private void ButtonPlus_Click(object sender, RoutedEventArgs e)
         {
-
-            SubDirectory newSubDirectory = new SubDirectory("Change Text Here", (currentScript.Prompts.Count()) % 2);
-            currentScript.Prompts.Add(newSubDirectory);
+            ObservableCollection<SubDirectory> SampleSub = new ObservableCollection<SubDirectory>();
+            SampleSub.Add(new SubDirectory("Directory 1", 1, null));
+            SampleSub.Add(new SubDirectory("Directory 1", 1, null));
+            SubDirectory newSubDirectory = new SubDirectory("Change Text Here", (currentScript.SubDirectories.Count()) % 2, SampleSub);
+            currentScript.SubDirectories.Add(newSubDirectory);
         }
 
         private void ButtonMinus_Click(object sender, RoutedEventArgs e)
         {
-            if (currentScript.Prompts.Count() > 0)
+            if (currentScript.SubDirectories.Count() > 0)
             {
-                currentScript.Prompts.RemoveAt(currentScript.Prompts.Count() - 1);
+                currentScript.SubDirectories.RemoveAt(currentScript.SubDirectories.Count() - 1);
                 Button cmd = (Button)sender;
                 if (cmd.DataContext is SubDirectory)
                 {
 
                     SubDirectory deleteme = (SubDirectory)cmd.DataContext;
-                    currentScript.Prompts.Remove(deleteme);
+                    currentScript.SubDirectories.Remove(deleteme);
 
                 }
             }
@@ -58,9 +61,9 @@ namespace PromptMaker.Assets.Scripts.Views
             if (cmd.DataContext is SubDirectory)
             {
                 SubDirectory moveUp = (SubDirectory)cmd.DataContext;
-                int i = currentScript.Prompts.IndexOf(moveUp);
+                int i = currentScript.SubDirectories.IndexOf(moveUp);
                 if (i > 0)
-                    currentScript.Prompts.Move(i, i - 1);
+                    currentScript.SubDirectories.Move(i, i - 1);
             }
         }
 
@@ -70,9 +73,22 @@ namespace PromptMaker.Assets.Scripts.Views
             if (cmd.DataContext is SubDirectory)
             {
                 SubDirectory moveDown = (SubDirectory)cmd.DataContext;
-                int i = currentScript.Prompts.IndexOf(moveDown);
-                if (i < currentScript.Prompts.Count())
-                    currentScript.Prompts.Move(i, i + 1);
+                int i = currentScript.SubDirectories.IndexOf(moveDown);
+                if (i < currentScript.SubDirectories.Count())
+                    currentScript.SubDirectories.Move(i, i + 1);
+            }
+        }
+
+        private void ButtonMore_Click(object sender, RoutedEventArgs e)
+        {
+            Button cmd = (Button)sender;
+            if (cmd.DataContext is SubDirectory)
+            {
+                SubDirectory currentSubDirectory = (SubDirectory)cmd.DataContext;
+                SubSubDirectories popUp = new SubSubDirectories(currentSubDirectory);
+                //popUp.Owner = this.Parent;
+                //popUp.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                popUp.ShowDialog();
             }
         }
     }

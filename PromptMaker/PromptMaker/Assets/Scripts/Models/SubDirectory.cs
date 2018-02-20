@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ namespace PromptMaker.Assets.Scripts.Models
     {
         #region Fields
         string _path;
+        ObservableCollection<SubDirectory> _variations;
         bool _inuse;
         int _filled;
         #endregion    
@@ -55,14 +57,28 @@ namespace PromptMaker.Assets.Scripts.Models
                 NotifyPropertyChanged("SubDirectories");
             }
         }
+        public ObservableCollection<SubDirectory> Variations
+        {
+            get
+            {
+                return _variations;
+            }
+            set
+            {
+                _variations = value;
+                NotifyPropertyChanged("Variations");
+                NotifyPropertyChanged("SubDirectories");
+            }
+        }
         #endregion
 
         #region Constructors
-        public SubDirectory(string tempName, int i)
+        public SubDirectory(string tempName, int i, ObservableCollection<SubDirectory> templist)       
         {
             Path = tempName;
             Inuse = false;
             Filled = i;
+            Variations = templist;
         }
         #endregion
 

@@ -81,6 +81,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Assets\Scripts\Views\SubSubDirectories.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Scripts\Views\Tabs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Views\Scripts.xaml.cs">
@@ -88,6 +96,12 @@
     </Compile>
     <Compile Include="Assets\Scripts\Views\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\Scripts\Views\SubSubDirectories.xaml.cs">
+      <DependentUpon>SubSubDirectories.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\Scripts\Views\Tabs.xaml.cs">
+      <DependentUpon>Tabs.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -121,16 +135,22 @@
     <Resource Include="Assets\Scripts\Models\Actions.XML" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Scripts\Models\Template w Data.XML" />
+    <Resource Include="Assets\Scripts\Models\Template w Data.XML">
+      <SubType>Designer</SubType>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Scripts\Models\Menus.XML" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Scripts\Models\Annotations.XML" />
+    <Resource Include="Assets\Scripts\Models\Annotations.XML">
+      <SubType>Designer</SubType>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Scripts\Models\Plays.XML" />
+    <Resource Include="Assets\Scripts\Models\Plays.XML">
+      <SubType>Designer</SubType>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Scripts\Models\RunSubs.XML" />

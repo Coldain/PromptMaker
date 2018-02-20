@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,48 +13,44 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using PromptMaker.Assets.Scripts.Views;
 using PromptMaker.Assets.Scripts.Models;
-using System.Collections.ObjectModel;
 
 namespace PromptMaker.Assets.Scripts.Views
 {
     /// <summary>
-    /// Interaction logic for Setting.xaml
+    /// Interaction logic for SubSubDirectories.xaml
     /// </summary>
-    public partial class Settings : Page
+    public partial class SubSubDirectories : Window
     {
-        Setting currentSetting;
-        public Settings(Setting _setting)
+        SubDirectory currentSubDirectory;
+        public SubSubDirectories(SubDirectory _currentSubDirectory)
         {
-            currentSetting = _setting;
-            this.DataContext = currentSetting;
-            //DataContext = new {
-            //    setting = currentSetting,
-            //};
+            currentSubDirectory = _currentSubDirectory;
+            this.DataContext = currentSubDirectory;
             InitializeComponent();
         }
 
-        private void ButtonPlus_Click(object sender, RoutedEventArgs e)
+
+            private void ButtonPlus_Click(object sender, RoutedEventArgs e)
         {
             ObservableCollection<SubDirectory> SampleSub = new ObservableCollection<SubDirectory>();
             SampleSub.Add(new SubDirectory("Directory 1", 1, null));
             SampleSub.Add(new SubDirectory("Directory 1", 1, null));
-            SubDirectory newSubDirectory = new SubDirectory("Change Text Here", (currentSetting.SubDirectories.Count()) % 2, SampleSub);
-            currentSetting.SubDirectories.Add(newSubDirectory);
+            SubDirectory newSubDirectory = new SubDirectory("Change Text Here", (currentSubDirectory.Variations.Count()) % 2, SampleSub);
+            currentSubDirectory.Variations.Add(newSubDirectory);
         }
 
         private void ButtonMinus_Click(object sender, RoutedEventArgs e)
         {
-            if (currentSetting.SubDirectories.Count() > 0)
+            if (currentSubDirectory.Variations.Count() > 0)
             {
-                currentSetting.SubDirectories.RemoveAt(currentSetting.SubDirectories.Count() - 1);
+                currentSubDirectory.Variations.RemoveAt(currentSubDirectory.Variations.Count() - 1);
                 Button cmd = (Button)sender;
                 if (cmd.DataContext is SubDirectory)
                 {
 
                     SubDirectory deleteme = (SubDirectory)cmd.DataContext;
-                    currentSetting.SubDirectories.Remove(deleteme);
+                    currentSubDirectory.Variations.Remove(deleteme);
 
                 }
             }
@@ -65,9 +62,9 @@ namespace PromptMaker.Assets.Scripts.Views
             if (cmd.DataContext is SubDirectory)
             {
                 SubDirectory moveUp = (SubDirectory)cmd.DataContext;
-                int i = currentSetting.SubDirectories.IndexOf(moveUp);
+                int i = currentSubDirectory.Variations.IndexOf(moveUp);
                 if (i > 0)
-                    currentSetting.SubDirectories.Move(i, i - 1);
+                    currentSubDirectory.Variations.Move(i, i - 1);
             }
         }
 
@@ -77,23 +74,14 @@ namespace PromptMaker.Assets.Scripts.Views
             if (cmd.DataContext is SubDirectory)
             {
                 SubDirectory moveDown = (SubDirectory)cmd.DataContext;
-                int i = currentSetting.SubDirectories.IndexOf(moveDown);
-                if (i < currentSetting.SubDirectories.Count())
-                currentSetting.SubDirectories.Move(i,i+1);
+                int i = currentSubDirectory.Variations.IndexOf(moveDown);
+                if (i < currentSubDirectory.Variations.Count())
+                    currentSubDirectory.Variations.Move(i, i + 1);
             }
         }
-
-        private void ButtonMore_Click(object sender, RoutedEventArgs e)
+        private void buttonClose_Click(object sender, RoutedEventArgs e)
         {
-            Button cmd = (Button)sender;
-            if (cmd.DataContext is SubDirectory)
-            {
-                SubDirectory currentSubDirectory = (SubDirectory)cmd.DataContext;
-                SubSubDirectories popUp = new SubSubDirectories(currentSubDirectory);
-                //popUp.Owner = this.Parent;
-                //popUp.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-                popUp.ShowDialog();
-            }
+            this.Close();
         }
     }
 }

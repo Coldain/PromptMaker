@@ -15,22 +15,10 @@
                 <RowDefinition Height="25"/>
             </Grid.RowDefinitions>
             <!-- Check for how to from here https://stackoverflow.com/questions/3468866/tabcontrol-with-add-new-tab-button  -->
-            <TabControl Background="{x:Null}" Grid.RowSpan="2">
-                <TabItem Background="{x:Null}">
+            <TabControl Name="tabController" Background="#FF444444" Grid.RowSpan="2">
+                <TabItem Background="#FF444444" MaxWidth="25" MaxHeight="25">
                     <TabItem.Header>
-                        <Grid>
-                            <Rectangle Fill="#FF444444" Margin="-7,-2,-7,-4"/>
-                            <StackPanel Orientation="Horizontal" >
-                                <TextBox Text="Setting" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <TextBox Text="X" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Red"/>
-                            </StackPanel>
-                        </Grid>
-                    </TabItem.Header>
-                    <Frame Name="mainFrame" NavigationUIVisibility="Hidden"/>
-                </TabItem>
-                <TabItem>
-                    <TabItem.Header>
-                        <Button Content="+" Margin="-8,-3,-8,-4" Width="25" Height="25" BorderBrush="#FF979797"/>
+                        <Button Name="ADDTAB" Content="+" Margin="-8,-3,-8,-4" Width="25" Height="25" BorderBrush="#FF979797" Click="ButtonAddScript_Click"/>
                     </TabItem.Header>
                 </TabItem>
             </TabControl>

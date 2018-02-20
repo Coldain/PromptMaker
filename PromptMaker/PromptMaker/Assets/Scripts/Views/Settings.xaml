@@ -8,14 +8,15 @@
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="600"
       Title="Setting"
-      Name="Setting"
       Background="#FF666666">
     <Page.Resources>
         <DataTemplate x:Key="directories" DataType="{x:Type binder:Setting}">
             <StackPanel Margin="-5,-5,5,0">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="5"/>
                         <ColumnDefinition Width="25"/>
                         <ColumnDefinition Width="5"/>
                         <ColumnDefinition Width="25"/>
@@ -52,7 +53,7 @@
                     <TextBox HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}"/>
                     <Button Content="⇧" Click="ButtonUp_Click" Grid.Column="1" />
                     <Button Content="⇩" Click="ButtonDown_Click" Grid.Column="3"/>
-                    <CheckBox Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Inuse}"/>
+                    <Button Content="..." Click="ButtonMore_Click" Grid.Column="7" Height="17" Width="20" Padding="0" Margin="0" VerticalContentAlignment="Center"/>
                 </Grid>
             </StackPanel>
         </DataTemplate>

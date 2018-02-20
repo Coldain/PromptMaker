@@ -110,10 +110,21 @@ namespace PromptMaker.Assets.Scripts.Models
         #region Constructors
         public Setting()
         {
+            
             SubDirectories = new ObservableCollection<SubDirectory>();
-            SubDirectories.Add(new SubDirectory("ProdLevel",0));
-            SubDirectories.Add(new SubDirectory("Region",1));
-            SubDirectories.Add(new SubDirectory("Lang",0));
+            ObservableCollection<SubDirectory> ProdLevelSub = new ObservableCollection<SubDirectory>();
+            ProdLevelSub.Add(new SubDirectory("Prod", 0, null));
+            ProdLevelSub.Add(new SubDirectory("Dev", 0, null));
+            ObservableCollection<SubDirectory> RegionSub = new ObservableCollection<SubDirectory>();
+            RegionSub.Add(new SubDirectory("US", 1, null));
+            RegionSub.Add(new SubDirectory("EMEA", 1, null));
+            RegionSub.Add(new SubDirectory("CA", 1, null));
+            ObservableCollection<SubDirectory> LangSub = new ObservableCollection<SubDirectory>();
+            LangSub.Add(new SubDirectory("Prod", 0, null));
+            LangSub.Add(new SubDirectory("Dev", 0, null));
+            SubDirectories.Add(new SubDirectory("ProdLevel",0, ProdLevelSub));
+            SubDirectories.Add(new SubDirectory("Region",1, RegionSub));
+            SubDirectories.Add(new SubDirectory("Lang",0, LangSub));
             ProjectNumber = 0;
             BaseDirectory = "Prompts\\";
         }

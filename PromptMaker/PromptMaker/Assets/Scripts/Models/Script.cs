@@ -11,22 +11,22 @@ namespace PromptMaker.Assets.Scripts.Models
     public class Script : INotifyPropertyChanged
     {
         #region Fields
-        ObservableCollection<SubDirectory> _prompts;
+        ObservableCollection<SubDirectory> _subDirectories;
         int _projectNumber;
         string _scriptName;
         #endregion    
 
         #region Properties
-        public ObservableCollection<SubDirectory> Prompts
+        public ObservableCollection<SubDirectory> SubDirectories
         {
             get
             {
-                return _prompts;
+                return _subDirectories;
             }
             set
             {
-                _prompts = value;
-                NotifyPropertyChanged("Prompts");
+                _subDirectories = value;
+                NotifyPropertyChanged("SubDirectories");
             }
         }
         public int ProjectNumber
@@ -56,14 +56,18 @@ namespace PromptMaker.Assets.Scripts.Models
         #endregion
 
         #region Constructors
-        public Script()
+        public Script(Setting setting)
         {
-            Prompts = new ObservableCollection<SubDirectory>();
-            Prompts.Add(new SubDirectory("ProdLevel", 0));
-            Prompts.Add(new SubDirectory("Region", 1));
-            Prompts.Add(new SubDirectory("Lang", 0));
+            SubDirectories = new ObservableCollection<SubDirectory>();
+            SubDirectories = setting.SubDirectories;
             ProjectNumber = 0;
             ScriptName = "Example: Script will add _s for you";
+
+            // If didn't want the values to persist into new scripts and update
+            //foreach (SubDirectory directory in setting.SubDirectories)
+            //{
+            //    SubDirectories.Add(directory);
+            //}
         }
         #endregion
 
