@@ -46,7 +46,7 @@
                     </TabItem.Header>
                 </TabItem>
             </TabControl>
-            
+
             <Grid  Grid.Row="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -66,6 +66,7 @@
                 <Button Content="Delete" Foreground="OrangeRed" Background="#FF444444" Grid.Column="6" Click="ButtonDeleteScript_Click"/>
                 <Button Content="Previous" Foreground="White" Background="#FF444444" Grid.Column="8" Click="ButtonPreviousPage_Click" />
                 <Button Content="Next" Foreground="White" Background="#FF444444" Grid.Column="10" Click="ButtonNextPage_Click"/>
+                <Button  Content="Save✔" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Cursor="Hand" Click="ButtonSave_Click" Foreground="#FF5CEE69" Background="#FF444444" HorizontalAlignment="Left" Width="68"/>
             </Grid>
         </Grid>
     </Viewbox>

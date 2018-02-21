@@ -106,6 +106,6 @@ namespace PromptMaker.Assets.Scripts.Views
                 tempListBox.Visibility = Visibility.Visible;
             else
                 tempListBox.Visibility = Visibility.Collapsed;
-        }
+        }       
     }
 }

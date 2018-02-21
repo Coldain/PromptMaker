@@ -72,8 +72,6 @@
             <ColumnDefinition Width="25"/>
             <ColumnDefinition Width="150*"/>
             <ColumnDefinition Width="25"/>
-            <ColumnDefinition Width="150*"/>
-            <ColumnDefinition Width="25"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>

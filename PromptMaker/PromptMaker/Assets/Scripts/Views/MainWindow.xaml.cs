@@ -14,6 +14,10 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using PromptMaker.Assets.Scripts.Models;
 using System.Collections.ObjectModel;
+using System.Xml;
+using System.Xml.Serialization;
+using System.IO;
+using System.Collections;
 
 namespace PromptMaker.Assets.Scripts.Views
 {
@@ -146,6 +150,50 @@ namespace PromptMaker.Assets.Scripts.Views
             else
                 tabController.Items.Insert(tabController.Items.Count - 1, tempTabItem);
 
+        }
+
+        private void ButtonSave_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Forms.FolderBrowserDialog folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            folderBrowserDialog.ShowDialog();
+            string savePath = folderBrowserDialog.SelectedPath + "\\" + "Record_Prompts_Here";
+
+            // Actions Details
+            XmlDocument ActionsXML = new XmlDocument();
+            string path = System.IO.Path.Combine(Environment.CurrentDirectory, @"Data\", "Actions.XML");
+            ActionsXML.Load(path);
+            ActionsSetting(ActionsXML);
+            // RunSub Settings
+            XmlDocument RunSubXML = new XmlDocument();
+            path = System.IO.Path.Combine(Environment.CurrentDirectory, @"Data\", "RunSubs.XML");
+            RunSubXML.Load(path);
+            // Loop through Scripts
+            // Play Settings
+            // Menu Settings
+            // Annotations Settings
+
+
+
+            ActionsXML.Save(savePath);
         }        
-    }
+
+        private void ActionsSetting(XmlDocument ActionsXML)
+        {
+            IEnumerator ScriptContainer = ActionsXML.SelectNodes("/ScriptContainer").GetEnumerator();
+            (ScriptContainer.Current as XmlNode).Attributes["BusNo"].Value = theSetting.BusinessNumber;
+            (ScriptContainer.Current as XmlNode).Attributes["UserID"].Value = theSetting.UserID;
+            IEnumerator LibraryItem = ActionsXML.SelectNodes("/ScriptContainer/LibraryItem").GetEnumerator();
+            (ScriptContainer.Current as XmlNode).Attributes["BusNo"].Value = theSetting.BusinessNumber;
+            IEnumerator ModifyUserID = ActionsXML.SelectNodes("/ScriptContainer/LibraryItem/ModifyUserID").GetEnumerator();
+            (ScriptContainer.Current as XmlNode).Value = theSetting.UserID;
+            IEnumerator URI = ActionsXML.SelectNodes("/ScriptContainer/LibraryItem/ModifyUserID").GetEnumerator();
+            (ScriptContainer.Current as XmlNode).Value = "/custom/" + theSetting.BusinessNumber + "/Record_Prompts_Here";
+        }
+
+        private void RunSubSetting(XmlDocument ActionsXML)
+        {
+            IEnumerator ScriptContainer = ActionsXML.SelectNodes("/ScriptContainer").GetEnumerator();
+            (ScriptContainer.Current as XmlNode).Attributes["BusNo"].Value = theSetting.BusinessNumber;
+        }
+        }
 }

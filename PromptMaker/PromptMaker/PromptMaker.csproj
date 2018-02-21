@@ -39,6 +39,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -70,6 +71,12 @@
     <Compile Include="Assets\Scripts\Models\Script.cs" />
     <Compile Include="Assets\Scripts\Models\Setting.cs" />
     <Compile Include="Assets\Scripts\Models\SubDirectory.cs" />
+    <Compile Include="Assets\Scripts\Models\XML Classes\XMLAction.cs" />
+    <Compile Include="Assets\Scripts\Models\XML Classes\XMLActions.cs" />
+    <Compile Include="Assets\Scripts\Models\XML Classes\XMLAnnotation.cs" />
+    <Compile Include="Assets\Scripts\Models\XML Classes\XMLMenu.cs" />
+    <Compile Include="Assets\Scripts\Models\XML Classes\XMLPlay.cs" />
+    <Compile Include="Assets\Scripts\Models\XML Classes\XMLRunSub.cs" />
     <Compile Include="Assets\Scripts\Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -128,6 +135,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -140,28 +148,28 @@
     <Resource Include="Assets\Images\speaker_9Z8_icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Scripts\Models\Actions.XML" />
+    <Resource Include="Assets\Scripts\Models\XML Template\Actions.XML" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Scripts\Models\Template w Data.XML">
+    <Resource Include="Assets\Scripts\Models\XML Template\Template w Data.XML">
       <SubType>Designer</SubType>
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Scripts\Models\Menus.XML" />
+    <Resource Include="Assets\Scripts\Models\XML Template\Menus.XML" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Scripts\Models\Annotations.XML">
+    <Resource Include="Assets\Scripts\Models\XML Template\Annotations.XML">
       <SubType>Designer</SubType>
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Scripts\Models\Plays.XML">
+    <Resource Include="Assets\Scripts\Models\XML Template\Plays.XML">
       <SubType>Designer</SubType>
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Scripts\Models\RunSubs.XML" />
+    <Resource Include="Assets\Scripts\Models\XML Template\RunSubs.XML" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
