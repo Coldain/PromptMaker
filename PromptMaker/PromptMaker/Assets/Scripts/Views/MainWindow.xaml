@@ -42,7 +42,7 @@
                 </TabControl.Resources>
                 <TabItem Background="#FF444444" MaxWidth="25" MaxHeight="25">
                     <TabItem.Header>
-                        <Button Name="ADDTAB" Content="+" Margin="-7,-6,-21,-11" Width="25" Height="25" BorderBrush="#FF979797" Click="ButtonAddScript_Click"/>
+                        <Button Name="ADDTAB" Content="+" Margin="-8,-12,-8,-12" Width="25" Height="25" BorderBrush="#FF979797" Click="ButtonAddScript_Click"/>
                     </TabItem.Header>
                 </TabItem>
             </TabControl>
