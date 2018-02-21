@@ -45,7 +45,7 @@
                         </Rectangle.Style>
                     </Rectangle>
                     <Button Content="◢" Background="{x:Null}" Width="15" Click="ButtonToggleExpand_Click"/>
-                    <TextBox HorizontalAlignment="Left" Grid.Column="1" VerticalAlignment="Center" Text="{Binding Path}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}" FontWeight="Bold"/>
+                    <TextBox HorizontalAlignment="Left" Grid.Column="1" VerticalAlignment="Center" Text="{Binding Path}" MinWidth="123" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}" FontWeight="Bold"/>
                     <Button Content="⇧" Click="ButtonUp_Click" Grid.Column="2" Height="20" Width="20" />
                     <Button Content="⇩" Click="ButtonDown_Click" Grid.Column="4" Height="20" Width="20"/>
                     <Button Content="..." Click="ButtonMore_Click" Grid.Column="6" Height="17" Width="20" Padding="0" Margin="0" VerticalContentAlignment="Center"/>
@@ -56,17 +56,7 @@
                         <DataTemplate DataType="{x:Type binder:SubDirectory}">
                             <StackPanel>
                                 <Grid Margin="0,3,0,0">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="120"/>
-                                        <ColumnDefinition Width="20"/>
-                                        <ColumnDefinition Width="2"/>
-                                        <ColumnDefinition Width="20"/>
-                                        <ColumnDefinition Width="5"/>
-                                        <ColumnDefinition Width="15"/>
-                                        <ColumnDefinition Width="10"/>
-                                        <ColumnDefinition Width="20"/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBox HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}"/>
+                                    <TextBox HorizontalAlignment="Left" MinWidth="115" VerticalAlignment="Center" Text="{Binding Path}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}"/>
                                 </Grid>
                             </StackPanel>
                         </DataTemplate>
