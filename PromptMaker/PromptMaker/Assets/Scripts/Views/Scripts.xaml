@@ -17,14 +17,14 @@
                 <Grid Margin="0,3,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="15"/>
-                        <ColumnDefinition Width="105"/>
-                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="85"/>
+                        <ColumnDefinition Width="2"/>
                         <ColumnDefinition Width="105"/>
                         <ColumnDefinition Width="2"/>
                         <ColumnDefinition Width="20"/>
-                        <ColumnDefinition Width="5"/>
-                        <ColumnDefinition Width="15"/>
-                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="2"/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="3"/>
                         <ColumnDefinition Width="20"/>
                     </Grid.ColumnDefinitions>
                     <Rectangle Margin="-10,0,0,0" Grid.ColumnSpan="20">
@@ -49,12 +49,12 @@
                             </Style>
                         </Rectangle.Style>
                     </Rectangle>
-                    <TextBox HorizontalAlignment="Left" Grid.Column="1" VerticalAlignment="Center" Text="{Binding PromptName}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}" FontWeight="Bold"/>
-                    <TextBox HorizontalAlignment="Left" Grid.Column="1" VerticalAlignment="Center" Text="{Binding PromptVerbiage}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}" FontWeight="Bold"/>
-                    <Button Tag="Prompt" Content="⇧" Click="ButtonUp_Click" Grid.Column="2" Height="20" Width="20" />
-                    <Button Tag="Prompt" Content="⇩" Click="ButtonDown_Click" Grid.Column="4" Height="20" Width="20" />
-                    <CheckBox Tag="Prompt" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Button Tag="Prompt" Content="..." Click="ButtonMore_Click" Grid.Column="8" Height="17" Width="20" Padding="0" Margin="0" VerticalContentAlignment="Center"/>
+                    <Button Tag="Prompt" Content="◢" Grid.Column="0" Background="{x:Null}" Width="15" Click="ButtonToggleExpand_Click"/>
+                    <TextBox HorizontalAlignment="Left" Grid.Column="1" VerticalAlignment="Center" MinWidth="80" Text="{Binding PromptName}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}" FontWeight="Bold"/>
+                    <TextBox HorizontalAlignment="Left" Grid.Column="3" VerticalAlignment="Center" TextWrapping="Wrap" MinWidth="100" Text="{Binding PromptVerbiage}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}" FontWeight="Bold"/>
+                    <Button Tag="Prompt" Content="⇧" Click="ButtonUp_Click" Grid.Column="5" Height="20" Width="20" />
+                    <Button Tag="Prompt" Content="⇩" Click="ButtonDown_Click" Grid.Column="7" Height="20" Width="20" />
+                    <Button Tag="Prompt" Content="..." Click="ButtonMore_Click" Grid.Column="9" Height="17" Width="20" Padding="0" Margin="0" VerticalContentAlignment="Center"/>
                 </Grid>
             </StackPanel>
         </DataTemplate>
@@ -95,7 +95,7 @@
                         </Rectangle.Style>
                     </Rectangle>
                     <Button Tag="Directory" Content="◢" Background="{x:Null}" Width="15" Click="ButtonToggleExpand_Click"/>
-                    <TextBox HorizontalAlignment="Left" Grid.Column="1" VerticalAlignment="Center" Text="{Binding Path}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}" FontWeight="Bold"/>
+                    <TextBox HorizontalAlignment="Left" MinWidth="100" Grid.Column="1" VerticalAlignment="Center" Text="{Binding Path}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}" FontWeight="Bold"/>
                     <Button Tag="Directory" Content="⇧" Click="ButtonUp_Click" Grid.Column="2" Height="20" Width="20" />
                     <Button Tag="Directory" Content="⇩" Click="ButtonDown_Click" Grid.Column="4" Height="20" Width="20" />
                     <CheckBox Tag="Directory" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -108,17 +108,11 @@
                             <StackPanel>
                                 <Grid Margin="0,3,0,0">
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="120"/>
-                                        <ColumnDefinition Width="20"/>
-                                        <ColumnDefinition Width="2"/>
-                                        <ColumnDefinition Width="20"/>
-                                        <ColumnDefinition Width="5"/>
-                                        <ColumnDefinition Width="15"/>
-                                        <ColumnDefinition Width="10"/>
+                                        <ColumnDefinition Width="175"/>  
                                         <ColumnDefinition Width="20"/>
                                     </Grid.ColumnDefinitions>                                    
-                                    <TextBox HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}"/>
-                                    <CheckBox  Tag="SubDirectory" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>                                    
+                                    <TextBox HorizontalAlignment="Left" MinWidth="115" VerticalAlignment="Center" Text="{Binding Path}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}"/>
+                                    <CheckBox  Tag="SubDirectory" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>                                    
                                 </Grid>
                             </StackPanel>
                         </DataTemplate>
@@ -219,7 +213,7 @@
                 <Label Content="Prompt Name" VerticalAlignment="Bottom" HorizontalAlignment="Left" Padding="0" FontWeight="Bold"/>
                 <Label Content="Prompt Verbiage" VerticalAlignment="Bottom" HorizontalAlignment="Right" Padding="0" FontWeight="Bold" RenderTransformOrigin="-0.564,0.655" Margin="0,0,25,0"/>
             </Grid>
-            <ListBox Name="listViewPrompts" ItemsSource="{Binding SubDirectories}" BorderBrush="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" 
+            <ListBox Name="listViewPrompts" ItemsSource="{Binding Prompts}" BorderBrush="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" 
                      Grid.Row="3" Margin="0,0,-1,0" IsSynchronizedWithCurrentItem="True" ItemTemplate="{StaticResource prompts}" Background="#FFB2B2B2"/>
         </Grid>
     </Grid>

@@ -32,48 +32,94 @@ namespace PromptMaker.Assets.Scripts.Views
 
         private void ButtonPlus_Click(object sender, RoutedEventArgs e)
         {
-            ObservableCollection<SubDirectory> SampleSub = new ObservableCollection<SubDirectory>();
-            SampleSub.Add(new SubDirectory("Directory 1", 1, null));
-            SampleSub.Add(new SubDirectory("Directory 1", 1, null));
-            SubDirectory newSubDirectory = new SubDirectory("Change Text Here", (currentScript.SubDirectories.Count()) % 2, SampleSub);
-            currentScript.SubDirectories.Add(newSubDirectory);
+            Button cmd = sender as Button;
+            if (cmd.Tag.ToString() == "Directory")
+            {
+                ObservableCollection<SubDirectory> SampleSub = new ObservableCollection<SubDirectory>();
+                SampleSub.Add(new SubDirectory("Directory 1", 1, null));
+                SampleSub.Add(new SubDirectory("Directory 1", 1, null));
+                SubDirectory newSubDirectory = new SubDirectory("Change Text Here", (currentScript.SubDirectories.Count()) % 2, SampleSub);
+                currentScript.SubDirectories.Add(newSubDirectory);
+            }
+            else if (cmd.Tag.ToString() == "Prompt")
+            {
+                currentScript.Prompts.Add(new Prompt());
+            }
         }
 
         private void ButtonMinus_Click(object sender, RoutedEventArgs e)
         {
-            if (currentScript.SubDirectories.Count() > 0)
+            Button cmd = sender as Button;
+            if (cmd.Tag.ToString() == "Directory")
             {
-                currentScript.SubDirectories.RemoveAt(currentScript.SubDirectories.Count() - 1);
-                Button cmd = (Button)sender;
-                if (cmd.DataContext is SubDirectory)
+                if (currentScript.SubDirectories.Count() > 0)
                 {
-                    SubDirectory deleteme = (SubDirectory)cmd.DataContext;
-                    currentScript.SubDirectories.Remove(deleteme);
+                    currentScript.SubDirectories.RemoveAt(currentScript.SubDirectories.Count() - 1);
+                    if (cmd.DataContext is SubDirectory)
+                    {
+                        SubDirectory deleteme = (SubDirectory)cmd.DataContext;
+                        currentScript.SubDirectories.Remove(deleteme);
+                    }
+                }
+            }
+            else if (cmd.Tag.ToString() == "Prompt")
+            {
+                if (currentScript.Prompts.Count() > 0)
+                {
+                    currentScript.Prompts.RemoveAt(currentScript.Prompts.Count() - 1);
+                    if (cmd.DataContext is SubDirectory)
+                    {
+                        Prompt deleteme = (Prompt)cmd.DataContext;
+                        currentScript.Prompts.Remove(deleteme);
+                    }
                 }
             }
         }
 
         private void ButtonUp_Click(object sender, RoutedEventArgs e)
         {
-            Button cmd = (Button)sender;
-            if (cmd.DataContext is SubDirectory)
+            Button cmd = sender as Button;
+            if (cmd.Tag.ToString() == "Directory")
             {
-                SubDirectory moveUp = (SubDirectory)cmd.DataContext;
-                int i = currentScript.SubDirectories.IndexOf(moveUp);
+                if (cmd.DataContext is SubDirectory)
+                {
+                    SubDirectory moveUp = (SubDirectory)cmd.DataContext;
+                    int i = currentScript.SubDirectories.IndexOf(moveUp);
+                    if (i > 0)
+                        currentScript.SubDirectories.Move(i, i - 1);
+                }
+            }
+            else if (cmd.Tag.ToString() == "Prompt")
+            {
+                Prompt moveUp = (Prompt)cmd.DataContext;
+                int i = currentScript.Prompts.IndexOf(moveUp);
                 if (i > 0)
-                    currentScript.SubDirectories.Move(i, i - 1);
+                    currentScript.Prompts.Move(i, i - 1);
             }
         }
 
         private void ButtonDown_Click(object sender, RoutedEventArgs e)
         {
-            Button cmd = (Button)sender;
-            if (cmd.DataContext is SubDirectory)
+            Button cmd = sender as Button;
+            if (cmd.Tag.ToString() == "Directory")
             {
-                SubDirectory moveDown = (SubDirectory)cmd.DataContext;
-                int i = currentScript.SubDirectories.IndexOf(moveDown);
-                if (i < currentScript.SubDirectories.Count())
-                    currentScript.SubDirectories.Move(i, i + 1);
+                if (cmd.DataContext is SubDirectory)
+                {
+                    SubDirectory moveDown = (SubDirectory)cmd.DataContext;
+                    int i = currentScript.SubDirectories.IndexOf(moveDown);
+                    if (i < currentScript.SubDirectories.Count())
+                        currentScript.SubDirectories.Move(i, i + 1);
+                }
+            }
+            else if (cmd.Tag.ToString() == "Prompt")
+            {
+                if (cmd.DataContext is Prompt)
+                {
+                    Prompt moveDown = (Prompt)cmd.DataContext;
+                    int i = currentScript.Prompts.IndexOf(moveDown);
+                    if (i < currentScript.Prompts.Count())
+                        currentScript.Prompts.Move(i, i + 1);
+                }
             }
         }
 
@@ -81,6 +127,7 @@ namespace PromptMaker.Assets.Scripts.Views
         {
             Button cmd = (Button)sender;
             if (cmd.Tag.ToString() == "Directory")
+            {
                 if (cmd.DataContext is SubDirectory)
                 {
                     SubDirectory currentSubDirectory = (SubDirectory)cmd.DataContext;
@@ -89,27 +136,41 @@ namespace PromptMaker.Assets.Scripts.Views
                     //popUp.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                     popUp.ShowDialog();
                 }
+            }
             else if (cmd.Tag.ToString() == "Prompt")
-                    if (cmd.DataContext is Prompt)
-                    {
-                        Prompt currentPrompt= (Prompt)cmd.DataContext;
-                        PromptSettings popUp = new PromptSettings(currentPrompt);
-                        //popUp.Owner = this.Parent;
-                        //popUp.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-                        popUp.ShowDialog();
-                    }
+            {
+                if (cmd.DataContext is Prompt)
+                {
+                    Prompt currentPrompt = (Prompt)cmd.DataContext;
+                    PromptSettings popUp = new PromptSettings(currentPrompt);
+                    //popUp.Owner = this.Parent;
+                    //popUp.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                    popUp.ShowDialog();
+                }
+            }
         }
 
         private void ButtonToggleExpand_Click(object sender, RoutedEventArgs e)
         {
-            Button tempButton = sender as Button;
-            Grid tempGrid = tempButton.Parent as Grid;
+            Button cmd = (Button)sender;
+            Grid tempGrid = cmd.Parent as Grid;
             StackPanel tempStackPanel = tempGrid.Parent as StackPanel;
-            ListBox tempListBox = tempStackPanel.Children[1] as ListBox;
-            if (tempListBox.Visibility == Visibility.Collapsed)
-                tempListBox.Visibility = Visibility.Visible;
-            else
-                tempListBox.Visibility = Visibility.Collapsed;
+            if (cmd.Tag.ToString() == "Directory")
+            {
+                ListBox tempListBox = tempStackPanel.Children[1] as ListBox;
+                if (tempListBox.Visibility == Visibility.Collapsed)
+                    tempListBox.Visibility = Visibility.Visible;
+                else
+                    tempListBox.Visibility = Visibility.Collapsed;
+            }
+            else if (cmd.Tag.ToString() == "Prompt")
+            {
+                TextBox tempTextBox = tempGrid.Children[3] as TextBox;
+                if (tempTextBox.TextWrapping == TextWrapping.NoWrap)
+                    tempTextBox.TextWrapping = TextWrapping.Wrap;
+                else
+                    tempTextBox.TextWrapping = TextWrapping.NoWrap;
+            }
         }
     }
 }

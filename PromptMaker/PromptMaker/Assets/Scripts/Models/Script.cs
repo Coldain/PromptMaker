@@ -12,6 +12,7 @@ namespace PromptMaker.Assets.Scripts.Models
     {
         #region Fields
         ObservableCollection<SubDirectory> _subDirectories;
+        ObservableCollection<Prompt> _prompts;
         ObservableCollection<InUse> _usages;
         int _projectNumber;
         string _scriptName;
@@ -40,6 +41,18 @@ namespace PromptMaker.Assets.Scripts.Models
             {
                 _usages = value;
                 NotifyPropertyChanged("Usages");
+            }
+        }
+        public ObservableCollection<Prompt> Prompts
+        {
+            get
+            {
+                return _prompts;
+            }
+            set
+            {
+                _prompts = value;
+                NotifyPropertyChanged("Prompts");
             }
         }
         public int ProjectNumber
@@ -73,6 +86,9 @@ namespace PromptMaker.Assets.Scripts.Models
         {
             SubDirectories = new ObservableCollection<SubDirectory>();
             SubDirectories = setting.SubDirectories;
+            Prompts = new ObservableCollection<Prompt>();
+            Prompt tempPrompt = new Prompt();
+            Prompts.Add(tempPrompt);
             ProjectNumber = 0;
             ScriptName = "Example: Script will add _s for you";
             if (Usages == null)
