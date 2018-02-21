@@ -27,7 +27,12 @@ namespace PromptMaker.Assets.Scripts.Views
             InitializeComponent();
             tabController = _tabController;
             if (i == 0)
+            {
+                textName.TextDecorations = TextDecorations.Underline;
+                textName.FontSize = 14;
+                textName.FontWeight = FontWeights.Bold;
                 ButtonX.Visibility = Visibility.Collapsed;
+            }
             //ButtonX.Visibility = Visibility.Hidden;
         }
         // Remove the tab of where the X was pushed

@@ -42,21 +42,22 @@ namespace PromptMaker.Assets.Scripts.Views
         // Delete current Tab (only scripts, not Settings or Add Button
         private void ButtonDeleteScript_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Delete Script?", "Please Select:", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
-            {
-                TabItem tabitem = this.Parent as TabItem;
-                int i = tabController.Items.IndexOf(tabitem);
-                int x = tabController.Items.Count;
-                if (i != 0 && i != x)
-                    tabController.Items.Remove(tabitem);
-
-                if (tabController.SelectedIndex > 0 && tabController.SelectedIndex != x)
+            int i = tabController.SelectedIndex;
+            int x = tabController.Items.Count - 1;
+            if (i != 0 && i != x)
+            { 
+                if (MessageBox.Show("Delete Script?", "Please Select:", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                 {
-                    tabController.Items.RemoveAt(tabController.SelectedIndex);
+                    if (i > 0 && i != x)
+                    {
+                        tabController.Items.RemoveAt(i);
+                    }
+                    if (i == x)
+                        ButtonPreviousPage_Click(sender, e);
                 }
-                if (i == x - 1)
-                    ButtonPreviousPage_Click(sender, e);
             }
+            else
+            MessageBox.Show("Can't delete the add tab or the settings tab.");
         }
         // Switch current Tab to the next tab in the list, cycle if last.
         private void ButtonNextPage_Click(object sender, RoutedEventArgs e)
