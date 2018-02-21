@@ -12,7 +12,53 @@
     <Page.Resources>
         <!--Need to have button for adanced prompt. That will pop open a user control to insert variables or wrap things in <spell> or add % @ # in the " "
         Also need to add ... for the regular one to display a bigger textbox-->
-        <DataTemplate x:Key="prompts" DataType="{x:Type binder:SubDirectory}">
+        <DataTemplate x:Key="prompts" DataType="{x:Type binder:Prompt}">
+            <StackPanel Margin="-5,-5,5,0">
+                <Grid Margin="0,3,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="105"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="105"/>
+                        <ColumnDefinition Width="2"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="20"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Margin="-10,0,0,0" Grid.ColumnSpan="20">
+                        <Rectangle.Style>
+                            <Style TargetType="Rectangle">
+                                <Setter Property="Fill">
+                                    <Setter.Value>
+                                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                            <LinearGradientBrush.RelativeTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <RotateTransform Angle="270" CenterY="0.5" CenterX="0.5"/>
+                                                    <TranslateTransform/>
+                                                </TransformGroup>
+                                            </LinearGradientBrush.RelativeTransform>
+                                            <GradientStop Color="#FFB2B2B2" Offset="1"/>
+                                            <GradientStop Color="#FF999999" Offset="0.55"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Rectangle.Style>
+                    </Rectangle>
+                    <TextBox HorizontalAlignment="Left" Grid.Column="1" VerticalAlignment="Center" Text="{Binding PromptName}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}" FontWeight="Bold"/>
+                    <TextBox HorizontalAlignment="Left" Grid.Column="1" VerticalAlignment="Center" Text="{Binding PromptVerbiage}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}" FontWeight="Bold"/>
+                    <Button Tag="Prompt" Content="⇧" Click="ButtonUp_Click" Grid.Column="2" Height="20" Width="20" />
+                    <Button Tag="Prompt" Content="⇩" Click="ButtonDown_Click" Grid.Column="4" Height="20" Width="20" />
+                    <CheckBox Tag="Prompt" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Button Tag="Prompt" Content="..." Click="ButtonMore_Click" Grid.Column="8" Height="17" Width="20" Padding="0" Margin="0" VerticalContentAlignment="Center"/>
+                </Grid>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="subdirectories" DataType="{x:Type binder:SubDirectory}">
             <StackPanel Margin="-5,-5,5,0">
                 <Grid Margin="0,3,0,0">
                     <Grid.ColumnDefinitions>
@@ -48,12 +94,12 @@
                             </Style>
                         </Rectangle.Style>
                     </Rectangle>
-                    <Button Content="◢" Background="{x:Null}" Width="15" Click="ButtonToggleExpand_Click"/>
+                    <Button Tag="Directory" Content="◢" Background="{x:Null}" Width="15" Click="ButtonToggleExpand_Click"/>
                     <TextBox HorizontalAlignment="Left" Grid.Column="1" VerticalAlignment="Center" Text="{Binding Path}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}" FontWeight="Bold"/>
-                    <Button Content="⇧" Click="ButtonUp_Click" Grid.Column="2" Height="20" Width="20" />
-                    <Button Content="⇩" Click="ButtonDown_Click" Grid.Column="4" Height="20" Width="20" />
-                    <CheckBox Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Button Content="..." Click="ButtonMore_Click" Grid.Column="8" Height="17" Width="20" Padding="0" Margin="0" VerticalContentAlignment="Center"/>
+                    <Button Tag="Directory" Content="⇧" Click="ButtonUp_Click" Grid.Column="2" Height="20" Width="20" />
+                    <Button Tag="Directory" Content="⇩" Click="ButtonDown_Click" Grid.Column="4" Height="20" Width="20" />
+                    <CheckBox Tag="Directory" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Button Tag="Directory" Content="..." Click="ButtonMore_Click" Grid.Column="8" Height="17" Width="20" Padding="0" Margin="0" VerticalContentAlignment="Center"/>
                 </Grid>
                 <ListBox Name="listViewSubDirectories" ItemsSource="{Binding Variations}" BorderBrush="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" 
                      Grid.Row="3" Margin="0,0,-1,0" IsSynchronizedWithCurrentItem="True" Background="#FFB2B2B2">
@@ -72,7 +118,7 @@
                                         <ColumnDefinition Width="20"/>
                                     </Grid.ColumnDefinitions>                                    
                                     <TextBox HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}"/>
-                                    <CheckBox Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>                                    
+                                    <CheckBox  Tag="SubDirectory" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>                                    
                                 </Grid>
                             </StackPanel>
                         </DataTemplate>
@@ -88,16 +134,12 @@
             <ColumnDefinition Width="25"/>
             <ColumnDefinition Width="150*"/>
             <ColumnDefinition Width="25"/>
-            <ColumnDefinition Width="150*"/>
-            <ColumnDefinition Width="25"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
             <RowDefinition Height="75"/>
             <RowDefinition Height="25"/>
             <RowDefinition Height="116*"/>
-            <RowDefinition Height="25"/>
-            <RowDefinition Height="115"/>
             <RowDefinition Height="25"/>
         </Grid.RowDefinitions>
         <Grid  Grid.Row="1" Grid.Column="1">
@@ -126,7 +168,7 @@
             <Label Content="Base Directory:" Margin="0,0,0,0.2" Padding="0" Grid.Row="3" FontWeight="Bold"/>
             <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="3" Background="#FFB2B2B2" Text="{Binding BaseDirectory}"/>
         </Grid>
-        <Grid Margin="0" Grid.Row="3" Grid.Column="1" Grid.RowSpan="3" >
+        <Grid Margin="0" Grid.Row="3" Grid.Column="1" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="25"/>
@@ -143,14 +185,41 @@
                     <ColumnDefinition Width="25"/>
                     <ColumnDefinition Width="5"/>
                 </Grid.ColumnDefinitions>
-                <Button  Content="+" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Cursor="Hand" Grid.Column="2" Click="ButtonPlus_Click"/>
-                <Button  Content="-" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Cursor="Hand" Grid.Column="4" Click="ButtonMinus_Click"/>
+                <Button Tag="Directory" Content="+" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Cursor="Hand" Grid.Column="2" Click="ButtonPlus_Click"/>
+                <Button Tag="Directory" Content="-" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Cursor="Hand" Grid.Column="4" Click="ButtonMinus_Click"/>
             </Grid>
             <Grid Grid.Row="2">
                 <Label Content="Subdirectory" VerticalAlignment="Bottom" HorizontalAlignment="Left" Padding="0" FontWeight="Bold"/>
                 <Label Content="In-Use" VerticalAlignment="Bottom" HorizontalAlignment="Right" Padding="0" FontWeight="Bold" RenderTransformOrigin="-0.564,0.655" Margin="0,0,25,0"/>
             </Grid>
             <ListBox Name="listViewSubDirectories" ItemsSource="{Binding SubDirectories}" BorderBrush="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" 
+                     Grid.Row="3" Margin="0,0,-1,0" IsSynchronizedWithCurrentItem="True" ItemTemplate="{StaticResource subdirectories}" Background="#FFB2B2B2"/>
+        </Grid>
+        <Grid Margin="0" Grid.Row="1" Grid.Column="3" Grid.RowSpan="3" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="105*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="By default promtps are treated as .wav recordings. If you want to do anything else click the ... button." TextWrapping="Wrap" Margin="0,0,-0.8,-0.4" Grid.RowSpan="2"/>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="5"/>
+                </Grid.ColumnDefinitions>
+                <Button Tag="Prompt" Content="+" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Cursor="Hand" Grid.Column="2" Click="ButtonPlus_Click"/>
+                <Button Tag="Prompt" Content="-" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Cursor="Hand" Grid.Column="4" Click="ButtonMinus_Click"/>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Label Content="Prompt Name" VerticalAlignment="Bottom" HorizontalAlignment="Left" Padding="0" FontWeight="Bold"/>
+                <Label Content="Prompt Verbiage" VerticalAlignment="Bottom" HorizontalAlignment="Right" Padding="0" FontWeight="Bold" RenderTransformOrigin="-0.564,0.655" Margin="0,0,25,0"/>
+            </Grid>
+            <ListBox Name="listViewPrompts" ItemsSource="{Binding SubDirectories}" BorderBrush="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" 
                      Grid.Row="3" Margin="0,0,-1,0" IsSynchronizedWithCurrentItem="True" ItemTemplate="{StaticResource prompts}" Background="#FFB2B2B2"/>
         </Grid>
     </Grid>

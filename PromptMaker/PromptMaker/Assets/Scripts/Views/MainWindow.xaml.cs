@@ -42,25 +42,20 @@ namespace PromptMaker.Assets.Scripts.Views
         // Delete current Tab (only scripts, not Settings or Add Button
         private void ButtonDeleteScript_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Close Application?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            if (MessageBox.Show("Delete Script?", "Please Select:", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
                 TabItem tabitem = this.Parent as TabItem;
-                if (tabController.Items.IndexOf(tabitem) != 0 && tabController.Items.IndexOf(tabitem) != tabController.Items.Count)
+                int i = tabController.Items.IndexOf(tabitem);
+                int x = tabController.Items.Count;
+                if (i != 0 && i != x)
                     tabController.Items.Remove(tabitem);
 
-                if (tabController.SelectedIndex > 0 && tabController.SelectedIndex != tabController.Items.Count)
+                if (tabController.SelectedIndex > 0 && tabController.SelectedIndex != x)
                 {
                     tabController.Items.RemoveAt(tabController.SelectedIndex);
-                    //int i = pages.IndexOf((Page)mainFrame.Content);
-                    //ButtonPreviousPage_Click(sender, e);
-                    //pages.RemoveAt(i);
-                    //Button cmd = (Button)sender;
-                    //if (cmd.DataContext is Scripts)
-                    //{
-                    //    Scripts deleteme = (Scripts)cmd.DataContext;
-                    //    pages.Remove(deleteme);
-                    //}
                 }
+                if (i == x - 1)
+                    ButtonPreviousPage_Click(sender, e);
             }
         }
         // Switch current Tab to the next tab in the list, cycle if last.

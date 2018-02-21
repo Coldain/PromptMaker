@@ -33,11 +33,17 @@ namespace PromptMaker.Assets.Scripts.Views
         // Remove the tab of where the X was pushed
         private void ButtonDeleteTab_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Close Application?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            if (MessageBox.Show("Delete Script?", "Please Select:", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
                 TabItem tabitem = this.Parent as TabItem;
-                if (tabController.Items.IndexOf(tabitem) != 0 && tabController.Items.IndexOf(tabitem) != tabController.Items.Count)
+                int i = tabController.Items.IndexOf(tabitem);
+                int x = tabController.Items.Count;
+                if (i != 0 && i != x)
+                {
                     tabController.Items.Remove(tabitem);
+                    if (i == x - 1)
+                        tabController.SelectedIndex = i - 2;
+                }                    
             }            
         }
     }

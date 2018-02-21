@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace PromptMaker.Assets.Scripts.Models
 {
-    class Prompt : INotifyPropertyChanged
+    public class Prompt : INotifyPropertyChanged
     {
         #region Fields
         string _promptName;
+        string _promptVerbiage;
         string _sequence;
         string _phrase;
         #endregion    
@@ -27,6 +28,18 @@ namespace PromptMaker.Assets.Scripts.Models
             {
                 _promptName = value;
                 NotifyPropertyChanged("PromptName");
+            }
+        }
+        public string PromptVerbiage
+        {
+            get
+            {
+                return _promptVerbiage;
+            }
+            set
+            {
+                _promptVerbiage = value;
+                NotifyPropertyChanged("PromptVerbiage");
             }
         }
         public string Sequence
@@ -58,6 +71,8 @@ namespace PromptMaker.Assets.Scripts.Models
         #region Constructors
         public Prompt()
         {
+            PromptName = "Prompt Name";
+            PromptVerbiage = "Type verbiage here.";
 
         }
         #endregion

@@ -80,14 +80,24 @@ namespace PromptMaker.Assets.Scripts.Views
         private void ButtonMore_Click(object sender, RoutedEventArgs e)
         {
             Button cmd = (Button)sender;
-            if (cmd.DataContext is SubDirectory)
-            {
-                SubDirectory currentSubDirectory = (SubDirectory)cmd.DataContext;
-                SubSubDirectories popUp = new SubSubDirectories(currentSubDirectory);
-                //popUp.Owner = this.Parent;
-                //popUp.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-                popUp.ShowDialog();
-            }
+            if (cmd.Tag.ToString() == "Directory")
+                if (cmd.DataContext is SubDirectory)
+                {
+                    SubDirectory currentSubDirectory = (SubDirectory)cmd.DataContext;
+                    SubSubDirectories popUp = new SubSubDirectories(currentSubDirectory);
+                    //popUp.Owner = this.Parent;
+                    //popUp.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                    popUp.ShowDialog();
+                }
+            else if (cmd.Tag.ToString() == "Prompt")
+                    if (cmd.DataContext is Prompt)
+                    {
+                        Prompt currentPrompt= (Prompt)cmd.DataContext;
+                        PromptSettings popUp = new PromptSettings(currentPrompt);
+                        //popUp.Owner = this.Parent;
+                        //popUp.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                        popUp.ShowDialog();
+                    }
         }
 
         private void ButtonToggleExpand_Click(object sender, RoutedEventArgs e)
