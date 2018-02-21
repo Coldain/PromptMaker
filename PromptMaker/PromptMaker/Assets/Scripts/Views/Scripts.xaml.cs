@@ -47,10 +47,8 @@ namespace PromptMaker.Assets.Scripts.Views
                 Button cmd = (Button)sender;
                 if (cmd.DataContext is SubDirectory)
                 {
-
                     SubDirectory deleteme = (SubDirectory)cmd.DataContext;
                     currentScript.SubDirectories.Remove(deleteme);
-
                 }
             }
         }
@@ -90,6 +88,18 @@ namespace PromptMaker.Assets.Scripts.Views
                 //popUp.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                 popUp.ShowDialog();
             }
+        }
+
+        private void ButtonToggleExpand_Click(object sender, RoutedEventArgs e)
+        {
+            Button tempButton = sender as Button;
+            Grid tempGrid = tempButton.Parent as Grid;
+            StackPanel tempStackPanel = tempGrid.Parent as StackPanel;
+            ListBox tempListBox = tempStackPanel.Children[1] as ListBox;
+            if (tempListBox.Visibility == Visibility.Collapsed)
+                tempListBox.Visibility = Visibility.Visible;
+            else
+                tempListBox.Visibility = Visibility.Collapsed;
         }
     }
 }

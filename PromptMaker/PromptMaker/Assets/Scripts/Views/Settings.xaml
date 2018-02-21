@@ -12,18 +12,17 @@
     <Page.Resources>
         <DataTemplate x:Key="directories" DataType="{x:Type binder:Setting}">
             <StackPanel Margin="-5,-5,5,0">
-                <Grid>
+                <Grid Margin="0,3,0,0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100"/>
-                        <ColumnDefinition Width="25"/>
-                        <ColumnDefinition Width="5"/>
-                        <ColumnDefinition Width="25"/>
-                        <ColumnDefinition Width="5"/>
-                        <ColumnDefinition Width="25"/>
-                        <ColumnDefinition Width="5"/>
-                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="128"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="2"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="7"/>
+                        <ColumnDefinition Width="20"/>
                     </Grid.ColumnDefinitions>
-                    <Rectangle Margin="-10,0,0,0" Grid.ColumnSpan="6">
+                    <Rectangle Grid.ColumnSpan="20">
                         <Rectangle.Style>
                             <Style TargetType="Rectangle">
                                 <Setter Property="Fill">
@@ -42,19 +41,37 @@
                                         </LinearGradientBrush>
                                     </Setter.Value>
                                 </Setter>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding Filled}" Value="1">
-                                        <Setter Property="Fill" Value="Transparent"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
                             </Style>
                         </Rectangle.Style>
                     </Rectangle>
-                    <TextBox HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}"/>
-                    <Button Content="⇧" Click="ButtonUp_Click" Grid.Column="1" />
-                    <Button Content="⇩" Click="ButtonDown_Click" Grid.Column="3"/>
-                    <Button Content="..." Click="ButtonMore_Click" Grid.Column="7" Height="17" Width="20" Padding="0" Margin="0" VerticalContentAlignment="Center"/>
+                    <Button Content="◢" Background="{x:Null}" Width="15" Click="ButtonToggleExpand_Click"/>
+                    <TextBox HorizontalAlignment="Left" Grid.Column="1" VerticalAlignment="Center" Text="{Binding Path}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}" FontWeight="Bold"/>
+                    <Button Content="⇧" Click="ButtonUp_Click" Grid.Column="2" Height="20" Width="20" />
+                    <Button Content="⇩" Click="ButtonDown_Click" Grid.Column="4" Height="20" Width="20"/>
+                    <Button Content="..." Click="ButtonMore_Click" Grid.Column="6" Height="17" Width="20" Padding="0" Margin="0" VerticalContentAlignment="Center"/>
                 </Grid>
+                <ListBox Name="listViewSubDirectories" ItemsSource="{Binding Variations}" BorderBrush="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" 
+                     Grid.Row="3" Margin="0,0,-1,0" IsSynchronizedWithCurrentItem="True" Background="#FFB2B2B2">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate DataType="{x:Type binder:SubDirectory}">
+                            <StackPanel>
+                                <Grid Margin="0,3,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="120"/>
+                                        <ColumnDefinition Width="20"/>
+                                        <ColumnDefinition Width="2"/>
+                                        <ColumnDefinition Width="20"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="15"/>
+                                        <ColumnDefinition Width="10"/>
+                                        <ColumnDefinition Width="20"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBox HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}"/>
+                                </Grid>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </StackPanel>
         </DataTemplate>
     </Page.Resources>
@@ -112,7 +129,7 @@
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="105*"/>
             </Grid.RowDefinitions>
-            <TextBlock Text="If you have subdirectories you want to or remove press the plus or minus buttons." TextWrapping="Wrap" Margin="0,0,-0.8,-0.4" Grid.RowSpan="2"/>
+            <TextBlock Text="If move subdirectories up or down it will clear the inuse checks at the moment." TextWrapping="Wrap" Margin="0,0,-0.8,-0.4" Grid.RowSpan="2"/>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>

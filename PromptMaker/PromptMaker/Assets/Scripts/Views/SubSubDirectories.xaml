@@ -14,44 +14,14 @@
         <StackPanel Margin="-5,-5,5,0">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="130"/>
-                        <ColumnDefinition Width="25"/>
-                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="155"/>
                         <ColumnDefinition Width="25"/>
                         <ColumnDefinition Width="5"/>
                         <ColumnDefinition Width="25"/>
                     </Grid.ColumnDefinitions>
-                    <Rectangle Margin="-10,0,0,0" Grid.ColumnSpan="6">
-                        <Rectangle.Style>
-                            <Style TargetType="Rectangle">
-                                <Setter Property="Fill">
-                                    <Setter.Value>
-                                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                            <LinearGradientBrush.RelativeTransform>
-                                                <TransformGroup>
-                                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                                    <RotateTransform Angle="270" CenterY="0.5" CenterX="0.5"/>
-                                                    <TranslateTransform/>
-                                                </TransformGroup>
-                                            </LinearGradientBrush.RelativeTransform>
-                                            <GradientStop Color="#FFB2B2B2" Offset="1"/>
-                                            <GradientStop Color="#FF999999" Offset="0.55"/>
-                                        </LinearGradientBrush>
-                                    </Setter.Value>
-                                </Setter>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding Filled}" Value="1">
-                                        <Setter Property="Fill" Value="Transparent"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Rectangle.Style>
-                    </Rectangle>
                     <TextBox HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}"/>
                     <Button Content="⇧" Click="ButtonUp_Click" Grid.Column="1" />
                     <Button Content="⇩" Click="ButtonDown_Click" Grid.Column="3"/>
-                    <CheckBox Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Grid>
             </StackPanel>
     </DataTemplate>
@@ -65,12 +35,11 @@
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="10"/>
             </Grid.RowDefinitions>
-            <TextBlock Text="{Binding Path}" TextWrapping="Wrap" Margin="0,0,-0.8,-0.4" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Text="{Binding Path}" FontWeight="Bold" FontSize="20" TextWrapping="Wrap" Margin="0,0,-0.8,-0.4" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top"/>
             <Grid Grid.Row="1">
-                <Label Content="Subdirectory" VerticalAlignment="Bottom" HorizontalAlignment="Left" Padding="0" FontWeight="Bold"/>
-                <Label Content="In-Use" VerticalAlignment="Bottom" HorizontalAlignment="Right" Padding="0" FontWeight="Bold" Margin="0"/>
+                <Label Content="Subdirectory Values" VerticalAlignment="Bottom" HorizontalAlignment="Left" Padding="0" FontWeight="Bold"/>
             </Grid>
-            <ListBox Name="listViewSubDirectories" ItemsSource="{Binding Variations}" BorderBrush="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" 
+            <ListBox Name="listViewSubDirectories" ItemsSource="{Binding Variations}" BorderBrush="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" 
                      Grid.Row="2" Margin="0,4,-1,0" IsSynchronizedWithCurrentItem="True" ItemTemplate="{StaticResource directories}" Background="#FFB2B2B2" Width="225" Height="250" VerticalAlignment="Top"/>
             <Grid Grid.Row="3">
                 <Grid.ColumnDefinitions>

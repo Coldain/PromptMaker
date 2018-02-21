@@ -95,5 +95,17 @@ namespace PromptMaker.Assets.Scripts.Views
                 popUp.ShowDialog();
             }
         }
+
+        private void ButtonToggleExpand_Click(object sender, RoutedEventArgs e)
+        {
+            Button tempButton = sender as Button;
+            Grid tempGrid = tempButton.Parent as Grid;
+            StackPanel tempStackPanel = tempGrid.Parent as StackPanel;
+            ListBox tempListBox = tempStackPanel.Children[1] as ListBox;
+            if (tempListBox.Visibility == Visibility.Collapsed)
+                tempListBox.Visibility = Visibility.Visible;
+            else
+                tempListBox.Visibility = Visibility.Collapsed;
+        }
     }
 }
