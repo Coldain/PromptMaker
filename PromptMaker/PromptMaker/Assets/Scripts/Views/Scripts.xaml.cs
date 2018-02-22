@@ -22,8 +22,8 @@ namespace PromptMaker.Assets.Scripts.Views
     /// </summary>
     public partial class Scripts : Page
     {
-        List<string> usedDirectories = new List<string>();
-        List<Tuple<string, List<string>>> usedPrompts = new List<Tuple<string, List<string>>>();
+        public List<string> usedDirectories = new List<string>();
+        public List<Tuple<string, List<string>>> usedVariations = new List<Tuple<string, List<string>>>();
         Script currentScript;
         public Scripts(Script _script)
         {
@@ -46,10 +46,6 @@ namespace PromptMaker.Assets.Scripts.Views
             else if (cmd.Tag.ToString() == "Prompt")
             {
                 currentScript.Prompts.Add(new Prompt());
-            }
-            foreach (ListBoxItem item in listViewSubDirectories.Items)
-            {
-                (((item.Content as StackPanel).Children[5] as ListBox).Items[1] as CheckBox).Tag = (item.DataContext as SubDirectory).Path;
             }
         }
 
@@ -200,30 +196,41 @@ namespace PromptMaker.Assets.Scripts.Views
                 SubDirectory tempPrompt = tempCheckBox.DataContext as SubDirectory;
                 if ((bool)tempCheckBox.IsChecked)
                 {
-                    if (usedPrompts.Count != 0)
-                    foreach (Tuple<string, List<string>> tempTuple in usedPrompts)
-                        if (tempTuple.Item1 != tempPrompt.Owner)
+                    bool x = false;
+                    if (usedVariations.Count != 0)
+                    {
+                        Tuple<string, List<string>> tupleduple = new Tuple<string, List<string>>(null,null);
+                        foreach (Tuple<string, List<string>> tempTuple in usedVariations.ToList())
+
+                            if (tempTuple.Item1 == tempPrompt.Owner)
+                            {
+                                x = true;
+                                tupleduple = tempTuple;
+                            }
+                        if (x)
+                        {
+                            tupleduple.Item2.Add(tempPrompt.Path);
+                        }
+                        else
                         {
                             List<string> tempList = new List<string>();
                             tempList.Add(tempPrompt.Path);
                             Tuple<string, List<string>> newTuple = new Tuple<string, List<string>>(tempPrompt.Owner, tempList);
-                            usedPrompts.Add(newTuple);
+                            usedVariations.Add(newTuple);
                         }
-                        else
-                        {
-                            tempTuple.Item2.Add(tempPrompt.Path);
-                        }
+
+                    }
                     else
                     {
                         List<string> tempList = new List<string>();
                         tempList.Add(tempPrompt.Path);
                         Tuple<string, List<string>> newTuple = new Tuple<string, List<string>>(tempPrompt.Owner, tempList);
-                        usedPrompts.Add(newTuple);
+                        usedVariations.Add(newTuple);
                     }
                 }
                 else
                 {
-                    foreach (Tuple<string, List<string>> tempTuple in usedPrompts)
+                    foreach (Tuple<string, List<string>> tempTuple in usedVariations)
                         if (tempTuple.Item1 == tempPrompt.Owner)
                         {
                             tempTuple.Item2.Remove(tempPrompt.Path);

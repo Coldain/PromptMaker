@@ -120,8 +120,8 @@ namespace PromptMaker.Assets.Scripts.Models
             RegionSub.Add(new SubDirectory("EMEA", 1, null, "Region"));
             RegionSub.Add(new SubDirectory("CA", 1, null, "Region"));
             ObservableCollection<SubDirectory> LangSub = new ObservableCollection<SubDirectory>();
-            LangSub.Add(new SubDirectory("Prod", 0, null, "Lang"));
-            LangSub.Add(new SubDirectory("Dev", 0, null, "Lang"));
+            LangSub.Add(new SubDirectory("Eng", 0, null, "Lang"));
+            LangSub.Add(new SubDirectory("Spa", 0, null, "Lang"));
             SubDirectories.Add(new SubDirectory("ProdLevel",0, ProdLevelSub, null));
             SubDirectories.Add(new SubDirectory("Region",1, RegionSub, null));
             SubDirectories.Add(new SubDirectory("Lang",0, LangSub, null));
