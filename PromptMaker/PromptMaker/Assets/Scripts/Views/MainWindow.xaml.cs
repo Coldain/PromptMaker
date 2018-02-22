@@ -49,7 +49,7 @@ namespace PromptMaker.Assets.Scripts.Views
             int i = tabController.SelectedIndex;
             int x = tabController.Items.Count - 1;
             if (i != 0 && i != x)
-            { 
+            {
                 if (MessageBox.Show("Delete Script?", "Please Select:", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                 {
                     if (i > 0 && i != x)
@@ -61,7 +61,7 @@ namespace PromptMaker.Assets.Scripts.Views
                 }
             }
             else
-            MessageBox.Show("Can't delete the add tab or the settings tab.");
+                MessageBox.Show("Can't delete the add tab or the settings tab.");
         }
         // Switch current Tab to the next tab in the list, cycle if last.
         private void ButtonNextPage_Click(object sender, RoutedEventArgs e)
@@ -76,7 +76,7 @@ namespace PromptMaker.Assets.Scripts.Views
                 TabItem tabItem = tabController.Items[0] as TabItem;
                 tabItem.IsSelected = true;
             }
-            
+
             //int i = pages.IndexOf((Page)mainFrame.Content);
             //if (i < pages.Count() - 1)
             //    mainFrame.Content = pages[i + 1];
@@ -98,7 +98,7 @@ namespace PromptMaker.Assets.Scripts.Views
             //    if (i > 0)
             //        mainFrame.Content = pages[i - 1];            
         }
-       
+
         //private void ButtonSelectPage_Click(object sender, RoutedEventArgs e)
         //{
         //    Button cmd = (Button)sender;
@@ -156,44 +156,51 @@ namespace PromptMaker.Assets.Scripts.Views
         {
             System.Windows.Forms.FolderBrowserDialog folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             folderBrowserDialog.ShowDialog();
-            string savePath = folderBrowserDialog.SelectedPath + "\\" + "Record_Prompts_Here";
-
-            // Actions Details
+            string savePath = folderBrowserDialog.SelectedPath + "\\" + "Record_Prompts_Here.XML";
+            // Load in all the XMLs
             XmlDocument ActionsXML = new XmlDocument();
-            string path = System.IO.Path.Combine(Environment.CurrentDirectory, @"Data\", "Actions.XML");
+            string pathBase = @"C:\Users\Coldain\Source\Repos\PromptMaker\PromptMaker\PromptMaker\Assets\Scripts\Models\XML Template\";
+            string path = System.IO.Path.Combine(pathBase, "Actions.XML");
+            //string path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Assets\Scripts\Models\XML Template\", "Actions.XML");
             ActionsXML.Load(path);
-            ActionsSetting(ActionsXML);
-            // RunSub Settings
             XmlDocument RunSubXML = new XmlDocument();
-            path = System.IO.Path.Combine(Environment.CurrentDirectory, @"Data\", "RunSubs.XML");
+            path = System.IO.Path.Combine(pathBase, "RunSubs.XML");
             RunSubXML.Load(path);
-            // Loop through Scripts
-            // Play Settings
-            // Menu Settings
-            // Annotations Settings
+            XmlDocument PlayXML = new XmlDocument();
+            path = System.IO.Path.Combine(pathBase, "Plays.XML");
+            RunSubXML.Load(path);
+
+            // Actions Details Setup
+            ActionsSetting(ActionsXML);
+            // Add all the Actions
+
+            //ActionsXML.SelectSingleNode("/ScriptContainer").AppendChild(RunSubXML as XmlNode);
+            // Loop through Scripts 
+            //PlaySetting(PlayXML);
+
+
 
 
 
             ActionsXML.Save(savePath);
-        }        
-
-        private void ActionsSetting(XmlDocument ActionsXML)
-        {
-            IEnumerator ScriptContainer = ActionsXML.SelectNodes("/ScriptContainer").GetEnumerator();
-            (ScriptContainer.Current as XmlNode).Attributes["BusNo"].Value = theSetting.BusinessNumber;
-            (ScriptContainer.Current as XmlNode).Attributes["UserID"].Value = theSetting.UserID;
-            IEnumerator LibraryItem = ActionsXML.SelectNodes("/ScriptContainer/LibraryItem").GetEnumerator();
-            (ScriptContainer.Current as XmlNode).Attributes["BusNo"].Value = theSetting.BusinessNumber;
-            IEnumerator ModifyUserID = ActionsXML.SelectNodes("/ScriptContainer/LibraryItem/ModifyUserID").GetEnumerator();
-            (ScriptContainer.Current as XmlNode).Value = theSetting.UserID;
-            IEnumerator URI = ActionsXML.SelectNodes("/ScriptContainer/LibraryItem/ModifyUserID").GetEnumerator();
-            (ScriptContainer.Current as XmlNode).Value = "/custom/" + theSetting.BusinessNumber + "/Record_Prompts_Here";
         }
 
-        private void RunSubSetting(XmlDocument ActionsXML)
+        private void ActionsSetting(XmlDocument XML)
         {
-            IEnumerator ScriptContainer = ActionsXML.SelectNodes("/ScriptContainer").GetEnumerator();
-            (ScriptContainer.Current as XmlNode).Attributes["BusNo"].Value = theSetting.BusinessNumber;
+            XML.SelectSingleNode("/ScriptContainer").Attributes["BusNo"].Value = theSetting.BusinessNumber;
+            XML.SelectSingleNode("/ScriptContainer").Attributes["UserID"].Value = theSetting.UserID;
+            XML.SelectSingleNode("/ScriptContainer/LibraryItem").Attributes["BusNo"].Value = theSetting.BusinessNumber;
+            XML.SelectSingleNode("/ScriptContainer/LibraryItem/ModifyUserID").InnerText = theSetting.UserID;
+            XML.SelectSingleNode("/ScriptContainer/LibraryItem/ModifyUserID").InnerText = "/custom/" + theSetting.BusinessNumber + "/Record_Prompts_Here";
         }
+
+        private void RunSubSetting(XmlDocument XML)
+        {
+
         }
+        private void PlaySetting(XmlDocument XML)
+        {
+            XML.SelectSingleNode("/ActionStruct").Attributes["BusNo"].Value = theSetting.BusinessNumber;
+        }
+    }
 }
