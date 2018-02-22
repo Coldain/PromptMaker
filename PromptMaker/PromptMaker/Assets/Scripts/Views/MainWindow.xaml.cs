@@ -168,20 +168,23 @@ namespace PromptMaker.Assets.Scripts.Views
             RunSubXML.Load(path);
             XmlDocument PlayXML = new XmlDocument();
             path = System.IO.Path.Combine(pathBase, "Plays.XML");
-            RunSubXML.Load(path);
+            PlayXML.Load(path);
+            XmlDocument MenuXML = new XmlDocument();
+            path = System.IO.Path.Combine(pathBase, "Menus.XML");
+            MenuXML.Load(path);
+            XmlDocument AnnotationXML = new XmlDocument();
+            path = System.IO.Path.Combine(pathBase, "Annotations.XML");
+            AnnotationXML.Load(path);
 
             // Actions Details Setup
             ActionsSetting(ActionsXML);
             // Add all the Actions
-            XmlNode currentNode = ActionsXML.SelectSingleNode("/ScriptContainer/Actions") as XmlNode;
-            currentNode.AppendChild(currentNode.OwnerDocument.ImportNode(RunSubXML.DocumentElement, true));
+            AddAction(ActionsXML, RunSubXML);
+            PlaySetting(PlayXML, "test ID", "Test Caption", "Test Sequence", "Test Phrase", "Test X Cord", "Test Y Cord");
+            AddAction(ActionsXML, PlayXML);
+
             // Loop through Scripts 
             //PlaySetting(PlayXML);
-
-
-
-
-
             ActionsXML.Save(savePath);
         }
 
@@ -198,9 +201,40 @@ namespace PromptMaker.Assets.Scripts.Views
         {
 
         }
-        private void PlaySetting(XmlDocument XML)
+        private void PlaySetting(XmlDocument XML, string ID, string Caption, string Sequence, string Phrase, string xCoord, string yCoord)
         {
-            XML.SelectSingleNode("/ActionStruct").Attributes["BusNo"].Value = theSetting.BusinessNumber;
+            XML.SelectSingleNode("/ActionStruct/ActionID").InnerText = ID;
+            XML.SelectSingleNode("/ActionStruct/Caption").InnerText = Caption;
+            XML.SelectSingleNode("/ActionStruct/Parameters").FirstChild.InnerText = Sequence;
+            XML.SelectSingleNode("/ActionStruct/Parameters").FirstChild.NextSibling.InnerText = Phrase;
+            XML.SelectSingleNode("/ActionStruct/X").InnerText = xCoord;
+            XML.SelectSingleNode("/ActionStruct/Y").InnerText = yCoord;
+        }
+
+        private void MenuSetting(XmlDocument XML, string ID, string Caption, string Sequence, string Phrase, string xCoord, string yCoord)
+        {
+            XML.SelectSingleNode("/ActionStruct/ActionID").InnerText = ID;
+            XML.SelectSingleNode("/ActionStruct/Caption").InnerText = Caption;
+            XML.SelectSingleNode("/ActionStruct/Parameters").FirstChild.InnerText = Sequence;
+            XML.SelectSingleNode("/ActionStruct/Parameters").FirstChild.NextSibling.InnerText = Phrase;
+            XML.SelectSingleNode("/ActionStruct/X").InnerText = xCoord;
+            XML.SelectSingleNode("/ActionStruct/Y").InnerText = yCoord;
+        }
+
+        private void AnotationSetting(XmlDocument XML, string ID, string ScriptName, string xDeminsion, string yDeminsion, string xCoord, string yCoord)
+        {
+            XML.SelectSingleNode("/ActionStruct/ActionID").InnerText = ID;
+            XML.SelectSingleNode("/ActionStruct/Parameters").FirstChild.InnerText = ScriptName;
+            XML.SelectSingleNode("/ActionStruct/Parameters").FirstChild.NextSibling.InnerText = xDeminsion;
+            XML.SelectSingleNode("/ActionStruct/Parameters").FirstChild.NextSibling.NextSibling.InnerText = yDeminsion;
+            XML.SelectSingleNode("/ActionStruct/X").InnerText = xCoord;
+            XML.SelectSingleNode("/ActionStruct/Y").InnerText = yCoord;
+        }
+
+        private void AddAction(XmlDocument Main, XmlDocument Action)
+        {
+            XmlNode currentNode = Main.SelectSingleNode("/ScriptContainer/Actions") as XmlNode;
+            currentNode.AppendChild(currentNode.OwnerDocument.ImportNode(Action.DocumentElement, true));
         }
     }
 }
