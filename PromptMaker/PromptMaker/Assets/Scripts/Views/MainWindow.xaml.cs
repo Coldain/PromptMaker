@@ -173,8 +173,8 @@ namespace PromptMaker.Assets.Scripts.Views
             // Actions Details Setup
             ActionsSetting(ActionsXML);
             // Add all the Actions
-
-            //ActionsXML.SelectSingleNode("/ScriptContainer").AppendChild(RunSubXML as XmlNode);
+            XmlNode currentNode = ActionsXML.SelectSingleNode("/ScriptContainer/Actions") as XmlNode;
+            currentNode.AppendChild(currentNode.OwnerDocument.ImportNode(RunSubXML.DocumentElement, true));
             // Loop through Scripts 
             //PlaySetting(PlayXML);
 
