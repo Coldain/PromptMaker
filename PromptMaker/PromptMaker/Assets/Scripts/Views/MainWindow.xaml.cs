@@ -186,6 +186,7 @@ namespace PromptMaker.Assets.Scripts.Views
                 MenuSetting(MenuXML, "test ID", "Test Caption", "Test Sequence", "Test Phrase", "Test X Cord", "Test Y Cord");
                 AnotationSetting(AnnotationXML, "1", "Test About Run Sub", "148", "33", "Test X Cord", "Test Y Cord"); // default 148 and 33 dem
                 AddAction(ActionsXML, AnnotationXML);
+                int iy = 1;
                 int i = 3;
                 int xstart = 416;
                 int ystart = 160;
@@ -194,7 +195,7 @@ namespace PromptMaker.Assets.Scripts.Views
                 List<string> usedAnnotations = new List<string>();
                 foreach (TabItem tempItem in tabController.Items)
                 {
-                    if (tabController.Items.IndexOf(tempItem) > 0 && tabController.Items.IndexOf(tempItem) != tabController.Items.Count)
+                    if (tabController.Items.IndexOf(tempItem) > 0 && tabController.Items.IndexOf(tempItem) != tabController.Items.Count && tempItem.Content != null)
                     {
                         Frame frame = tempItem.Content as Frame;
                         Scripts page = frame.Content as Scripts;
@@ -210,54 +211,31 @@ namespace PromptMaker.Assets.Scripts.Views
                             PromptPrefixCoding = PromptPrefixCoding + "{" + tempDirectoryName + "}\\";
                             PromptSufixCoding = PromptSufixCoding + "_{" + tempDirectoryName + "}";
                         }
-                        PlaySetting(PlayXML, i.ToString(), tempScript.ScriptName + " Coding", "Char(34)" + PromptPrefixCoding + String.Join(PromptSufixCoding + "Char(34) " + PromptPrefixCoding, tempScript.Sequence) + PromptSufixCoding + "Char(34)", tempScript.Phrase, "208", ystart.ToString());
+                        PlaySetting(PlayXML, i.ToString(), tempScript.ScriptName + " Coding", "Char(34)" + PromptPrefixCoding + String.Join(PromptSufixCoding + "Char(34) " + "Char(34)" + PromptPrefixCoding, tempScript.Sequence) + PromptSufixCoding + "Char(34)", tempScript.Phrase, "208", ystart.ToString());
                         AddAction(ActionsXML, PlayXML);
                         i++;
-                        MenuSetting(MenuXML, i.ToString(), tempScript.ScriptName + " Coding", "Char(34)" + PromptPrefixCoding + String.Join(PromptSufixCoding + "Char(34) " + PromptPrefixCoding, tempScript.Sequence) + PromptSufixCoding + "Char(34)", tempScript.Phrase, (208 + spacing).ToString(), ystart.ToString());
+                        MenuSetting(MenuXML, i.ToString(), tempScript.ScriptName + " Coding", "Char(34)" + PromptPrefixCoding + String.Join(PromptSufixCoding + "Char(34) " + "Char(34)" + PromptPrefixCoding, tempScript.Sequence) + PromptSufixCoding + "Char(34)", tempScript.Phrase, (208 + spacing).ToString(), ystart.ToString());
                         AddAction(ActionsXML, PlayXML);
                         i++;
                         List<List<string>> posibilitiesInput = new List<List<string>>();
                         foreach (Tuple<string, List<string>> temptumple in page.usedVariations)
                             posibilitiesInput.Add(temptumple.Item2);
-                        var possibilitesOutput = GetAllPossibleCombos(posibilitiesInput);
-
-
-                        PromptPrefixCoding = "";
-                        PromptSufixCoding = "";
-                        foreach (Tuple<string, List<string>> temptumple in page.usedVariations)
+                        var possibilitesOutput = GetAllPossibleCombos(posibilitiesInput); 
+                        foreach(string s in possibilitesOutput)
                         {
-                            foreach(string tempVariationName in temptumple.Item2)
+                            PromptPrefixCoding = "";
+                            PromptSufixCoding = "";
+                            string ss = s.Substring(1);
+                            List<string> l = ss.Split(',').ToList();
+                            foreach(string sss in l)
                             {
-                                PromptPrefixCoding = PromptPrefixCoding + "{" + tempVariationName + "}\\";
-                                PromptSufixCoding = PromptSufixCoding + "_{" + tempVariationName + "}";
-                                PlaySetting(PlayXML, i.ToString(), tempScript.ScriptName + " Coding", "Char(34)" + PromptPrefixCoding + String.Join(PromptSufixCoding + "Char(34) " + PromptPrefixCoding, tempScript.Sequence) + PromptSufixCoding + "Char(34)", tempScript.Phrase, "208", ystart.ToString());
-                                AddAction(ActionsXML, PlayXML);
-                                i++;
+                                PromptPrefixCoding = PromptPrefixCoding + sss + "//";
+                                PromptSufixCoding = PromptSufixCoding + "_" + sss;
                             }
-                        }
-
-                        //foreach (ListBoxItem item1 in page.listViewSubDirectories.Items)
-                        //{
-                        //    StackPanel tempStackPanel = item1.Content as StackPanel;
-                        //    Grid tempGrid = tempStackPanel.Children[0] as Grid;
-                        //    ListBox tempListBox = tempStackPanel.Children[1] as ListBox;
-                        //    CheckBox tempCheckBox = tempGrid.Children[5] as CheckBox;
-                        //    if ((bool)tempCheckBox.IsChecked)
-                        //    {
-                        //        PromptPrefixCoding = PromptPrefixCoding + "{" + (tempGrid.DataContext as SubDirectory).Path + "}\\";
-                        //        PromptSufixCoding = PromptSufixCoding + "_{" + (tempGrid.DataContext as SubDirectory).Path + "}";
-                        //        PlaySetting(PlayXML, i.ToString(), tempScript.ScriptName + " Coding", "Char(34)" + PromptPrefixCoding + String.Join(PromptSufixCoding + "Char(34) " + PromptPrefixCoding, tempScript.Sequence) + PromptSufixCoding + "Char(34)", tempScript.Phrase, "208", ystart.ToString());
-                        //        AddAction(ActionsXML, PlayXML);
-                        //        i++;
-                        //        MenuSetting(MenuXML, i.ToString(), tempScript.ScriptName + " Coding", "Char(34)" + PromptPrefixCoding + String.Join(PromptSufixCoding + "Char(34) " + PromptPrefixCoding, tempScript.Sequence) + PromptSufixCoding + "Char(34)", tempScript.Phrase, (208 + spacing).ToString(), ystart.ToString());
-                        //        AddAction(MenuXML, PlayXML);
-                        //        i++;
-                        //        //foreach (ListBoxItem item2 in tempListBox.Items)
-                        //        //{
-
-                        //        //}
-                        //    }
-                        //}
+                            PlaySetting(PlayXML, i.ToString(), tempScript.ScriptName + " " + String.Join(" ", l), "Char(34)" + PromptPrefixCoding + String.Join(PromptSufixCoding + "Char(34) " + "Char(34)" + PromptPrefixCoding, tempScript.Sequence) + PromptSufixCoding + "Char(34)", tempScript.Phrase, (xstart + ((i - 5) * spacing)).ToString(), (ystart + (iy * seperator)).ToString());
+                            AddAction(ActionsXML, PlayXML);
+                            i++;
+                        }                       
                     }
                 }
                 // Loop through Scripts 
@@ -326,7 +304,7 @@ namespace PromptMaker.Assets.Scripts.Views
             foreach (var inner in strings)
                 combos = from c in combos
                          from i in inner
-                         select c + i;
+                         select c + "," +i;
 
             return combos.ToList();
         }
