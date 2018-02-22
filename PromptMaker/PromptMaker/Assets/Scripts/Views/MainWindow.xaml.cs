@@ -193,17 +193,27 @@ namespace PromptMaker.Assets.Scripts.Views
             {
                 if (tabController.Items.IndexOf(tempItem) > 0 && tabController.Items.IndexOf(tempItem) != tabController.Items.Count)
                 {
-                    i = 3;                    
+                    i = 3;
+                    Frame frame = tempItem.Content as Frame;
+                    Scripts page = frame.Content as Scripts;
                     Script tempScript = tempItem.DataContext as Script;
                     AnotationSetting(AnnotationXML, i.ToString(), tempScript.ScriptName, "148", "33", "16", "160");
                     i++;
-                    List<string> PromptNames = new List<string>();
-                    List<string> PromptVerbiages = new List<string>();
-                    foreach (Prompt tempPrompt in tempScript.Prompts)
+                    string PromptPrefixCoding = "";
+                    string PromptSufixCoding = "";
+                    foreach (ListBoxItem item in page.listViewSubDirectories.Items)
                     {
-                        PromptNames.Add(tempPrompt.PromptName);
-                        PromptVerbiages.Add(tempPrompt.PromptVerbiage);
+                        StackPanel tempStackPanel = item.Content as StackPanel;
+                        Grid tempGrid = tempStackPanel.Children[0] as Grid;
+                        CheckBox tempCheckBox = tempGrid.Children[5] as CheckBox;
+                        if ((bool)tempCheckBox.IsChecked)
+                        {
+                            PromptPrefixCoding = PromptPrefixCoding + "{" + (tempGrid.DataContext as SubDirectory).Path + "}\\";
+                            PromptSufixCoding = PromptSufixCoding + "_{" + (tempGrid.DataContext as SubDirectory).Path + "}";
+                        }
                     }
+                    
+                    
                     PlaySetting(PlayXML, i.ToString(), tempScript.ScriptName + " Coding", tempScript.Sequence, tempScript.Phrase, xstart.ToString(), ystart.ToString() );
 
                 }
