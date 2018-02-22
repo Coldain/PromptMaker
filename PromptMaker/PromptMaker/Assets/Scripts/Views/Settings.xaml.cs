@@ -106,6 +106,11 @@ namespace PromptMaker.Assets.Scripts.Views
                 tempListBox.Visibility = Visibility.Visible;
             else
                 tempListBox.Visibility = Visibility.Collapsed;
-        }       
+        }
+
+        private void Lookup_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Not implmented just yet.");
+        }
     }
 }

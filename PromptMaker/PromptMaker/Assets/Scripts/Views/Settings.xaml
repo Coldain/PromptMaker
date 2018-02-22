@@ -103,12 +103,12 @@
                 <RowDefinition Height="18" />
                 <RowDefinition Height="0.5" />
             </Grid.RowDefinitions>
-            <Label Content="Project Number:" Margin="0,0,0,0.2" Padding="0" Grid.Row="1" Foreground="Black" FontWeight="Bold"/>
-            <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="1" Background="#FFB2B2B2" Text="{Binding ProjectNumber}"/>
-            <Label Content="Base Directory:" Margin="0,0,0,0.2" Padding="0" Grid.Row="3" FontWeight="Bold"/>
-            <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="3" Background="#FFB2B2B2" Text="{Binding BaseDirectory}"/>
-            <Label Content="User Cluster Email:" Margin="0,0,0,0.2" Padding="0" Grid.Row="5" FontWeight="Bold"/>
-            <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="5" Background="#FFB2B2B2" Text="{Binding UserEmail}"/>
+            <Label Content="Base Directory:" Margin="0,0,0,0.2" Padding="0" Grid.Row="1" FontWeight="Bold"/>
+            <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="1" Background="#FFB2B2B2" Text="{Binding BaseDirectory}"/>
+            <Label Content="BU Number:" Margin="0,0,0,0.2" Padding="0" Grid.Row="3" Foreground="Black" FontWeight="Bold"/>
+            <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="3" Background="#FFB2B2B2" Text="{Binding BusinessNumber}"/>
+            <Label Content="User ClustID:" Margin="0,0,0,0.2" Padding="0" Grid.Row="5" FontWeight="Bold"/>
+            <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="5" Background="#FFB2B2B2" Text="{Binding UserID}"/>
         </Grid>
         <Grid Margin="0" Grid.Row="3" Grid.Column="1" Grid.RowSpan="3" >
             <Grid.RowDefinitions>
@@ -136,6 +136,34 @@
             </Grid>
             <ListBox Name="listViewSubDirectories" ItemsSource="{Binding SubDirectories}" BorderBrush="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" 
                      Grid.Row="3" Margin="0,0,-1,0" IsSynchronizedWithCurrentItem="True" ItemTemplate="{StaticResource directories}" Background="#FFB2B2B2"/>
+        </Grid>
+        <Grid  Grid.Row="1" Grid.Column="3" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="105"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5" />
+                <RowDefinition Height="18" />
+                <RowDefinition Height="1" />
+                <RowDefinition Height="18" />
+                <RowDefinition Height="1" />
+                <RowDefinition Height="18" />
+                <RowDefinition Height="1" />
+                <RowDefinition Height="18" />
+                <RowDefinition Height="1" />
+                <RowDefinition Height="18" />
+                <RowDefinition Height="1" />
+                <RowDefinition Height="18" />
+                <RowDefinition Height="0.5" />
+            </Grid.RowDefinitions>
+            <Label Content="This can be used to look up your Cluster User ID." Margin="0,0,0,0.2" Padding="0" Grid.Row="1" Foreground="Black" HorizontalAlignment="Center" Grid.ColumnSpan="3"/>
+            <Label Content="Project Number:" Margin="0,0,0,0.2" Padding="0" Grid.Row="3" FontWeight="Bold"/>
+            <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="3" Background="#FFB2B2B2" Text="{Binding ProjectNumber}"/>
+            <Label Content="User Cluster Email:" Margin="0,0,0,0.2" Padding="0" Grid.Row="5" FontWeight="Bold"/>
+            <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="5" Background="#FFB2B2B2" Text="{Binding UserEmail}"/>
+            <Button Content="Lookup BU and User ID" Grid.Row="7" Grid.ColumnSpan="3" Width="150" Margin="0,5,0,0" Height="20" Grid.RowSpan="3" Click="Lookup_Click" />
         </Grid>
     </Grid>
 </Page>

@@ -126,6 +126,8 @@ namespace PromptMaker.Assets.Scripts.Models
             SubDirectories.Add(new SubDirectory("Region",1, RegionSub, null));
             SubDirectories.Add(new SubDirectory("Lang",0, LangSub, null));
             ProjectNumber = 0;
+            BusinessNumber = "258";
+            UserID = "6817690";
             BaseDirectory = "Prompts\\";
         }
         #endregion
