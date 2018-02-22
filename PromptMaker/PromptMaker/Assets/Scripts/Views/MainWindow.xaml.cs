@@ -181,8 +181,33 @@ namespace PromptMaker.Assets.Scripts.Views
             // Add all the Actions
             AddAction(ActionsXML, RunSubXML);
             PlaySetting(PlayXML, "test ID", "Test Caption", "Test Sequence", "Test Phrase", "Test X Cord", "Test Y Cord");
-            AddAction(ActionsXML, PlayXML);
+            MenuSetting(MenuXML, "test ID", "Test Caption", "Test Sequence", "Test Phrase", "Test X Cord", "Test Y Cord");
+            AnotationSetting(AnnotationXML, "1", "Test About Run Sub", "148", "33", "Test X Cord", "Test Y Cord"); // default 148 and 33 dem
+            AddAction(ActionsXML, AnnotationXML);
+            int i = 0;
+            int xstart = 208;
+            int ystart = 160;
+            int px;
+            List<string> usedAnnotations = new List<string>();
+            foreach(TabItem tempItem in tabController.Items)
+            {
+                if (tabController.Items.IndexOf(tempItem) > 0 && tabController.Items.IndexOf(tempItem) != tabController.Items.Count)
+                {
+                    i = 3;                    
+                    Script tempScript = tempItem.DataContext as Script;
+                    AnotationSetting(AnnotationXML, i.ToString(), tempScript.ScriptName, "148", "33", "16", "160");
+                    i++;
+                    List<string> PromptNames = new List<string>();
+                    List<string> PromptVerbiages = new List<string>();
+                    foreach (Prompt tempPrompt in tempScript.Prompts)
+                    {
+                        PromptNames.Add(tempPrompt.PromptName);
+                        PromptVerbiages.Add(tempPrompt.PromptVerbiage);
+                    }
+                    PlaySetting(PlayXML, i.ToString(), tempScript.ScriptName + " Coding", tempScript.Sequence, tempScript.Phrase, xstart.ToString(), ystart.ToString() );
 
+                }
+            }
             // Loop through Scripts 
             //PlaySetting(PlayXML);
             ActionsXML.Save(savePath);

@@ -55,6 +55,31 @@ namespace PromptMaker.Assets.Scripts.Models
                 NotifyPropertyChanged("Prompts");
             }
         }
+        public string Phrase
+        {
+            get
+            {
+                List<string> _phrase = new List<string>();
+                foreach (Prompt tempPrompt in Prompts)
+                {
+                    _phrase.Add(tempPrompt.PromptName);
+                    _phrase.Add(tempPrompt.PromptVerbiage + "\u000a");
+                }
+                return String.Join("\u000a", _phrase.ToArray());
+            }
+        }
+        public List<string> Sequence
+        {
+            get
+            {
+                List<string> _sequence = new List<string>();
+                foreach (Prompt tempPrompt in Prompts)
+                {
+                    _sequence.Add(tempPrompt.PromptName.Replace(" ", "_"));
+                }
+                return _sequence;
+            }
+        }
         public int ProjectNumber
         {
             get
