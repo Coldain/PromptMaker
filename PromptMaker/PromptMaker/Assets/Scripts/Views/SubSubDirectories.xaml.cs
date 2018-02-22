@@ -36,7 +36,7 @@ namespace PromptMaker.Assets.Scripts.Views
             ObservableCollection<SubDirectory> SampleSub = new ObservableCollection<SubDirectory>();
             SampleSub.Add(new SubDirectory("Directory 1", 1, null, "Change Text Here"));
             SampleSub.Add(new SubDirectory("Directory 1", 1, null, "Change Text Here"));
-            SubDirectory newSubDirectory = new SubDirectory("Change Text Here", (currentSubDirectory.Variations.Count()) % 2, SampleSub, null);
+            SubDirectory newSubDirectory = new SubDirectory("Change Text Here", (currentSubDirectory.Variations.Count()) % 2, SampleSub, currentSubDirectory.Path);
             currentSubDirectory.Variations.Add(newSubDirectory);
         }
 

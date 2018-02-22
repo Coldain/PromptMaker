@@ -154,7 +154,7 @@ namespace PromptMaker.Assets.Scripts.Views
 
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
-            if (theSetting.UserID != "" && theSetting.BusinessNumber != "")
+            if (theSetting.UserID != "" && theSetting.BusinessNumber != "" && theSetting.BusinessNumber != "0")
             {
                 if (tabController.Items.Count > 2)
                 {
@@ -184,14 +184,14 @@ namespace PromptMaker.Assets.Scripts.Views
                     ActionsSetting(ActionsXML);
                     // Add all the Actions
                     AddAction(ActionsXML, RunSubXML);
-                    PlaySetting(PlayXML, "test ID", "Test Caption", "Test Sequence", "Test Phrase", "Test X Cord", "Test Y Cord");
-                    MenuSetting(MenuXML, "test ID", "Test Caption", "Test Sequence", "Test Phrase", "Test X Cord", "Test Y Cord");
-                    AnotationSetting(AnnotationXML, "1", "Test About Run Sub", "148", "33", "8", "8"); // default 148 and 33 dem
+                    //PlaySetting(PlayXML, "test ID", "Test Caption", "Test Sequence", "Test Phrase", "Test X Cord", "Test Y Cord");
+                    //MenuSetting(MenuXML, "test ID", "Test Caption", "Test Sequence", "Test Phrase", "Test X Cord", "Test Y Cord");
+                    AnotationSetting(AnnotationXML, "2", "Quick Link to here", "148", "33", "16", "32"); // default 148 and 33 dem
                     AddAction(ActionsXML, AnnotationXML);
-                    int iy = 0;
+                    int iy = 0;                    
                     int i = 3;
-                    int xstart = 416;
-                    int ystart = 160;
+                    int xstart = 208;
+                    int ystart = 40;
                     int spacing = 80;
                     int seperator = 128;
                     List<string> usedAnnotations = new List<string>();
@@ -213,12 +213,17 @@ namespace PromptMaker.Assets.Scripts.Views
                                 PromptPrefixCoding = PromptPrefixCoding + "{" + tempDirectoryName + "}\\";
                                 PromptSufixCoding = PromptSufixCoding + "_{" + tempDirectoryName + "}";
                             }
-                            PlaySetting(PlayXML, i.ToString(), tempScript.ScriptName + " Coding", "Char(34)" + PromptPrefixCoding + String.Join(PromptSufixCoding + "Char(34) " + "Char(34)" + PromptPrefixCoding, tempScript.Sequence) + PromptSufixCoding + "Char(34)", tempScript.Phrase, "208", (ystart + (iy * seperator)).ToString());
+                            int ix = 0;
+                            PlaySetting(PlayXML, i.ToString(), tempScript.ScriptName + " Coding", ((char)34).ToString() + theSetting.BaseDirectory + PromptPrefixCoding + String.Join(PromptSufixCoding + ".wav" + ((char)34).ToString() + " "  + ((char)34).ToString() + theSetting.BaseDirectory + PromptPrefixCoding, tempScript.Sequence) + PromptSufixCoding + ".wav" + ((char)34).ToString(), tempScript.Phrase, (xstart + (ix * spacing)).ToString(), (ystart + (iy * seperator)).ToString());
                             AddAction(ActionsXML, PlayXML);
                             i++;
-                            MenuSetting(MenuXML, i.ToString(), tempScript.ScriptName + " Coding", "Char(34)" + PromptPrefixCoding + String.Join(PromptSufixCoding + "Char(34) " + "Char(34)" + PromptPrefixCoding, tempScript.Sequence) + PromptSufixCoding + "Char(34)", tempScript.Phrase, (208 + spacing).ToString(), (ystart + (iy * seperator)).ToString());
-                            AddAction(ActionsXML, PlayXML);
+                            ix++;
+                            MenuSetting(MenuXML, i.ToString(), tempScript.ScriptName + " Coding", ((char)34).ToString() + theSetting.BaseDirectory + PromptPrefixCoding + String.Join(PromptSufixCoding + ".wav" + ((char)34).ToString() + " "  + ((char)34).ToString() + theSetting.BaseDirectory + PromptPrefixCoding, tempScript.Sequence) + PromptSufixCoding + ".wav" + ((char)34).ToString(), tempScript.Phrase, (xstart + (ix * spacing)).ToString(), (ystart + (iy * seperator)).ToString());
+                            AddAction(ActionsXML, MenuXML);
                             i++;
+                            ix++;
+                            //page.usedVariations.RemoveAt(2);
+                            //page.usedVariations[1].Item2.RemoveRange(9, 9);
                             if (page.usedDirectories.Count != 0 && page.usedVariations.Count != 0)
                             {
                                 List<List<string>> posibilitiesInput = new List<List<string>>();
@@ -233,21 +238,22 @@ namespace PromptMaker.Assets.Scripts.Views
                                     List<string> l = ss.Split(',').ToList();
                                     foreach (string sss in l)
                                     {
-                                        PromptPrefixCoding = PromptPrefixCoding + sss + "//";
+                                        PromptPrefixCoding = PromptPrefixCoding + sss + "\\";
                                         PromptSufixCoding = PromptSufixCoding + "_" + sss;
                                     }
-                                    PlaySetting(PlayXML, i.ToString(), tempScript.ScriptName + " " + String.Join(" ", l), "Char(34)" + PromptPrefixCoding + String.Join(PromptSufixCoding + "Char(34) " + "Char(34)" + PromptPrefixCoding, tempScript.Sequence) + PromptSufixCoding + "Char(34)", tempScript.Phrase, (xstart + ((i - 5) * spacing)).ToString(), (ystart + (iy * seperator)).ToString());
+                                    PlaySetting(PlayXML, i.ToString(), tempScript.ScriptName + " " + String.Join(" ", l), ((char)34).ToString() + theSetting.BaseDirectory + PromptPrefixCoding + String.Join(PromptSufixCoding + ".wav" + ((char)34).ToString() + " "  + ((char)34).ToString() + theSetting.BaseDirectory + PromptPrefixCoding, tempScript.Sequence) + PromptSufixCoding + ".wav" + ((char)34).ToString(), tempScript.Phrase, (xstart + seperator + (ix * spacing)).ToString(), (ystart + (iy * seperator)).ToString());
                                     AddAction(ActionsXML, PlayXML);
                                     i++;
+                                    ix++;
                                 }
                             }
                             else
                             {
-                                PlaySetting(PlayXML, i.ToString(), tempScript.ScriptName, "Char(34)" + String.Join("Char(34) " + "Char(34)", tempScript.Sequence) + "Char(34)", tempScript.Phrase, (xstart + ((i - 5) * spacing)).ToString(), (ystart + (iy * seperator)).ToString());
+                                PlaySetting(PlayXML, i.ToString(), tempScript.ScriptName, ((char)34).ToString() + theSetting.BaseDirectory + String.Join(".wav" + ((char)34).ToString() + " " + ((char)34).ToString() + theSetting.BaseDirectory, tempScript.Sequence) + ".wav" + ((char)34).ToString(), tempScript.Phrase, (xstart + seperator + (ix * spacing)).ToString(), (ystart + (iy * seperator)).ToString());
                                 AddAction(ActionsXML, PlayXML);
                                 i++;
-                            }
-                            
+                                ix++;
+                            }                            
                         }
                         iy++;
                     }
