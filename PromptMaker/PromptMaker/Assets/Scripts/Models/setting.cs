@@ -113,18 +113,18 @@ namespace PromptMaker.Assets.Scripts.Models
             
             SubDirectories = new ObservableCollection<SubDirectory>();
             ObservableCollection<SubDirectory> ProdLevelSub = new ObservableCollection<SubDirectory>();
-            ProdLevelSub.Add(new SubDirectory("Prod", 0, null));
-            ProdLevelSub.Add(new SubDirectory("Dev", 0, null));
+            ProdLevelSub.Add(new SubDirectory("Prod", 0, null, "ProdLevel"));
+            ProdLevelSub.Add(new SubDirectory("Dev", 0, null, "ProdLevel"));
             ObservableCollection<SubDirectory> RegionSub = new ObservableCollection<SubDirectory>();
-            RegionSub.Add(new SubDirectory("US", 1, null));
-            RegionSub.Add(new SubDirectory("EMEA", 1, null));
-            RegionSub.Add(new SubDirectory("CA", 1, null));
+            RegionSub.Add(new SubDirectory("US", 1, null, "Region"));
+            RegionSub.Add(new SubDirectory("EMEA", 1, null, "Region"));
+            RegionSub.Add(new SubDirectory("CA", 1, null, "Region"));
             ObservableCollection<SubDirectory> LangSub = new ObservableCollection<SubDirectory>();
-            LangSub.Add(new SubDirectory("Prod", 0, null));
-            LangSub.Add(new SubDirectory("Dev", 0, null));
-            SubDirectories.Add(new SubDirectory("ProdLevel",0, ProdLevelSub));
-            SubDirectories.Add(new SubDirectory("Region",1, RegionSub));
-            SubDirectories.Add(new SubDirectory("Lang",0, LangSub));
+            LangSub.Add(new SubDirectory("Prod", 0, null, "Lang"));
+            LangSub.Add(new SubDirectory("Dev", 0, null, "Lang"));
+            SubDirectories.Add(new SubDirectory("ProdLevel",0, ProdLevelSub, null));
+            SubDirectories.Add(new SubDirectory("Region",1, RegionSub, null));
+            SubDirectories.Add(new SubDirectory("Lang",0, LangSub, null));
             ProjectNumber = 0;
             BaseDirectory = "Prompts\\";
         }

@@ -37,9 +37,9 @@ namespace PromptMaker.Assets.Scripts.Views
         private void ButtonPlus_Click(object sender, RoutedEventArgs e)
         {
             ObservableCollection<SubDirectory> SampleSub = new ObservableCollection<SubDirectory>();
-            SampleSub.Add(new SubDirectory("Directory 1", 1, null));
-            SampleSub.Add(new SubDirectory("Directory 1", 1, null));
-            SubDirectory newSubDirectory = new SubDirectory("Change Text Here", (currentSetting.SubDirectories.Count()) % 2, SampleSub);
+            SampleSub.Add(new SubDirectory("Directory 1", 1, null, "Change Text Here"));
+            SampleSub.Add(new SubDirectory("Directory 1", 1, null, "Change Text Here"));
+            SubDirectory newSubDirectory = new SubDirectory("Change Text Here", (currentSetting.SubDirectories.Count()) % 2, SampleSub, null);
             currentSetting.SubDirectories.Add(newSubDirectory);
         }
 

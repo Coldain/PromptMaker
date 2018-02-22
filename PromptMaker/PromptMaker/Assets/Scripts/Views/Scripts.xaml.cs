@@ -22,12 +22,14 @@ namespace PromptMaker.Assets.Scripts.Views
     /// </summary>
     public partial class Scripts : Page
     {
+        List<string> usedDirectories = new List<string>();
+        List<Tuple<string, List<string>>> usedPrompts = new List<Tuple<string, List<string>>>();
         Script currentScript;
         public Scripts(Script _script)
         {
             currentScript = _script;
             this.DataContext = currentScript;
-            InitializeComponent();
+            InitializeComponent();           
         }
 
         private void ButtonPlus_Click(object sender, RoutedEventArgs e)
@@ -36,14 +38,18 @@ namespace PromptMaker.Assets.Scripts.Views
             if (cmd.Tag.ToString() == "Directory")
             {
                 ObservableCollection<SubDirectory> SampleSub = new ObservableCollection<SubDirectory>();
-                SampleSub.Add(new SubDirectory("Directory 1", 1, null));
-                SampleSub.Add(new SubDirectory("Directory 1", 1, null));
-                SubDirectory newSubDirectory = new SubDirectory("Change Text Here", (currentScript.SubDirectories.Count()) % 2, SampleSub);
+                SampleSub.Add(new SubDirectory("Directory 1", 1, null, "Change Text Here"));
+                SampleSub.Add(new SubDirectory("Directory 1", 1, null, "Change Text Here"));
+                SubDirectory newSubDirectory = new SubDirectory("Change Text Here", (currentScript.SubDirectories.Count()) % 2, SampleSub, null);
                 currentScript.SubDirectories.Add(newSubDirectory);
             }
             else if (cmd.Tag.ToString() == "Prompt")
             {
                 currentScript.Prompts.Add(new Prompt());
+            }
+            foreach (ListBoxItem item in listViewSubDirectories.Items)
+            {
+                (((item.Content as StackPanel).Children[5] as ListBox).Items[1] as CheckBox).Tag = (item.DataContext as SubDirectory).Path;
             }
         }
 
@@ -172,5 +178,59 @@ namespace PromptMaker.Assets.Scripts.Views
                     tempTextBox.TextWrapping = TextWrapping.NoWrap;
             }
         }
+
+        private void Usage_Checked(object sender, RoutedEventArgs e)
+        {
+            CheckBox tempCheckBox = sender as CheckBox;
+            if (tempCheckBox.Tag.ToString() == "Directory")
+            {
+                SubDirectory tempSubDirectory = tempCheckBox.DataContext as SubDirectory;
+                if ((bool)tempCheckBox.IsChecked)
+                {
+                    if (!usedDirectories.Contains(tempSubDirectory.Path))
+                    {
+                        usedDirectories.Add(tempSubDirectory.Path);
+                    }
+                }
+                else
+                    usedDirectories.Remove(tempSubDirectory.Path);
+            }
+            else if (tempCheckBox.Tag.ToString() == "Prompt")
+            {
+                SubDirectory tempPrompt = tempCheckBox.DataContext as SubDirectory;
+                if ((bool)tempCheckBox.IsChecked)
+                {
+                    if (usedPrompts.Count != 0)
+                    foreach (Tuple<string, List<string>> tempTuple in usedPrompts)
+                        if (tempTuple.Item1 != tempPrompt.Owner)
+                        {
+                            List<string> tempList = new List<string>();
+                            tempList.Add(tempPrompt.Path);
+                            Tuple<string, List<string>> newTuple = new Tuple<string, List<string>>(tempPrompt.Owner, tempList);
+                            usedPrompts.Add(newTuple);
+                        }
+                        else
+                        {
+                            tempTuple.Item2.Add(tempPrompt.Path);
+                        }
+                    else
+                    {
+                        List<string> tempList = new List<string>();
+                        tempList.Add(tempPrompt.Path);
+                        Tuple<string, List<string>> newTuple = new Tuple<string, List<string>>(tempPrompt.Owner, tempList);
+                        usedPrompts.Add(newTuple);
+                    }
+                }
+                else
+                {
+                    foreach (Tuple<string, List<string>> tempTuple in usedPrompts)
+                        if (tempTuple.Item1 == tempPrompt.Owner)
+                        {
+                            tempTuple.Item2.Remove(tempPrompt.Path);
+                        }
+                }
+            }
+        }    
     }
 }
+

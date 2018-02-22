@@ -12,12 +12,25 @@ namespace PromptMaker.Assets.Scripts.Models
     {
         #region Fields
         string _path;
+        string _owner;
         ObservableCollection<SubDirectory> _variations;
         bool _inuse;
         int _filled;
         #endregion    
 
         #region Properties
+        public string Owner
+        {
+            get
+            {
+                return _owner;
+            }
+            set
+            {
+                _owner = value;
+                NotifyPropertyChanged("Owner");
+            }
+        }
         public bool Inuse
         {
             get
@@ -52,6 +65,11 @@ namespace PromptMaker.Assets.Scripts.Models
             }
             set
             {
+                if (Variations != null)
+                    foreach (SubDirectory tempSub in Variations)
+                    {
+                        tempSub.Owner = Path;
+                    }
                 _path = value;
                 NotifyPropertyChanged("Path");
                 NotifyPropertyChanged("SubDirectories");
@@ -73,8 +91,9 @@ namespace PromptMaker.Assets.Scripts.Models
         #endregion
 
         #region Constructors
-        public SubDirectory(string tempName, int i, ObservableCollection<SubDirectory> templist)       
+        public SubDirectory(string tempName, int i, ObservableCollection<SubDirectory> templist, string tempOwner)       
         {
+            Owner = tempOwner;
             Path = tempName;
             Inuse = false;
             Filled = i;

@@ -154,74 +154,89 @@ namespace PromptMaker.Assets.Scripts.Views
 
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
-            System.Windows.Forms.FolderBrowserDialog folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            folderBrowserDialog.ShowDialog();
-            string savePath = folderBrowserDialog.SelectedPath + "\\" + "Record_Prompts_Here.XML";
-            // Load in all the XMLs
-            XmlDocument ActionsXML = new XmlDocument();
-            string pathBase = @"C:\Users\Coldain\Source\Repos\PromptMaker\PromptMaker\PromptMaker\Assets\Scripts\Models\XML Template\";
-            string path = System.IO.Path.Combine(pathBase, "Actions.XML");
-            //string path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Assets\Scripts\Models\XML Template\", "Actions.XML");
-            ActionsXML.Load(path);
-            XmlDocument RunSubXML = new XmlDocument();
-            path = System.IO.Path.Combine(pathBase, "RunSubs.XML");
-            RunSubXML.Load(path);
-            XmlDocument PlayXML = new XmlDocument();
-            path = System.IO.Path.Combine(pathBase, "Plays.XML");
-            PlayXML.Load(path);
-            XmlDocument MenuXML = new XmlDocument();
-            path = System.IO.Path.Combine(pathBase, "Menus.XML");
-            MenuXML.Load(path);
-            XmlDocument AnnotationXML = new XmlDocument();
-            path = System.IO.Path.Combine(pathBase, "Annotations.XML");
-            AnnotationXML.Load(path);
-
-            // Actions Details Setup
-            ActionsSetting(ActionsXML);
-            // Add all the Actions
-            AddAction(ActionsXML, RunSubXML);
-            PlaySetting(PlayXML, "test ID", "Test Caption", "Test Sequence", "Test Phrase", "Test X Cord", "Test Y Cord");
-            MenuSetting(MenuXML, "test ID", "Test Caption", "Test Sequence", "Test Phrase", "Test X Cord", "Test Y Cord");
-            AnotationSetting(AnnotationXML, "1", "Test About Run Sub", "148", "33", "Test X Cord", "Test Y Cord"); // default 148 and 33 dem
-            AddAction(ActionsXML, AnnotationXML);
-            int i = 0;
-            int xstart = 208;
-            int ystart = 160;
-            int px;
-            List<string> usedAnnotations = new List<string>();
-            foreach(TabItem tempItem in tabController.Items)
+            if (tabController.Items.Count > 2)
             {
-                if (tabController.Items.IndexOf(tempItem) > 0 && tabController.Items.IndexOf(tempItem) != tabController.Items.Count)
+                System.Windows.Forms.FolderBrowserDialog folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+                folderBrowserDialog.ShowDialog();
+                string savePath = folderBrowserDialog.SelectedPath + "\\" + "Record_Prompts_Here.XML";
+                // Load in all the XMLs
+                XmlDocument ActionsXML = new XmlDocument();
+                string pathBase = @"C:\Users\Coldain\Source\Repos\PromptMaker\PromptMaker\PromptMaker\Assets\Scripts\Models\XML Template\";
+                string path = System.IO.Path.Combine(pathBase, "Actions.XML");
+                //string path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Assets\Scripts\Models\XML Template\", "Actions.XML");
+                ActionsXML.Load(path);
+                XmlDocument RunSubXML = new XmlDocument();
+                path = System.IO.Path.Combine(pathBase, "RunSubs.XML");
+                RunSubXML.Load(path);
+                XmlDocument PlayXML = new XmlDocument();
+                path = System.IO.Path.Combine(pathBase, "Plays.XML");
+                PlayXML.Load(path);
+                XmlDocument MenuXML = new XmlDocument();
+                path = System.IO.Path.Combine(pathBase, "Menus.XML");
+                MenuXML.Load(path);
+                XmlDocument AnnotationXML = new XmlDocument();
+                path = System.IO.Path.Combine(pathBase, "Annotations.XML");
+                AnnotationXML.Load(path);
+
+                // Actions Details Setup
+                ActionsSetting(ActionsXML);
+                // Add all the Actions
+                AddAction(ActionsXML, RunSubXML);
+                PlaySetting(PlayXML, "test ID", "Test Caption", "Test Sequence", "Test Phrase", "Test X Cord", "Test Y Cord");
+                MenuSetting(MenuXML, "test ID", "Test Caption", "Test Sequence", "Test Phrase", "Test X Cord", "Test Y Cord");
+                AnotationSetting(AnnotationXML, "1", "Test About Run Sub", "148", "33", "Test X Cord", "Test Y Cord"); // default 148 and 33 dem
+                AddAction(ActionsXML, AnnotationXML);
+                int i = 3;
+                int xstart = 416;
+                int ystart = 160;
+                int spacing = 80;
+                int seperator = 128;
+                List<string> usedAnnotations = new List<string>();
+                foreach (TabItem tempItem in tabController.Items)
                 {
-                    i = 3;
-                    Frame frame = tempItem.Content as Frame;
-                    Scripts page = frame.Content as Scripts;
-                    Script tempScript = tempItem.DataContext as Script;
-                    AnotationSetting(AnnotationXML, i.ToString(), tempScript.ScriptName, "148", "33", "16", "160");
-                    i++;
-                    string PromptPrefixCoding = "";
-                    string PromptSufixCoding = "";
-                    foreach (ListBoxItem item in page.listViewSubDirectories.Items)
+                    if (tabController.Items.IndexOf(tempItem) > 0 && tabController.Items.IndexOf(tempItem) != tabController.Items.Count)
                     {
-                        StackPanel tempStackPanel = item.Content as StackPanel;
-                        Grid tempGrid = tempStackPanel.Children[0] as Grid;
-                        CheckBox tempCheckBox = tempGrid.Children[5] as CheckBox;
-                        if ((bool)tempCheckBox.IsChecked)
+                        Frame frame = tempItem.Content as Frame;
+                        Scripts page = frame.Content as Scripts;
+                        Script tempScript = page.DataContext as Script;
+                        ListBox tempListBoxTest = page.listViewSubDirectories as ListBox;
+                        AnotationSetting(AnnotationXML, i.ToString(), tempScript.ScriptName, "148", "33", "16", "160");
+                        i++;
+                        string PromptPrefixCoding = "";
+                        string PromptSufixCoding = "";
+                        foreach (ListBoxItem item1 in page.listViewSubDirectories.Items)
                         {
-                            PromptPrefixCoding = PromptPrefixCoding + "{" + (tempGrid.DataContext as SubDirectory).Path + "}\\";
-                            PromptSufixCoding = PromptSufixCoding + "_{" + (tempGrid.DataContext as SubDirectory).Path + "}";
+                            StackPanel tempStackPanel = item1.Content as StackPanel;
+                            Grid tempGrid = tempStackPanel.Children[0] as Grid;
+                            ListBox tempListBox = tempStackPanel.Children[1] as ListBox;
+                            CheckBox tempCheckBox = tempGrid.Children[5] as CheckBox;
+                            if ((bool)tempCheckBox.IsChecked)
+                            {
+                                PromptPrefixCoding = PromptPrefixCoding + "{" + (tempGrid.DataContext as SubDirectory).Path + "}\\";
+                                PromptSufixCoding = PromptSufixCoding + "_{" + (tempGrid.DataContext as SubDirectory).Path + "}";
+                                PlaySetting(PlayXML, i.ToString(), tempScript.ScriptName + " Coding", "Char(34)" + PromptPrefixCoding + String.Join(PromptSufixCoding + "Char(34) " + PromptPrefixCoding, tempScript.Sequence) + PromptSufixCoding + "Char(34)", tempScript.Phrase, "208", ystart.ToString());
+                                AddAction(ActionsXML, PlayXML);
+                                i++;
+                                MenuSetting(MenuXML, i.ToString(), tempScript.ScriptName + " Coding", "Char(34)" + PromptPrefixCoding + String.Join(PromptSufixCoding + "Char(34) " + PromptPrefixCoding, tempScript.Sequence) + PromptSufixCoding + "Char(34)", tempScript.Phrase, (208 + spacing).ToString(), ystart.ToString());
+                                AddAction(MenuXML, PlayXML);
+                                i++;
+                                //foreach (ListBoxItem item2 in tempListBox.Items)
+                                //{
+
+                                //}
+                            }
                         }
                     }
-                    
-                    
-                    PlaySetting(PlayXML, i.ToString(), tempScript.ScriptName + " Coding", tempScript.Sequence, tempScript.Phrase, xstart.ToString(), ystart.ToString() );
-
                 }
+                // Loop through Scripts 
+                //PlaySetting(PlayXML);
+                ActionsXML.Save(savePath);
             }
-            // Loop through Scripts 
-            //PlaySetting(PlayXML);
-            ActionsXML.Save(savePath);
+            else
+                MessageBox.Show("Please add some scripts.");
         }
+         
+
 
         private void ActionsSetting(XmlDocument XML)
         {
