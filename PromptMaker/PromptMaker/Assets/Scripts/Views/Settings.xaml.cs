@@ -78,7 +78,7 @@ namespace PromptMaker.Assets.Scripts.Views
             {
                 SubDirectory moveDown = (SubDirectory)cmd.DataContext;
                 int i = currentSetting.SubDirectories.IndexOf(moveDown);
-                if (i < currentSetting.SubDirectories.Count())
+                if (i < currentSetting.SubDirectories.Count() && currentSetting.SubDirectories.Count() != 0)
                 currentSetting.SubDirectories.Move(i,i+1);
             }
         }

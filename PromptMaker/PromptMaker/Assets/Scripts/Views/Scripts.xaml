@@ -10,6 +10,32 @@
       Title="{Binding ScriptName}"
       Background="#FF666666">
     <Page.Resources>
+        <Style x:Key="EllipsisBG" TargetType="TextBox">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsKeyboardFocused, RelativeSource={RelativeSource Self}}" Value="false">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="TextBox">
+                                <TextBlock Text="{TemplateBinding Text}" Background="#FFB2B2B2"  TextTrimming="CharacterEllipsis"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="EllipsisNoBG" TargetType="TextBox">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsKeyboardFocused, RelativeSource={RelativeSource Self}}" Value="false">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="TextBox">
+                                <TextBlock Text="{TemplateBinding Text}" TextTrimming="CharacterEllipsis"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
         <!--Need to have button for adanced prompt. That will pop open a user control to insert variables or wrap things in <spell> or add % @ # in the " "
         Also need to add ... for the regular one to display a bigger textbox-->
         <DataTemplate x:Key="prompts" DataType="{x:Type binder:Prompt}">
@@ -50,8 +76,8 @@
                         </Rectangle.Style>
                     </Rectangle>
                     <Button Tag="Prompt" Content="◢" Grid.Column="0" Background="{x:Null}" Width="15" Click="ButtonToggleExpand_Click"/>
-                    <TextBox HorizontalAlignment="Left" Grid.Column="1" VerticalAlignment="Center" MinWidth="80" Text="{Binding PromptName}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}" FontWeight="Bold"/>
-                    <TextBox HorizontalAlignment="Left" Grid.Column="3" VerticalAlignment="Center" TextWrapping="Wrap" MinWidth="100" Text="{Binding PromptVerbiage}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}" FontWeight="Bold"/>
+                    <TextBox HorizontalAlignment="Left" Grid.Column="1" VerticalAlignment="Center" MinWidth="80" Text="{Binding PromptName}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontWeight="Bold" Style="{StaticResource EllipsisNoBG}"/>
+                    <TextBox HorizontalAlignment="Left" Grid.Column="3" VerticalAlignment="Center" TextWrapping="Wrap" MinWidth="110" Text="{Binding PromptVerbiage}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontWeight="Bold" Style="{StaticResource EllipsisNoBG}"/>
                     <Button Tag="Prompt" Content="⇧" Click="ButtonUp_Click" Grid.Column="5" Height="20" Width="20" />
                     <Button Tag="Prompt" Content="⇩" Click="ButtonDown_Click" Grid.Column="7" Height="20" Width="20" />
                     <Button Tag="Prompt" Content="..." Click="ButtonMore_Click" Grid.Column="9" Height="17" Width="20" Padding="0" Margin="0" VerticalContentAlignment="Center"/>
@@ -95,7 +121,7 @@
                         </Rectangle.Style>
                     </Rectangle>
                     <Button Tag="Directory" Content="◢" Background="{x:Null}" Width="15" Click="ButtonToggleExpand_Click"/>
-                    <TextBox HorizontalAlignment="Left" MinWidth="100" Grid.Column="1" VerticalAlignment="Center" Text="{Binding Path}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}" FontWeight="Bold"/>
+                    <TextBox HorizontalAlignment="Left" MinWidth="100" Grid.Column="1" VerticalAlignment="Center" Text="{Binding Path}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontWeight="Bold" Style="{StaticResource EllipsisNoBG}"/>
                     <Button Tag="Directory" Content="⇧" Click="ButtonUp_Click" Grid.Column="2" Height="20" Width="20" />
                     <Button Tag="Directory" Content="⇩" Click="ButtonDown_Click" Grid.Column="4" Height="20" Width="20" />
                     <CheckBox Tag="Directory" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Usage_Checked" />
@@ -110,8 +136,8 @@
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="175"/>  
                                         <ColumnDefinition Width="20"/>
-                                    </Grid.ColumnDefinitions>                                    
-                                    <TextBox HorizontalAlignment="Left" MinWidth="115" VerticalAlignment="Center" Text="{Binding Path}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBox HorizontalAlignment="Left" MinWidth="175" VerticalAlignment="Center" Text="{Binding Path}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" Style="{StaticResource EllipsisNoBG}" />
                                     <CheckBox  Tag="Prompt" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Usage_Checked"/>                                    
                                 </Grid>
                             </StackPanel>
@@ -158,9 +184,7 @@
                 <RowDefinition Height="0.5" />
             </Grid.RowDefinitions>
             <Label Content="Script Name:" Margin="0,0,0,0.2" Padding="0" Grid.Row="1" Foreground="Black" FontWeight="Bold"/>
-            <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="1" Background="#FFB2B2B2" Text="{Binding ScriptName}"/>
-            <Label Content="Base Directory:" Margin="0,0,0,0.2" Padding="0" Grid.Row="3" FontWeight="Bold"/>
-            <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="3" Background="#FFB2B2B2" Text="{Binding BaseDirectory}"/>
+            <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="1" Background="#FFB2B2B2" Text="{Binding ScriptName}" Style="{StaticResource EllipsisBG}"/>
         </Grid>
         <Grid Margin="0" Grid.Row="3" Grid.Column="1" >
             <Grid.RowDefinitions>

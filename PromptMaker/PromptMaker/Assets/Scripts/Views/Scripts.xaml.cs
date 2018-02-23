@@ -109,7 +109,7 @@ namespace PromptMaker.Assets.Scripts.Views
                 {
                     SubDirectory moveDown = (SubDirectory)cmd.DataContext;
                     int i = currentScript.SubDirectories.IndexOf(moveDown);
-                    if (i < currentScript.SubDirectories.Count())
+                    if (i < currentScript.SubDirectories.Count() && currentScript.SubDirectories.Count() != 0)
                         currentScript.SubDirectories.Move(i, i + 1);
                 }
             }
@@ -119,7 +119,7 @@ namespace PromptMaker.Assets.Scripts.Views
                 {
                     Prompt moveDown = (Prompt)cmd.DataContext;
                     int i = currentScript.Prompts.IndexOf(moveDown);
-                    if (i < currentScript.Prompts.Count())
+                    if (i < currentScript.Prompts.Count() && currentScript.Prompts.Count() != 0)
                         currentScript.Prompts.Move(i, i + 1);
                 }
             }

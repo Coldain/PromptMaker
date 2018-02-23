@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="PromptSettings" Height="300" Width="300">
     <Grid>
-        
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" Margin="0,0,0,80">Coming Soon</TextBlock>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,40,0,0" TextWrapping="Wrap" >This will allow you to select things like TTS, Date, Letters, Money, Numbers and add char &lt;spell&gt; tags. </TextBlock>
     </Grid>
 </Window>

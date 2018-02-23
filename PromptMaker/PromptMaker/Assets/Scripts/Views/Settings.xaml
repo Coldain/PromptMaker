@@ -10,6 +10,32 @@
       Title="Setting"
       Background="#FF666666">
     <Page.Resources>
+        <Style x:Key="EllipsisBG" TargetType="TextBox">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsKeyboardFocused, RelativeSource={RelativeSource Self}}" Value="false">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="TextBox">
+                                <TextBlock Text="{TemplateBinding Text}" Background="#FFB2B2B2"  TextTrimming="CharacterEllipsis"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="EllipsisNoBG" TargetType="TextBox">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsKeyboardFocused, RelativeSource={RelativeSource Self}}" Value="false">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="TextBox">
+                                <TextBlock Text="{TemplateBinding Text}" TextTrimming="CharacterEllipsis"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
         <DataTemplate x:Key="directories" DataType="{x:Type binder:Setting}">
             <StackPanel Margin="-5,-5,5,0">
                 <Grid Margin="0,3,0,0">
@@ -45,7 +71,7 @@
                         </Rectangle.Style>
                     </Rectangle>
                     <Button Content="◢" Background="{x:Null}" Width="15" Click="ButtonToggleExpand_Click"/>
-                    <TextBox HorizontalAlignment="Left" Grid.Column="1" VerticalAlignment="Center" Text="{Binding Path}" MinWidth="123" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}" FontWeight="Bold"/>
+                    <TextBox HorizontalAlignment="Left" Grid.Column="1" VerticalAlignment="Center" Text="{Binding Path}" MinWidth="123" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontWeight="Bold" Style="{StaticResource EllipsisNoBG}"/>
                     <Button Content="⇧" Click="ButtonUp_Click" Grid.Column="2" Height="20" Width="20" />
                     <Button Content="⇩" Click="ButtonDown_Click" Grid.Column="4" Height="20" Width="20"/>
                     <Button Content="..." Click="ButtonMore_Click" Grid.Column="6" Height="17" Width="20" Padding="0" Margin="0" VerticalContentAlignment="Center"/>
@@ -56,7 +82,7 @@
                         <DataTemplate DataType="{x:Type binder:SubDirectory}">
                             <StackPanel>
                                 <Grid Margin="0,3,0,0">
-                                    <TextBox HorizontalAlignment="Left" MinWidth="115" VerticalAlignment="Center" Text="{Binding Path}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}"/>
+                                    <TextBox HorizontalAlignment="Left" MinWidth="200" VerticalAlignment="Center" Text="{Binding Path}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" Style="{StaticResource EllipsisNoBG}"/>
                                 </Grid>
                             </StackPanel>
                         </DataTemplate>
@@ -89,26 +115,20 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.5" />
-                <RowDefinition Height="18" />
                 <RowDefinition Height="1" />
-                <RowDefinition Height="18" />
-                <RowDefinition Height="1" />
-                <RowDefinition Height="18" />
-                <RowDefinition Height="1" />
-                <RowDefinition Height="18" />
-                <RowDefinition Height="1" />
-                <RowDefinition Height="18" />
-                <RowDefinition Height="1" />
-                <RowDefinition Height="18" />
-                <RowDefinition Height="0.5" />
+                <RowDefinition Height="22" />
+                <RowDefinition Height="3" />
+                <RowDefinition Height="22" />
+                <RowDefinition Height="3" />
+                <RowDefinition Height="22" />
+                <RowDefinition Height="3*" />
             </Grid.RowDefinitions>
             <Label Content="Base Directory:" Margin="0,0,0,0.2" Padding="0" Grid.Row="1" FontWeight="Bold"/>
-            <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="1" Background="#FFB2B2B2" Text="{Binding BaseDirectory}"/>
+            <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="1" Background="#FFB2B2B2" Text="{Binding BaseDirectory}" Style="{StaticResource EllipsisBG}"/>
             <Label Content="BU Number:" Margin="0,0,0,0.2" Padding="0" Grid.Row="3" Foreground="Black" FontWeight="Bold"/>
-            <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="3" Background="#FFB2B2B2" Text="{Binding BusinessNumber}"/>
+            <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="3" Background="#FFB2B2B2" Text="{Binding BusinessNumber}" Style="{StaticResource EllipsisBG}"/>
             <Label Content="User ClustID:" Margin="0,0,0,0.2" Padding="0" Grid.Row="5" FontWeight="Bold"/>
-            <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="5" Background="#FFB2B2B2" Text="{Binding UserID}"/>
+            <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="5" Background="#FFB2B2B2" Text="{Binding UserID}" Style="{StaticResource EllipsisBG}"/>
         </Grid>
         <Grid Margin="0" Grid.Row="3" Grid.Column="1" Grid.RowSpan="3" >
             <Grid.RowDefinitions>
@@ -137,33 +157,29 @@
             <ListBox Name="listViewSubDirectories" ItemsSource="{Binding SubDirectories}" BorderBrush="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" 
                      Grid.Row="3" Margin="0,0,-1,0" IsSynchronizedWithCurrentItem="True" ItemTemplate="{StaticResource directories}" Background="#FFB2B2B2"/>
         </Grid>
-        <Grid  Grid.Row="1" Grid.Column="3" Grid.RowSpan="2">
+        <Grid  Grid.Row="1" Grid.Column="3" Grid.RowSpan="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="105"/>
                 <ColumnDefinition Width="5"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.5" />
-                <RowDefinition Height="18" />
                 <RowDefinition Height="1" />
-                <RowDefinition Height="18" />
-                <RowDefinition Height="1" />
-                <RowDefinition Height="18" />
-                <RowDefinition Height="1" />
-                <RowDefinition Height="18" />
-                <RowDefinition Height="1" />
-                <RowDefinition Height="18" />
-                <RowDefinition Height="1" />
-                <RowDefinition Height="18" />
-                <RowDefinition Height="0.5" />
+                <RowDefinition Height="22" />
+                <RowDefinition Height="3" />
+                <RowDefinition Height="22" />
+                <RowDefinition Height="3" />
+                <RowDefinition Height="22" />
+                <RowDefinition Height="6" />
+                <RowDefinition Height="*" />
+
             </Grid.RowDefinitions>
             <Label Content="This can be used to look up your Cluster User ID." Margin="0,0,0,0.2" Padding="0" Grid.Row="1" Foreground="Black" HorizontalAlignment="Center" Grid.ColumnSpan="3"/>
             <Label Content="Project Number:" Margin="0,0,0,0.2" Padding="0" Grid.Row="3" FontWeight="Bold"/>
-            <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="3" Background="#FFB2B2B2" Text="{Binding ProjectNumber}"/>
+            <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="3" Background="#FFB2B2B2" Text="{Binding ProjectNumber}" Style="{StaticResource EllipsisBG}"/>
             <Label Content="User Cluster Email:" Margin="0,0,0,0.2" Padding="0" Grid.Row="5" FontWeight="Bold"/>
-            <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="5" Background="#FFB2B2B2" Text="{Binding UserEmail}"/>
-            <Button Content="Lookup BU and User ID" Grid.Row="7" Grid.ColumnSpan="3" Width="150" Margin="0,5,0,0" Height="20" Grid.RowSpan="3" Click="Lookup_Click" />
+            <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="5" Background="#FFB2B2B2" Text="{Binding UserEmail}" Style="{StaticResource EllipsisBG}"/>
+            <Button Content="Lookup BU and User ID" Grid.Row="7" Grid.ColumnSpan="3" Width="150" Margin="0,5,0,0" Height="20" Click="Lookup_Click" VerticalAlignment="Top" />
         </Grid>
     </Grid>
 </Page>

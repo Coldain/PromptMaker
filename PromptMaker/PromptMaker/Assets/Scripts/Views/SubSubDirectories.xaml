@@ -10,6 +10,32 @@
              Height="365" Width="250"
              Background="#FF575757">
     <Window.Resources>
+        <Style x:Key="EllipsisBG" TargetType="TextBox">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsKeyboardFocused, RelativeSource={RelativeSource Self}}" Value="false">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="TextBox">
+                                <TextBlock Text="{TemplateBinding Text}" Background="#FFB2B2B2"  TextTrimming="CharacterEllipsis"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="EllipsisNoBG" TargetType="TextBox">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsKeyboardFocused, RelativeSource={RelativeSource Self}}" Value="false">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="TextBox">
+                                <TextBlock Text="{TemplateBinding Text}" TextTrimming="CharacterEllipsis"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
         <DataTemplate x:Key="directories" DataType="{x:Type binder:SubDirectory}">
         <StackPanel Margin="-5,-5,5,0">
                 <Grid>
@@ -19,7 +45,7 @@
                         <ColumnDefinition Width="5"/>
                         <ColumnDefinition Width="25"/>
                     </Grid.ColumnDefinitions>
-                    <TextBox HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}"/>
+                    <TextBox HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" MinWidth="150" Style="{StaticResource EllipsisNoBG}"/>
                     <Button Content="⇧" Click="ButtonUp_Click" Grid.Column="1" />
                     <Button Content="⇩" Click="ButtonDown_Click" Grid.Column="3"/>
                 </Grid>

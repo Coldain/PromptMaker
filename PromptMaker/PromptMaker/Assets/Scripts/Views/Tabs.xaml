@@ -7,8 +7,8 @@
              mc:Ignorable="d">
     <Grid>
         <StackPanel Orientation="Horizontal" >            
-            <TextBox Name="textName" Text="{Binding Title}" Background="{x:Null}" BorderBrush="{x:Null}" IsReadOnly="True" IsHitTestVisible="False" Foreground="White"/>
-            <Button Name="ButtonX" Content="X" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center" Width="15" Height="15" Click="ButtonDeleteTab_Click"/>
+            <TextBlock Name="textName" Text="{Binding Title}" Background="{x:Null}" IsHitTestVisible="False" Foreground="White" TextTrimming="CharacterEllipsis" MaxWidth="100 "/>
+            <Button Name="ButtonX" Content="X" Padding="0" Background="{x:Null}" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center" Width="15" Height="15" Click="ButtonDeleteTab_Click"/>
         </StackPanel>
     </Grid>
 </UserControl>
