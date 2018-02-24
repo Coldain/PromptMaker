@@ -169,9 +169,15 @@ namespace PromptMaker.Assets.Scripts.Views
             {
                 TextBox tempTextBox = tempGrid.Children[3] as TextBox;
                 if (tempTextBox.TextWrapping == TextWrapping.NoWrap)
+                {
                     tempTextBox.TextWrapping = TextWrapping.Wrap;
+                    tempTextBox.MaxHeight = 22;
+                }
                 else
+                {
                     tempTextBox.TextWrapping = TextWrapping.NoWrap;
+                    tempTextBox.ClearValue(MaxHeightProperty);                    
+                }
             }
         }
 
