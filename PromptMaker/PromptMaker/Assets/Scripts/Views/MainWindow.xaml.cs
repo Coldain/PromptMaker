@@ -18,6 +18,10 @@ using System.Xml;
 using System.Xml.Serialization;
 using System.IO;
 using System.Collections;
+using System.Speech.Synthesis;
+using System.Reflection;
+using System.Speech.AudioFormat;
+using NAudio.Wave;
 
 namespace PromptMaker.Assets.Scripts.Views
 {
@@ -27,10 +31,15 @@ namespace PromptMaker.Assets.Scripts.Views
     public partial class MainWindow : Window
     {
         int x = 0;
+        int prodloop = 0;
+        string savePath = "";
+        string ENV = "";
+        string originalBaseDirectory = "";
+        string recordingSubdirectories = "";
         public ObservableCollection<Page> pages;
         Setting theSetting;
         public MainWindow()
-        {
+        {            
             // Initialize Main Window and add setting page
             this.DataContext = pages;
             InitializeComponent();
@@ -43,7 +52,7 @@ namespace PromptMaker.Assets.Scripts.Views
             x = 1;
             ButtonAddScript_Click(sender, e);
         }
-        // Delete current Tab (only scripts, not Settings or Add Button
+        // Delete current Tab (only scripts, not Settings or Add Button)
         private void ButtonDeleteScript_Click(object sender, RoutedEventArgs e)
         {
             int i = tabController.SelectedIndex;
@@ -152,6 +161,7 @@ namespace PromptMaker.Assets.Scripts.Views
 
         }
 
+        // Export data to XML files to be imported into studio
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
             if (theSetting.UserID != "" && theSetting.BusinessNumber != "" && theSetting.BusinessNumber != "0")
@@ -162,7 +172,30 @@ namespace PromptMaker.Assets.Scripts.Views
                     System.Windows.Forms.DialogResult mySaveDialog = folderBrowserDialog.ShowDialog();
                     if (mySaveDialog == System.Windows.Forms.DialogResult.OK)
                     {
-                        string savePath = folderBrowserDialog.SelectedPath + "\\" + "Record_Prompts_Here.XML";
+                        savePath = folderBrowserDialog.SelectedPath + "\\";
+                        if (theSetting.PlaceHolder)
+                        {
+                            Directory.CreateDirectory(savePath + "\\Prompts\\");
+                        }
+                        // Set file name for regular and prod / dev options
+                        if (theSetting.Environment == true && prodloop == 0)
+                        {
+                            savePath = savePath + "Record_Prompts_Here_Dev.XML";
+                            ENV = "Dev";
+                            originalBaseDirectory = theSetting.BaseDirectory;
+                            theSetting.BaseDirectory = originalBaseDirectory + "Dev\\";
+                        }
+                        else if (theSetting.Environment == true && prodloop == 1)
+                        {
+                            savePath = savePath + "Record_Prompts_Here_Prod.XML";
+                            ENV = "Prod";
+                            theSetting.BaseDirectory = originalBaseDirectory + "Prod\\";
+                        }
+                        else
+                        {
+                            savePath = savePath + "Record_Prompts_Here.XML";
+                            ENV = "";
+                        }
                         // Load in all the XMLs
                         XmlDocument ActionsXML = new XmlDocument();
                         string pathBase = @"C:\Users\ethan.jensen\Source\Repos\PromptMaker\PromptMaker\PromptMaker\Assets\Scripts\Models\XML Template\";
@@ -197,6 +230,7 @@ namespace PromptMaker.Assets.Scripts.Views
                         int spacing = 80;
                         int seperator = 128;
                         List<string> usedAnnotations = new List<string>();
+                        recordingSubdirectories = "";
                         foreach (TabItem tempItem in tabController.Items)
                         {
                             if (tabController.Items.IndexOf(tempItem) > 0 && tabController.Items.IndexOf(tempItem) != tabController.Items.Count && tempItem.Content != null)
@@ -208,19 +242,35 @@ namespace PromptMaker.Assets.Scripts.Views
                                 AnotationSetting(AnnotationXML, i.ToString(), tempScript.ScriptName, "148", "33", "16", (ystart + (iy * seperator)).ToString());
                                 AddAction(ActionsXML, AnnotationXML);
                                 i++;
+                                //if (page.usedDirectories.Count == 1)
+                                //{
+                                //    AnotationSetting(AnnotationXML, i.ToString(), page.usedDirectories[1], "59", "910", "336", "96");
+                                //    AddAction(ActionsXML, AnnotationXML);
+                                //    i++;
+                                //}
+                                //if (page.usedDirectories.Count == 2)
+                                //{
+                                //    AnotationSetting(AnnotationXML, i.ToString(), page.usedDirectories[1], "59", "910", "336", "96");
+                                //    AddAction(ActionsXML, AnnotationXML);
+                                //    i++;
+                                //    AnotationSetting(AnnotationXML, i.ToString(), page.usedDirectories[2], "774", "39", "416", "32");
+                                //    AddAction(ActionsXML, AnnotationXML);
+                                //    i++;
+                                //}
                                 string PromptPrefixCoding = "";
-                                string PromptSufixCoding = "";
+                                string PromptSuffixCoding = "";
+                                string SpokenSuffix = "";
                                 foreach (string tempDirectoryName in page.usedDirectories)
                                 {
                                     PromptPrefixCoding = PromptPrefixCoding + "{" + tempDirectoryName + "}\\";
-                                    PromptSufixCoding = PromptSufixCoding + "_{" + tempDirectoryName + "}";
+                                    PromptSuffixCoding = PromptSuffixCoding + "_{" + tempDirectoryName + "}";
                                 }
                                 int ix = 0;
-                                PlaySetting(PlayXML, i.ToString(), tempScript.ScriptName + " Coding", ((char)34).ToString() + theSetting.BaseDirectory + PromptPrefixCoding + String.Join(PromptSufixCoding + ".wav" + ((char)34).ToString() + " " + ((char)34).ToString() + theSetting.BaseDirectory + PromptPrefixCoding, tempScript.Sequence) + PromptSufixCoding + ".wav" + ((char)34).ToString(), tempScript.Phrase, (xstart + (ix * spacing)).ToString(), (ystart + (iy * seperator)).ToString());
+                                PlaySetting(PlayXML, i.ToString(), tempScript.ScriptName + " Coding", ((char)34).ToString() + theSetting.BaseDirectory + PromptPrefixCoding + String.Join(PromptSuffixCoding + ".wav" + ((char)34).ToString() + " " + ((char)34).ToString() + theSetting.BaseDirectory + PromptPrefixCoding, tempScript.Sequence) + PromptSuffixCoding + ".wav" + ((char)34).ToString(), tempScript.Phrase, (xstart + (ix * spacing)).ToString(), (ystart + (iy * seperator)).ToString());
                                 AddAction(ActionsXML, PlayXML);
                                 i++;
                                 ix++;
-                                MenuSetting(MenuXML, i.ToString(), tempScript.ScriptName + " Coding", ((char)34).ToString() + theSetting.BaseDirectory + PromptPrefixCoding + String.Join(PromptSufixCoding + ".wav" + ((char)34).ToString() + " " + ((char)34).ToString() + theSetting.BaseDirectory + PromptPrefixCoding, tempScript.Sequence) + PromptSufixCoding + ".wav" + ((char)34).ToString(), tempScript.Phrase, (xstart + (ix * spacing)).ToString(), (ystart + (iy * seperator)).ToString());
+                                MenuSetting(MenuXML, i.ToString(), tempScript.ScriptName + " Coding", ((char)34).ToString() + theSetting.BaseDirectory + PromptPrefixCoding + String.Join(PromptSuffixCoding + ".wav" + ((char)34).ToString() + " " + ((char)34).ToString() + theSetting.BaseDirectory + PromptPrefixCoding, tempScript.Sequence) + PromptSuffixCoding + ".wav" + ((char)34).ToString(), tempScript.Phrase, (xstart + (ix * spacing)).ToString(), (ystart + (iy * seperator)).ToString());
                                 AddAction(ActionsXML, MenuXML);
                                 i++;
                                 ix++;
@@ -235,15 +285,25 @@ namespace PromptMaker.Assets.Scripts.Views
                                     foreach (string s in possibilitesOutput)
                                     {
                                         PromptPrefixCoding = "";
-                                        PromptSufixCoding = "";
+                                        PromptSuffixCoding = "";
+                                        SpokenSuffix = "";
                                         string ss = s.Substring(1);
                                         List<string> l = ss.Split(',').ToList();
                                         foreach (string sss in l)
                                         {
                                             PromptPrefixCoding = PromptPrefixCoding + sss + "\\";
-                                            PromptSufixCoding = PromptSufixCoding + "_" + sss;
+                                            PromptSuffixCoding = PromptSuffixCoding + "_" + sss;
+                                            SpokenSuffix = SpokenSuffix + sss + ". ";                                            
                                         }
-                                        PlaySetting(PlayXML, i.ToString(), tempScript.ScriptName + " " + String.Join(" ", l), ((char)34).ToString() + theSetting.BaseDirectory + PromptPrefixCoding + String.Join(PromptSufixCoding + ".wav" + ((char)34).ToString() + " " + ((char)34).ToString() + theSetting.BaseDirectory + PromptPrefixCoding, tempScript.Sequence) + PromptSufixCoding + ".wav" + ((char)34).ToString(), tempScript.Phrase, (xstart + seperator + (ix * spacing)).ToString(), (ystart + (iy * seperator)).ToString());
+                                        recordingSubdirectories = recordingSubdirectories + PromptPrefixCoding + "|";
+                                        if (theSetting.PlaceHolder)
+                                        {
+                                            foreach (Models.Prompt tempPrompt in tempScript.Prompts)
+                                            {
+                                                CreateWAV(folderBrowserDialog.SelectedPath + "\\Prompts\\" + tempPrompt.PromptName + PromptSuffixCoding + ".wav", SpokenSuffix + " " + tempPrompt.PromptVerbiage);
+                                            }
+                                        }
+                                        PlaySetting(PlayXML, i.ToString(), tempScript.ScriptName + " " + String.Join(" ", l), ((char)34).ToString() + theSetting.BaseDirectory + PromptPrefixCoding + String.Join(PromptSuffixCoding + ".wav" + ((char)34).ToString() + " " + ((char)34).ToString() + theSetting.BaseDirectory + PromptPrefixCoding, tempScript.Sequence) + PromptSuffixCoding + ".wav" + ((char)34).ToString(), tempScript.Phrase, (xstart + seperator + (ix * spacing)).ToString(), (ystart + (iy * seperator)).ToString());
                                         AddAction(ActionsXML, PlayXML);
                                         i++;
                                         ix++;
@@ -261,7 +321,25 @@ namespace PromptMaker.Assets.Scripts.Views
                         }
                         // Loop through Scripts 
                         //PlaySetting(PlayXML);
+                        if (recordingSubdirectories.Length > 1)
+                        {
+                            recordingSubdirectories.Substring(0, recordingSubdirectories.Length - 1);
+                        }
+                        string snippetblock = "BaseDirectory = " + ((char)34).ToString() + theSetting.BaseDirectory + ((char)34).ToString() + ((char)10).ToString() +
+                                              "FileName = " + ((char)34).ToString() + "DELETEME.wav" + ((char)10).ToString() +
+                                              "SubDirectories = " + ((char)34).ToString() + recordingSubdirectories + ((char)34).ToString() + ((char)10).ToString() + ((char)10).ToString();
                         ActionsXML.Save(savePath);
+                        if (theSetting.Environment == true && prodloop == 0)
+                        {
+                            prodloop = 1;
+                            ButtonSave_Click(sender, e);
+                            theSetting.BaseDirectory = originalBaseDirectory;
+                        }
+                        else if (theSetting.Environment == true && prodloop == 1)
+                        {
+                            prodloop = 0;
+                            theSetting.BaseDirectory = originalBaseDirectory;
+                        }                        
                     }
                 }
                 else
@@ -320,6 +398,32 @@ namespace PromptMaker.Assets.Scripts.Views
         {
             XmlNode currentNode = Main.SelectSingleNode("/ScriptContainer/Actions") as XmlNode;
             currentNode.AppendChild(currentNode.OwnerDocument.ImportNode(Action.DocumentElement, true));
+        }
+
+        private void CreateWAV (string fileName, string verbiage)
+        {
+            using (Stream ret = new MemoryStream())
+            using (SpeechSynthesizer synth = new SpeechSynthesizer())
+            {
+                var mi = synth.GetType().GetMethod("SetOutputStream", BindingFlags.Instance | BindingFlags.NonPublic);
+                //   var fmt = new SpeechAudioFormatInfo(8000, AudioBitsPerSample.Eight, AudioChannel.Mono);
+                var fmt = new SpeechAudioFormatInfo(EncodingFormat.ULaw, 8000, 8, 1, 16000, 2, null);
+                mi.Invoke(synth, new object[] { ret, fmt, true, true });
+                synth.SelectVoiceByHints(VoiceGender.Female, VoiceAge.Adult);
+                synth.Speak(verbiage);
+                // Testing code:
+                using (var fs = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.None))
+                {
+                    ret.Position = 0;
+                    byte[] buffer = new byte[4096];
+                    for (; ; )
+                    {
+                        int len = ret.Read(buffer, 0, buffer.Length);
+                        if (len == 0) break;
+                        fs.Write(buffer, 0, len);
+                    }
+                }
+            }
         }
 
         public static List<string> GetAllPossibleCombos(List<List<string>> strings)

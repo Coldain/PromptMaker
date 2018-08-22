@@ -10,6 +10,7 @@
              Height="365" Width="250"
              Background="#FF575757">
     <Window.Resources>
+        <!-- Toggles textbox to text box when not focused to show ... when text is longer than the box with a background-->
         <Style x:Key="EllipsisBG" TargetType="TextBox">
             <Style.Triggers>
                 <DataTrigger Binding="{Binding IsKeyboardFocused, RelativeSource={RelativeSource Self}}" Value="false">
@@ -23,6 +24,7 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
+        <!-- Toggles textbox to text box when not focused to show ... when text is longer than the box without a background-->
         <Style x:Key="EllipsisNoBG" TargetType="TextBox">
             <Style.Triggers>
                 <DataTrigger Binding="{Binding IsKeyboardFocused, RelativeSource={RelativeSource Self}}" Value="false">
@@ -36,6 +38,7 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
+        <!-- Template for the variations, bound to a SubDirectory datatype-->
         <DataTemplate x:Key="directories" DataType="{x:Type binder:SubDirectory}">
         <StackPanel Margin="-5,-5,5,0">
                 <Grid>

@@ -14,7 +14,7 @@
                 <RowDefinition Height="500"/>
                 <RowDefinition Height="25"/>
             </Grid.RowDefinitions>
-            <!-- Check for how to from here https://stackoverflow.com/questions/3468866/tabcontrol-with-add-new-tab-button  -->
+            <!-- Style Triggers for the tabs  -->
             <TabControl Name="tabController" Background="#FF444444" Grid.RowSpan="2">
                 <TabControl.Resources>
                     <Style TargetType="{x:Type TabItem}">

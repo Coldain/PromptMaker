@@ -18,7 +18,9 @@ namespace PromptMaker.Assets.Scripts.Models
         string _businessNumber;
         string _URI;
         string _userID;
-        #endregion    
+        bool _placeHolder;
+        bool _environment;
+        #endregion
 
         #region Properties
         public ObservableCollection<SubDirectory> SubDirectories
@@ -105,16 +107,38 @@ namespace PromptMaker.Assets.Scripts.Models
                 NotifyPropertyChanged("UserID");
             }
         }
+
+        public bool PlaceHolder
+        {
+            get
+            {
+                return _placeHolder;
+            }
+            set
+            {
+                _placeHolder = value;
+                NotifyPropertyChanged("PlaceHolder");
+            }
+        }
+
+        public bool Environment
+        {
+            get
+            {
+                return _environment;
+            }
+            set
+            {
+                _environment = value;
+                NotifyPropertyChanged("Environment");
+            }
+        }
         #endregion
 
         #region Constructors
         public Setting()
-        {
-            
+        {            
             SubDirectories = new ObservableCollection<SubDirectory>();
-            ObservableCollection<SubDirectory> ProdLevelSub = new ObservableCollection<SubDirectory>();
-            ProdLevelSub.Add(new SubDirectory("Prod", 0, null, "ProdLevel"));
-            ProdLevelSub.Add(new SubDirectory("Dev", 0, null, "ProdLevel"));
             ObservableCollection<SubDirectory> RegionSub = new ObservableCollection<SubDirectory>();
             RegionSub.Add(new SubDirectory("US", 1, null, "Region"));
             RegionSub.Add(new SubDirectory("EMEA", 1, null, "Region"));
@@ -122,13 +146,14 @@ namespace PromptMaker.Assets.Scripts.Models
             ObservableCollection<SubDirectory> LangSub = new ObservableCollection<SubDirectory>();
             LangSub.Add(new SubDirectory("Eng", 0, null, "Lang"));
             LangSub.Add(new SubDirectory("Spa", 0, null, "Lang"));
-            SubDirectories.Add(new SubDirectory("ProdLevel",0, ProdLevelSub, null));
             SubDirectories.Add(new SubDirectory("Region",1, RegionSub, null));
             SubDirectories.Add(new SubDirectory("Lang",0, LangSub, null));
             ProjectNumber = 0;
             BusinessNumber = "258";
             UserID = "6817690";
             BaseDirectory = "Prompts\\";
+            PlaceHolder = false;
+            Environment = false;
         }
         #endregion
 

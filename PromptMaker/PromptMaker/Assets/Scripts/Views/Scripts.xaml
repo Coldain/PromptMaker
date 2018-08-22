@@ -10,6 +10,7 @@
       Title="{Binding ScriptName}"
       Background="#FF666666">
     <Page.Resources>
+        <!-- Toggles textbox to text box when not focused to show ... when text is longer than the box with a background-->
         <Style x:Key="EllipsisBG" TargetType="TextBox">
             <Style.Triggers>
                 <DataTrigger Binding="{Binding IsKeyboardFocused, RelativeSource={RelativeSource Self}}" Value="false">
@@ -23,6 +24,7 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
+        <!-- Toggles textbox to text box when not focused to show ... when text is longer than the box without a background-->
         <Style x:Key="EllipsisNoBG" TargetType="TextBox">
             <Style.Triggers>
                 <DataTrigger Binding="{Binding IsKeyboardFocused, RelativeSource={RelativeSource Self}}" Value="false">
@@ -54,6 +56,7 @@
         </Style>
         <!--Need to have button for adanced prompt. That will pop open a user control to insert variables or wrap things in <spell> or add % @ # in the " "
         Also need to add ... for the regular one to display a bigger textbox-->
+        <!-- Template for the prompts, bound to a Prompt datatype-->
         <DataTemplate x:Key="prompts" DataType="{x:Type binder:Prompt}">
             <StackPanel Margin="-5,-5,5,0">
                 <Grid Margin="0,3,0,0">
@@ -100,6 +103,7 @@
                 </Grid>
             </StackPanel>
         </DataTemplate>
+        <!-- Template for the subdirectories, bound to a SubDirectory datatype-->
         <DataTemplate x:Key="subdirectories" DataType="{x:Type binder:SubDirectory}">
             <StackPanel Margin="-5,-5,5,0">
                 <Grid Margin="0,3,0,0">
@@ -146,6 +150,7 @@
                 <ListBox Tag="{Binding Owner}" Name="listViewSubDirectories" ItemsSource="{Binding Variations}" BorderBrush="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" 
                      Grid.Row="3" Margin="0,0,-1,0" IsSynchronizedWithCurrentItem="True" Background="#FFB2B2B2">
                     <ListBox.ItemTemplate>
+                        <!-- Template for the variations, bound to a subdirectory datatype-->
                         <DataTemplate DataType="{x:Type binder:SubDirectory}">
                             <StackPanel>
                                 <Grid Margin="0,3,0,0">

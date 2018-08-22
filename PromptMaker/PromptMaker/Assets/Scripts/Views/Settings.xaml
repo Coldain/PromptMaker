@@ -10,6 +10,7 @@
       Title="Setting"
       Background="#FF666666">
     <Page.Resources>
+        <!-- Toggles textbox to text box when not focused to show ... when text is longer than the box with a background-->
         <Style x:Key="EllipsisBG" TargetType="TextBox">
             <Style.Triggers>
                 <DataTrigger Binding="{Binding IsKeyboardFocused, RelativeSource={RelativeSource Self}}" Value="false">
@@ -23,6 +24,7 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
+        <!-- Toggles textbox to text box when not focused to show ... when text is longer than the box without a background-->
         <Style x:Key="EllipsisNoBG" TargetType="TextBox">
             <Style.Triggers>
                 <DataTrigger Binding="{Binding IsKeyboardFocused, RelativeSource={RelativeSource Self}}" Value="false">
@@ -36,6 +38,7 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
+        <!-- Template for the subdirectories, bound to a Setting datatype-->
         <DataTemplate x:Key="directories" DataType="{x:Type binder:Setting}">
             <StackPanel Margin="-5,-5,5,0">
                 <Grid Margin="0,3,0,0">
@@ -79,6 +82,7 @@
                 <ListBox Name="listViewSubDirectories" ItemsSource="{Binding Variations}" BorderBrush="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" 
                      Grid.Row="3" Margin="0,0,-1,0" IsSynchronizedWithCurrentItem="True" Background="#FFB2B2B2">
                     <ListBox.ItemTemplate>
+                        <!-- Template for the variations, bound to a subdirectory datatype-->
                         <DataTemplate DataType="{x:Type binder:SubDirectory}">
                             <StackPanel>
                                 <Grid Margin="0,3,0,0">
@@ -127,7 +131,7 @@
             <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="1" Background="#FFB2B2B2" Text="{Binding BaseDirectory}" Style="{StaticResource EllipsisBG}"/>
             <Label Content="BU Number:" Margin="0,0,0,0.2" Padding="0" Grid.Row="3" Foreground="Black" FontWeight="Bold"/>
             <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="3" Background="#FFB2B2B2" Text="{Binding BusinessNumber}" Style="{StaticResource EllipsisBG}"/>
-            <Label Content="User ClustID:" Margin="0,0,0,0.2" Padding="0" Grid.Row="5" FontWeight="Bold"/>
+            <Label Content="User ID:" Margin="0,0,0,0.2" Padding="0" Grid.Row="5" FontWeight="Bold"/>
             <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="5" Background="#FFB2B2B2" Text="{Binding UserID}" Style="{StaticResource EllipsisBG}"/>
         </Grid>
         <Grid Margin="0" Grid.Row="3" Grid.Column="1" Grid.RowSpan="3" >
@@ -171,15 +175,31 @@
                 <RowDefinition Height="3" />
                 <RowDefinition Height="22" />
                 <RowDefinition Height="6" />
+                <RowDefinition Height="22" />
+                <RowDefinition Height="6" />
+                <RowDefinition Height="22" />
+                <RowDefinition Height="6" />
+                <RowDefinition Height="22" />
+                <RowDefinition Height="6" />
+                <RowDefinition Height="22" />
+                <RowDefinition Height="6" />
+                <RowDefinition Height="22" />
+                <RowDefinition Height="6" />
                 <RowDefinition Height="*" />
 
             </Grid.RowDefinitions>
-            <Label Content="This can be used to look up your Cluster User ID." Margin="0,0,0,0.2" Padding="0" Grid.Row="1" Foreground="Black" HorizontalAlignment="Center" Grid.ColumnSpan="3"/>
+            <!--<Label Content="This can be used to look up your Cluster User ID." Margin="0,0,0,0.2" Padding="0" Grid.Row="1" Foreground="Black" HorizontalAlignment="Center" Grid.ColumnSpan="3"/>
             <Label Content="Project Number:" Margin="0,0,0,0.2" Padding="0" Grid.Row="3" FontWeight="Bold"/>
             <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="3" Background="#FFB2B2B2" Text="{Binding ProjectNumber}" Style="{StaticResource EllipsisBG}"/>
             <Label Content="User Cluster Email:" Margin="0,0,0,0.2" Padding="0" Grid.Row="5" FontWeight="Bold"/>
             <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="5" Background="#FFB2B2B2" Text="{Binding UserEmail}" Style="{StaticResource EllipsisBG}"/>
-            <Button Content="Lookup BU and User ID" Grid.Row="7" Grid.ColumnSpan="3" Width="150" Margin="0,5,0,0" Height="20" Click="Lookup_Click" VerticalAlignment="Top" />
+            <Button Content="Lookup BU and User ID" Grid.Row="7" Grid.ColumnSpan="3" Width="150" Margin="0,5,0,0" Height="20" Click="Lookup_Click" VerticalAlignment="Top" />-->
+            <Label Content="Place Holder .wav?" Margin="0" Padding="0" Grid.Row="9" FontWeight="Bold"/>
+            <CheckBox Grid.Row="9" Grid.Column="2" Margin="0,2,0,0" IsChecked="{Binding PlaceHolder}" />
+            <Label Content="Create placeholder .wav files via TTS from verbiage?" Margin="0,0,0,0.2" Padding="0" Grid.Row="11" Foreground="Black" HorizontalAlignment="Center" Grid.ColumnSpan="3" />
+            <Label Content="Prod / Dev ENV?" Margin="0" Padding="0" Grid.Row="13" FontWeight="Bold"/>
+            <CheckBox Grid.Row="13" Grid.Column="2" Margin="0,2,0,0" IsChecked="{Binding Environment}" />
+            <Label Content="Make seperate Dev and Prod versions?" Margin="0,0,0,0.2" Padding="0" Grid.Row="15" Foreground="Black" HorizontalAlignment="Center" Grid.ColumnSpan="3" />
         </Grid>
     </Grid>
 </Page>

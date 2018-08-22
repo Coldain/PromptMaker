@@ -2,9 +2,9 @@
 <ActionStruct>
   <ActionID>15</ActionID>
   <Action>MENU</Action>
-  <Caption>PLACEHOLDER_Script2 {Lang} {ProdLevel}</Caption>
+  <Caption>PLACEHOLDER_Script2 {Lang} {ENV}</Caption>
   <Parameters>
-    <string>"{ProdLevel}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "{ProdLevel}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "{ProdLevel}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "{ProdLevel}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+    <string>"{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
     <string>PLACEHOLDER Prompt_Name_1_{Lang}.wav
 PLACEHOLDER Phrase Details 1
 
