@@ -8,9 +8,9 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("PromptMaker")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Creates and organizes prompts for recording and coding.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("NICE InContact")]
 [assembly: AssemblyProduct("PromptMaker")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]

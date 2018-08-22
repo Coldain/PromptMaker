@@ -21,7 +21,6 @@ using System.Collections;
 using System.Speech.Synthesis;
 using System.Reflection;
 using System.Speech.AudioFormat;
-using NAudio.Wave;
 
 namespace PromptMaker.Assets.Scripts.Views
 {
@@ -37,6 +36,8 @@ namespace PromptMaker.Assets.Scripts.Views
         string originalBaseDirectory = "";
         string recordingSubdirectories = "";
         public ObservableCollection<Page> pages;
+        System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
+        System.Windows.Forms.DialogResult mySaveDialog;
         Setting theSetting;
         public MainWindow()
         {            
@@ -168,8 +169,11 @@ namespace PromptMaker.Assets.Scripts.Views
             {
                 if (tabController.Items.Count > 2)
                 {
-                    System.Windows.Forms.FolderBrowserDialog folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-                    System.Windows.Forms.DialogResult mySaveDialog = folderBrowserDialog.ShowDialog();
+                    if (prodloop != 1)
+                    {
+                        folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+                        mySaveDialog = folderBrowserDialog.ShowDialog();
+                    }                    
                     if (mySaveDialog == System.Windows.Forms.DialogResult.OK)
                     {
                         savePath = folderBrowserDialog.SelectedPath + "\\";

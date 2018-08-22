@@ -144,7 +144,7 @@
                     <TextBox HorizontalAlignment="Left" MinWidth="100" Grid.Column="1" VerticalAlignment="Center" Text="{Binding Path}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontWeight="Bold" Style="{StaticResource EllipsisNoBG}"/>
                     <Button Tag="Directory" Content="⇧" Click="ButtonUp_Click" Grid.Column="2" Height="20" Width="20" />
                     <Button Tag="Directory" Content="⇩" Click="ButtonDown_Click" Grid.Column="4" Height="20" Width="20" />
-                    <CheckBox Tag="Directory" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Usage_Checked" />
+                    <CheckBox Tag="Directory" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center" Click="UsageAll_Checked" />
                     <Button Tag="Directory" Content="..." Click="ButtonMore_Click" Grid.Column="8" Height="17" Width="20" Padding="0" Margin="0" VerticalContentAlignment="Center"/>
                 </Grid>
                 <ListBox Tag="{Binding Owner}" Name="listViewSubDirectories" ItemsSource="{Binding Variations}" BorderBrush="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" 

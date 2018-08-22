@@ -181,6 +181,78 @@ namespace PromptMaker.Assets.Scripts.Views
             }
         }
 
+        private void UsageAll_Checked(object sender, RoutedEventArgs e)
+        {
+            CheckBox tempCheckBox = sender as CheckBox;
+            Grid tempGrid = tempCheckBox.Parent as Grid;
+            StackPanel tempStackPanel = tempGrid.Parent as StackPanel;
+            UIElementCollection tempUIElementCollection = tempStackPanel.Children as UIElementCollection;
+            ListBox tempListBox = tempUIElementCollection[1] as ListBox;
+            //foreach(var tempLBItem in tempListBox.Items)
+            //{
+            //    CheckBox tempCheckBox2 = tempLBItem as CheckBox;
+            //    Usage_Checked(tempCheckBox2, null);
+            //}
+            if (tempCheckBox.Tag.ToString() == "Directory")
+            {
+                SubDirectory tempSubDirectory = tempCheckBox.DataContext as SubDirectory;
+                if ((bool)tempCheckBox.IsChecked)
+                {
+                    if (!usedDirectories.Contains(tempSubDirectory.Path))
+                    {
+                        usedDirectories.Add(tempSubDirectory.Path);
+                    }
+                }
+                else
+                    usedDirectories.Remove(tempSubDirectory.Path);
+            }
+            else if (tempCheckBox.Tag.ToString() == "Prompt")
+            {
+                SubDirectory tempPrompt = tempCheckBox.DataContext as SubDirectory;
+                if ((bool)tempCheckBox.IsChecked)
+                {
+                    bool x = false;
+                    if (usedVariations.Count != 0)
+                    {
+                        Tuple<string, List<string>> tupleduple = new Tuple<string, List<string>>(null, null);
+                        foreach (Tuple<string, List<string>> tempTuple in usedVariations.ToList())
+
+                            if (tempTuple.Item1 == tempPrompt.Owner)
+                            {
+                                x = true;
+                                tupleduple = tempTuple;
+                            }
+                        if (x)
+                        {
+                            tupleduple.Item2.Add(tempPrompt.Path);
+                        }
+                        else
+                        {
+                            List<string> tempList = new List<string>();
+                            tempList.Add(tempPrompt.Path);
+                            Tuple<string, List<string>> newTuple = new Tuple<string, List<string>>(tempPrompt.Owner, tempList);
+                            usedVariations.Add(newTuple);
+                        }
+
+                    }
+                    else
+                    {
+                        List<string> tempList = new List<string>();
+                        tempList.Add(tempPrompt.Path);
+                        Tuple<string, List<string>> newTuple = new Tuple<string, List<string>>(tempPrompt.Owner, tempList);
+                        usedVariations.Add(newTuple);
+                    }
+                }
+                else
+                {
+                    foreach (Tuple<string, List<string>> tempTuple in usedVariations)
+                        if (tempTuple.Item1 == tempPrompt.Owner)
+                        {
+                            tempTuple.Item2.Remove(tempPrompt.Path);
+                        }
+                }
+            }
+        }
         private void Usage_Checked(object sender, RoutedEventArgs e)
         {
             CheckBox tempCheckBox = sender as CheckBox;
