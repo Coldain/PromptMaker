@@ -184,10 +184,11 @@ namespace PromptMaker.Assets.Scripts.Views
         private void UsageAll_Checked(object sender, RoutedEventArgs e)
         {
             CheckBox tempCheckBox = sender as CheckBox;
-            Grid tempGrid = tempCheckBox.Parent as Grid;
-            StackPanel tempStackPanel = tempGrid.Parent as StackPanel;
-            UIElementCollection tempUIElementCollection = tempStackPanel.Children as UIElementCollection;
-            ListBox tempListBox = tempUIElementCollection[1] as ListBox;
+            //StackPanel tempStackPanel = tempGrid.Parent as StackPanel;
+            //ListBox tempListBox2 = tempStackPanel.Children[1] as ListBox;
+            //UIElementCollection tempUIElementCollection = tempStackPanel.Children as UIElementCollection;
+            //ListBox tempListBox = tempUIElementCollection[1] as ListBox;
+            //CheckBox checkBox = tempListBox2.SelectedItem as CheckBox; 
             //foreach(var tempLBItem in tempListBox.Items)
             //{
             //    CheckBox tempCheckBox2 = tempLBItem as CheckBox;
@@ -287,7 +288,10 @@ namespace PromptMaker.Assets.Scripts.Views
                             }
                         if (x)
                         {
-                            tupleduple.Item2.Add(tempPrompt.Path);
+                            if (!tupleduple.Item2.Contains(tempPrompt.Path))
+                            {
+                                tupleduple.Item2.Add(tempPrompt.Path);
+                            }                         
                         }
                         else
                         {
@@ -311,7 +315,10 @@ namespace PromptMaker.Assets.Scripts.Views
                     foreach (Tuple<string, List<string>> tempTuple in usedVariations)
                         if (tempTuple.Item1 == tempPrompt.Owner)
                         {
-                            tempTuple.Item2.Remove(tempPrompt.Path);
+                            while (tempTuple.Item2.Contains(tempPrompt.Path))
+                            {
+                                tempTuple.Item2.Remove(tempPrompt.Path);
+                            }                            
                         }
                 }
             }

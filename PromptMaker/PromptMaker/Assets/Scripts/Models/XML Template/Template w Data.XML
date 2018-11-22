@@ -31,7 +31,7 @@
       <Action>PLAY</Action>
       <Caption>PLACEHOLDER_Script2 PLACEHOLDER Ita PLACEHOLDER DEV</Caption>
       <Parameters>
-        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_1.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_2.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_3.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_4.wav"</string>
         <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Ita.wav
 PLACEHOLDER Phrase Details 1
 
@@ -72,7 +72,7 @@ PLACEHOLDER Phrase Details 4
       <Action>PLAY</Action>
       <Caption>PLACEHOLDER_Script2 PLACEHOLDER Pol PLACEHOLDER DEV</Caption>
       <Parameters>
-        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Pol\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Pol\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Pol\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Pol\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Pol\PLACEHOLDER Prompt_Name_1.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Pol\PLACEHOLDER Prompt_Name_2.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Pol\PLACEHOLDER Prompt_Name_3.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Pol\PLACEHOLDER Prompt_Name_4.wav"</string>
         <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Pol.wav
 PLACEHOLDER Phrase Details 1
 
@@ -113,7 +113,7 @@ PLACEHOLDER Phrase Details 4
       <Action>PLAY</Action>
       <Caption>PLACEHOLDER_Script2 PLACEHOLDER Rus PLACEHOLDER DEV</Caption>
       <Parameters>
-        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Rus\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Rus\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Rus\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Rus\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Rus\PLACEHOLDER Prompt_Name_1.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Rus\PLACEHOLDER Prompt_Name_2.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Rus\PLACEHOLDER Prompt_Name_3.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Rus\PLACEHOLDER Prompt_Name_4.wav"</string>
         <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Rus.wav
 PLACEHOLDER Phrase Details 1
 
@@ -154,7 +154,7 @@ PLACEHOLDER Phrase Details 4
       <Action>PLAY</Action>
       <Caption>PLACEHOLDER_Script2 PLACEHOLDER Por PLACEHOLDER DEV</Caption>
       <Parameters>
-        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Por\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Por\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Por\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Por\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Por\PLACEHOLDER Prompt_Name_1.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Por\PLACEHOLDER Prompt_Name_2.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Por\PLACEHOLDER Prompt_Name_3.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Por\PLACEHOLDER Prompt_Name_4.wav"</string>
         <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Por.wav
 PLACEHOLDER Phrase Details 1
 
@@ -195,7 +195,7 @@ PLACEHOLDER Phrase Details 4
       <Action>PLAY</Action>
       <Caption>PLACEHOLDER_Script2 PLACEHOLDER Ger PLACEHOLDER DEV</Caption>
       <Parameters>
-        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Ger\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ger\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ger\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ger\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Ger\PLACEHOLDER Prompt_Name_1.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ger\PLACEHOLDER Prompt_Name_2.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ger\PLACEHOLDER Prompt_Name_3.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ger\PLACEHOLDER Prompt_Name_4.wav"</string>
         <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Ger.wav
 PLACEHOLDER Phrase Details 1
 
@@ -236,7 +236,7 @@ PLACEHOLDER Phrase Details 4
       <Action>PLAY</Action>
       <Caption>PLACEHOLDER_Script2 PLACEHOLDER Dut PLACEHOLDER DEV</Caption>
       <Parameters>
-        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Dut\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Dut\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Dut\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Dut\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Dut\PLACEHOLDER Prompt_Name_1.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Dut\PLACEHOLDER Prompt_Name_2.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Dut\PLACEHOLDER Prompt_Name_3.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Dut\PLACEHOLDER Prompt_Name_4.wav"</string>
         <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Dut.wav
 PLACEHOLDER Phrase Details 1
 
@@ -277,7 +277,7 @@ PLACEHOLDER Phrase Details 4
       <Action>PLAY</Action>
       <Caption>PLACEHOLDER_Script2 PLACEHOLDER Fre PLACEHOLDER DEV</Caption>
       <Parameters>
-        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Fre\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Fre\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Fre\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Fre\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Fre\PLACEHOLDER Prompt_Name_1.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Fre\PLACEHOLDER Prompt_Name_2.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Fre\PLACEHOLDER Prompt_Name_3.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Fre\PLACEHOLDER Prompt_Name_4.wav"</string>
         <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Fre.wav
 PLACEHOLDER Phrase Details 1
 
@@ -318,7 +318,7 @@ PLACEHOLDER Phrase Details 4
       <Action>PLAY</Action>
       <Caption>PLACEHOLDER_Script2 PLACEHOLDER Spa PLACEHOLDER DEV</Caption>
       <Parameters>
-        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Spa\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Spa\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Spa\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Spa\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Spa\PLACEHOLDER Prompt_Name_1.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Spa\PLACEHOLDER Prompt_Name_2.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Spa\PLACEHOLDER Prompt_Name_3.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Spa\PLACEHOLDER Prompt_Name_4.wav"</string>
         <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Spa.wav
 PLACEHOLDER Phrase Details 1
 
@@ -359,7 +359,7 @@ PLACEHOLDER Phrase Details 4
       <Action>PLAY</Action>
       <Caption>PLACEHOLDER_Script2 PLACEHOLDER Eng PLACEHOLDER DEV</Caption>
       <Parameters>
-        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Eng\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Eng\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Eng\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Eng\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Eng\PLACEHOLDER Prompt_Name_1.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Eng\PLACEHOLDER Prompt_Name_2.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Eng\PLACEHOLDER Prompt_Name_3.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Eng\PLACEHOLDER Prompt_Name_4.wav"</string>
         <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Eng.wav
 PLACEHOLDER Phrase Details 1
 
@@ -400,17 +400,17 @@ PLACEHOLDER Phrase Details 4
       <Action>MENU</Action>
       <Caption>PLACEHOLDER_Script2 {Lang} {ENV}</Caption>
       <Parameters>
-        <string>"{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
-        <string>PLACEHOLDER Prompt_Name_1_{Lang}.wav
+        <string>"{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_1.wav" "{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_2.wav" "{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_3.wav" "{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_4.wav"</string>
+        <string>PLACEHOLDER Prompt_Name_1.wav
 PLACEHOLDER Phrase Details 1
 
-PLACEHOLDER Prompt_Name_2_{Lang}.wav
+PLACEHOLDER Prompt_Name_2.wav
 PLACEHOLDER Phrase Details 2
 
-PLACEHOLDER Prompt_Name_3_{Lang}.wav
+PLACEHOLDER Prompt_Name_3.wav
 PLACEHOLDER Phrase Details 3
 
-PLACEHOLDER Prompt_Name_4_{Lang}.wav
+PLACEHOLDER Prompt_Name_4.wav
 PLACEHOLDER Phrase Details 4
 </string>
         <string>True</string>
@@ -441,17 +441,17 @@ PLACEHOLDER Phrase Details 4
       <Action>PLAY</Action>
       <Caption>PLACEHOLDER_Script2 {Lang} {ENV}</Caption>
       <Parameters>
-        <string>"{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
-        <string>PLACEHOLDER Prompt_Name_1_{Lang}.wav
+        <string>"{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_1.wav" "{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_2.wav" "{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_3.wav" "{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_4.wav"</string>
+        <string>PLACEHOLDER Prompt_Name_1.wav
 PLACEHOLDER Phrase Details 1
 
-PLACEHOLDER Prompt_Name_2_{Lang}.wav
+PLACEHOLDER Prompt_Name_2.wav
 PLACEHOLDER Phrase Details 2
 
-PLACEHOLDER Prompt_Name_3_{Lang}.wav
+PLACEHOLDER Prompt_Name_3.wav
 PLACEHOLDER Phrase Details 3
 
-PLACEHOLDER Prompt_Name_4_{Lang}.wav
+PLACEHOLDER Prompt_Name_4.wav
 PLACEHOLDER Phrase Details 4
 </string>
         <string>True</string>
@@ -507,7 +507,7 @@ PLACEHOLDER Phrase Details 4
       <Action>PLAY</Action>
       <Caption>PLACEHOLDER_Script PLACEHOLDER Ita PLACEHOLDER DEV</Caption>
       <Parameters>
-        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_1.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_2.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_3.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_4.wav"</string>
         <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Ita.wav
 PLACEHOLDER Phrase Details 1
 
@@ -548,7 +548,7 @@ PLACEHOLDER Phrase Details 4
       <Action>PLAY</Action>
       <Caption>PLACEHOLDER_Script PLACEHOLDER Pol PLACEHOLDER DEV</Caption>
       <Parameters>
-        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Pol\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Pol\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Pol\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Pol\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Pol\PLACEHOLDER Prompt_Name_1.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Pol\PLACEHOLDER Prompt_Name_2.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Pol\PLACEHOLDER Prompt_Name_3.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Pol\PLACEHOLDER Prompt_Name_4.wav"</string>
         <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Pol.wav
 PLACEHOLDER Phrase Details 1
 
@@ -589,7 +589,7 @@ PLACEHOLDER Phrase Details 4
       <Action>PLAY</Action>
       <Caption>PLACEHOLDER_Script PLACEHOLDER Rus PLACEHOLDER DEV</Caption>
       <Parameters>
-        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Rus\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Rus\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Rus\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Rus\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Rus\PLACEHOLDER Prompt_Name_1.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Rus\PLACEHOLDER Prompt_Name_2.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Rus\PLACEHOLDER Prompt_Name_3.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Rus\PLACEHOLDER Prompt_Name_4.wav"</string>
         <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Rus.wav
 PLACEHOLDER Phrase Details 1
 
@@ -630,7 +630,7 @@ PLACEHOLDER Phrase Details 4
       <Action>PLAY</Action>
       <Caption>PLACEHOLDER_Script PLACEHOLDER Por PLACEHOLDER DEV</Caption>
       <Parameters>
-        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Por\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Por\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Por\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Por\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Por\PLACEHOLDER Prompt_Name_1.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Por\PLACEHOLDER Prompt_Name_2.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Por\PLACEHOLDER Prompt_Name_3.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Por\PLACEHOLDER Prompt_Name_4.wav"</string>
         <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Por.wav
 PLACEHOLDER Phrase Details 1
 
@@ -671,7 +671,7 @@ PLACEHOLDER Phrase Details 4
       <Action>PLAY</Action>
       <Caption>PLACEHOLDER_Script PLACEHOLDER Ger PLACEHOLDER DEV</Caption>
       <Parameters>
-        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Ger\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ger\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ger\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ger\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Ger\PLACEHOLDER Prompt_Name_1.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ger\PLACEHOLDER Prompt_Name_2.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ger\PLACEHOLDER Prompt_Name_3.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ger\PLACEHOLDER Prompt_Name_4.wav"</string>
         <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Ger.wav
 PLACEHOLDER Phrase Details 1
 
@@ -712,7 +712,7 @@ PLACEHOLDER Phrase Details 4
       <Action>PLAY</Action>
       <Caption>PLACEHOLDER_Script PLACEHOLDER Dut PLACEHOLDER DEV</Caption>
       <Parameters>
-        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Dut\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Dut\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Dut\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Dut\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Dut\PLACEHOLDER Prompt_Name_1.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Dut\PLACEHOLDER Prompt_Name_2.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Dut\PLACEHOLDER Prompt_Name_3.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Dut\PLACEHOLDER Prompt_Name_4.wav"</string>
         <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Dut.wav
 PLACEHOLDER Phrase Details 1
 
@@ -753,7 +753,7 @@ PLACEHOLDER Phrase Details 4
       <Action>PLAY</Action>
       <Caption>PLACEHOLDER_Script PLACEHOLDER Fre PLACEHOLDER DEV</Caption>
       <Parameters>
-        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Fre\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Fre\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Fre\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Fre\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Fre\PLACEHOLDER Prompt_Name_1.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Fre\PLACEHOLDER Prompt_Name_2.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Fre\PLACEHOLDER Prompt_Name_3.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Fre\PLACEHOLDER Prompt_Name_4.wav"</string>
         <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Fre.wav
 PLACEHOLDER Phrase Details 1
 
@@ -794,7 +794,7 @@ PLACEHOLDER Phrase Details 4
       <Action>PLAY</Action>
       <Caption>PLACEHOLDER_Script PLACEHOLDER Spa PLACEHOLDER DEV</Caption>
       <Parameters>
-        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Spa\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Spa\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Spa\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Spa\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Spa\PLACEHOLDER Prompt_Name_1.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Spa\PLACEHOLDER Prompt_Name_2.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Spa\PLACEHOLDER Prompt_Name_3.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Spa\PLACEHOLDER Prompt_Name_4.wav"</string>
         <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Spa.wav
 PLACEHOLDER Phrase Details 1
 
@@ -835,7 +835,7 @@ PLACEHOLDER Phrase Details 4
       <Action>PLAY</Action>
       <Caption>PLACEHOLDER_Script PLACEHOLDER Eng PLACEHOLDER DEV</Caption>
       <Parameters>
-        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Eng\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Eng\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Eng\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Eng\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+        <string>"PLACEHOLDER_Prompts\PLACEHOLDER Eng\PLACEHOLDER Prompt_Name_1.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Eng\PLACEHOLDER Prompt_Name_2.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Eng\PLACEHOLDER Prompt_Name_3.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Eng\PLACEHOLDER Prompt_Name_4.wav"</string>
         <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Eng.wav
 PLACEHOLDER Phrase Details 1
 
@@ -876,17 +876,17 @@ PLACEHOLDER Phrase Details 4
       <Action>MENU</Action>
       <Caption>PLACEHOLDER_Script {Lang} {ENV}</Caption>
       <Parameters>
-        <string>"{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
-        <string>PLACEHOLDER Prompt_Name_1_{Lang}.wav
+        <string>"{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_1.wav" "{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_2.wav" "{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_3.wav" "{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_4.wav"</string>
+        <string>PLACEHOLDER Prompt_Name_1.wav
 PLACEHOLDER Phrase Details 1
 
-PLACEHOLDER Prompt_Name_2_{Lang}.wav
+PLACEHOLDER Prompt_Name_2.wav
 PLACEHOLDER Phrase Details 2
 
-PLACEHOLDER Prompt_Name_3_{Lang}.wav
+PLACEHOLDER Prompt_Name_3.wav
 PLACEHOLDER Phrase Details 3
 
-PLACEHOLDER Prompt_Name_4_{Lang}.wav
+PLACEHOLDER Prompt_Name_4.wav
 PLACEHOLDER Phrase Details 4
 </string>
         <string>True</string>
@@ -917,17 +917,17 @@ PLACEHOLDER Phrase Details 4
       <Action>PLAY</Action>
       <Caption>PLACEHOLDER_Script {Lang} {ENV}</Caption>
       <Parameters>
-        <string>"{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
-        <string>PLACEHOLDER Prompt_Name_1_{Lang}.wav
+        <string>"{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_1.wav" "{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_2.wav" "{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_3.wav" "{ENV}\{Lang}\PLACEHOLDER_Prompts\PLACEHOLDER Prompt_Name_4.wav"</string>
+        <string>PLACEHOLDER Prompt_Name_1.wav
 PLACEHOLDER Phrase Details 1
 
-PLACEHOLDER Prompt_Name_2_{Lang}.wav
+PLACEHOLDER Prompt_Name_2.wav
 PLACEHOLDER Phrase Details 2
 
-PLACEHOLDER Prompt_Name_3_{Lang}.wav
+PLACEHOLDER Prompt_Name_3.wav
 PLACEHOLDER Phrase Details 3
 
-PLACEHOLDER Prompt_Name_4_{Lang}.wav
+PLACEHOLDER Prompt_Name_4.wav
 PLACEHOLDER Phrase Details 4
 </string>
         <string>True</string>

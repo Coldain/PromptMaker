@@ -4,7 +4,7 @@
   <Action>PLAY</Action>
   <Caption>PLACEHOLDER_Script2 PLACEHOLDER Ita PLACEHOLDER DEV</Caption>
   <Parameters>
-    <string>"PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_1_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_2_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_3_{Lang}.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_4_{Lang}.wav"</string>
+    <string>"PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_1.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_2.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_3.wav" "PLACEHOLDER_Prompts\PLACEHOLDER Ita\PLACEHOLDER Prompt_Name_4.wav"</string>
     <string>PLACEHOLDER Prompt_Name_1_PLACEHOLDER Ita.wav
 PLACEHOLDER Phrase Details 1
 

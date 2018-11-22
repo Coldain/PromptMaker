@@ -15,6 +15,7 @@ namespace PromptMaker.Assets.Scripts.Models
         string _promptVerbiage;
         string _sequence;
         string _phrase;
+        bool _TTS;
         #endregion    
 
         #region Properties
@@ -64,6 +65,18 @@ namespace PromptMaker.Assets.Scripts.Models
             {
                 _phrase = value;
                 NotifyPropertyChanged("Phrase");
+            }
+        }
+        public bool TTS
+        {
+            get
+            {
+                return _TTS;
+            }
+            set
+            {
+                _TTS = value;
+                NotifyPropertyChanged("TTS");
             }
         }
         #endregion

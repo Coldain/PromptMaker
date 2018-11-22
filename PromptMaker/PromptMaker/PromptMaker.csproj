@@ -27,7 +27,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>http://localhost/PromptMaker/</UpdateUrl>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationRevision>4</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -116,9 +116,9 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Assets\Scripts\Views\PromptSettings.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Assets\Scripts\Views\PromptSettings_dev.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Assets\Scripts\Views\Scripts.xaml">
       <SubType>Designer</SubType>
@@ -138,8 +138,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Views\PromptSettings.xaml.cs">
-      <DependentUpon>PromptSettings.xaml</DependentUpon>
+    <Compile Include="Assets\Scripts\Views\PromptSettings_dev.xaml.cs">
+      <DependentUpon>PromptSettings_dev.xaml</DependentUpon>
     </Compile>
     <Compile Include="Assets\Scripts\Views\Scripts.xaml.cs">
       <DependentUpon>Scripts.xaml</DependentUpon>

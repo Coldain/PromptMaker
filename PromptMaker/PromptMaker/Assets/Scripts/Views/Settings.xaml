@@ -155,7 +155,7 @@
                 <Button  Content="-" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Cursor="Hand" Grid.Column="4" Click="ButtonMinus_Click"/>
             </Grid>
             <Grid Grid.Row="2">
-                <Label Content="Subdirectory" VerticalAlignment="Bottom" HorizontalAlignment="Left" Padding="0" FontWeight="Bold"/>
+                <Label Content="Subdirectories" VerticalAlignment="Bottom" HorizontalAlignment="Left" Padding="0" FontWeight="Bold"/>
                 <Label Content="In-Use" VerticalAlignment="Bottom" HorizontalAlignment="Right" Padding="0" FontWeight="Bold"/>
             </Grid>
             <ListBox Name="listViewSubDirectories" ItemsSource="{Binding SubDirectories}" BorderBrush="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" 
