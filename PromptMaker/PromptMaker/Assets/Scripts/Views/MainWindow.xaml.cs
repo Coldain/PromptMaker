@@ -235,10 +235,22 @@ namespace PromptMaker.Assets.Scripts.Views
                         int seperator = 128;
                         List<string> usedAnnotations = new List<string>();
                         recordingSubdirectories = "";
+                        List<string> listUsedDirectory = new List<string>();
+                        List<string> listUsedSubDirectory = new List<string>();
+                        foreach (SubDirectory tempSettingTuple in theSetting.SubDirectories)
+                        {
+                            listUsedDirectory.Add(tempSettingTuple.Path);
+                            foreach (SubDirectory tempVariations in tempSettingTuple.Variations)
+                            {
+                                listUsedSubDirectory.Add(tempVariations.Path);
+                            }
+                        }
+                        
+
                         foreach (TabItem tempItem in tabController.Items)
                         {
                             if (tabController.Items.IndexOf(tempItem) > 0 && tabController.Items.IndexOf(tempItem) != tabController.Items.Count && tempItem.Content != null)
-                            {
+                            {                              
                                 Frame frame = tempItem.Content as Frame;
                                 Scripts page = frame.Content as Scripts;
                                 Script tempScript = page.DataContext as Script;
@@ -264,10 +276,51 @@ namespace PromptMaker.Assets.Scripts.Views
                                 string PromptPrefixCoding = "";
                                 string PromptSuffixCoding = "";
                                 string SpokenSuffix = "";
+                                //This secition is for cleaning up usedVariation and usedDirectories this can be streamlined
+                                #region cleanup 
+                                List<string> badDirectories = page.usedDirectories.Except(listUsedDirectory).ToList();
+                                page.usedDirectories = page.usedDirectories.Except(badDirectories).ToList();
+
+                                List<int> badVariations = new List<int>();
+                                List<Tuple<int, string>> badSubVariations = new List<Tuple<int, string>>();
+                                for (int v = 0; v < page.usedVariations.Count; v++)
+                                {
+                                    if (!listUsedDirectory.Contains(page.usedVariations[v].Item1))
+                                    {
+                                        badVariations.Add(v);
+                                    }
+                                    for (int sv = 0; sv < page.usedVariations[v].Item2.Count; sv++)
+                                    {
+                                        if (!listUsedSubDirectory.Contains(page.usedVariations[v].Item2[sv]))
+                                        {
+                                            Tuple<int, string> tempVariationTuple = new Tuple<int, string>(v, page.usedVariations[v].Item2[sv]);
+                                            badSubVariations.Add(tempVariationTuple);
+                                        }
+                                    }
+                                }
+                                foreach (Tuple<int, string> tempSubVariationRemoval in badSubVariations)
+                                {
+                                    while (page.usedVariations[tempSubVariationRemoval.Item1].Item2.Contains(tempSubVariationRemoval.Item2))
+                                    {
+                                        page.usedVariations[tempSubVariationRemoval.Item1].Item2.Remove(tempSubVariationRemoval.Item2);
+                                    }
+                                }
+                                foreach (int tempVariationRemoval in badVariations)
+                                {
+                                    page.usedVariations.RemoveAt(tempVariationRemoval);
+                                }
+                                #endregion
+
                                 foreach (string tempDirectoryName in page.usedDirectories)
                                 {
-                                    PromptPrefixCoding = PromptPrefixCoding + "{" + tempDirectoryName + "}\\";
-                                    PromptSuffixCoding = PromptSuffixCoding + "_{" + tempDirectoryName + "}";
+                                    if (theSetting.SubDirectory)
+                                    {
+                                        PromptPrefixCoding = PromptPrefixCoding + "{" + tempDirectoryName + "}\\";
+                                    }
+                                    if(theSetting.PromptName)
+                                    {
+                                        PromptSuffixCoding = PromptSuffixCoding + "_{" + tempDirectoryName + "}";
+                                    }                                    
                                 }
                                 int ix = 0;
                                 PlaySetting(PlayXML, i.ToString(), tempScript.ScriptName + " Coding", ((char)34).ToString() + theSetting.BaseDirectory + PromptPrefixCoding + String.Join(PromptSuffixCoding + ".wav" + ((char)34).ToString() + " " + ((char)34).ToString() + theSetting.BaseDirectory + PromptPrefixCoding, tempScript.Sequence) + PromptSuffixCoding + ".wav" + ((char)34).ToString(), tempScript.Phrase, (xstart + (ix * spacing)).ToString(), (ystart + (iy * seperator)).ToString());
@@ -280,6 +333,9 @@ namespace PromptMaker.Assets.Scripts.Views
                                 ix++;
                                 //page.usedVariations.RemoveAt(2);
                                 //page.usedVariations[1].Item2.RemoveRange(9, 9);
+
+                                
+
                                 if (page.usedDirectories.Count != 0 && page.usedVariations.Count != 0)
                                 {
                                     List<List<string>> posibilitiesInput = new List<List<string>>();
@@ -295,16 +351,23 @@ namespace PromptMaker.Assets.Scripts.Views
                                         List<string> l = ss.Split(',').ToList();
                                         foreach (string sss in l)
                                         {
-                                            PromptPrefixCoding = PromptPrefixCoding + sss + "\\";
-                                            PromptSuffixCoding = PromptSuffixCoding + "_" + sss;
+                                            if (theSetting.SubDirectory)
+                                            {
+                                                PromptPrefixCoding = PromptPrefixCoding + sss + "\\";
+                                            }
+                                            if (theSetting.PromptName)
+                                            {
+                                                PromptSuffixCoding = PromptSuffixCoding + "_" + sss;
+                                            }   
                                             SpokenSuffix = SpokenSuffix + sss + ". ";                                            
-                                        }
+                                        }                                                                            
                                         recordingSubdirectories = recordingSubdirectories + PromptPrefixCoding + "|";
                                         if (theSetting.PlaceHolder)
                                         {
                                             foreach (Models.Prompt tempPrompt in tempScript.Prompts)
                                             {
-                                                CreateWAV(folderBrowserDialog.SelectedPath + "\\Prompts\\" + tempPrompt.PromptName + PromptSuffixCoding + ".wav", SpokenSuffix + " " + tempPrompt.PromptVerbiage);
+                                                Directory.CreateDirectory(folderBrowserDialog.SelectedPath + "\\" + theSetting.BaseDirectory + PromptPrefixCoding);
+                                                CreateWAV(folderBrowserDialog.SelectedPath + "\\" + theSetting.BaseDirectory + PromptPrefixCoding + tempPrompt.PromptName + PromptSuffixCoding + ".wav", SpokenSuffix + " " + tempPrompt.PromptVerbiage);
                                             }
                                         }
                                         PlaySetting(PlayXML, i.ToString(), tempScript.ScriptName + " " + String.Join(" ", l), ((char)34).ToString() + theSetting.BaseDirectory + PromptPrefixCoding + String.Join(PromptSuffixCoding + ".wav" + ((char)34).ToString() + " " + ((char)34).ToString() + theSetting.BaseDirectory + PromptPrefixCoding, tempScript.Sequence) + PromptSuffixCoding + ".wav" + ((char)34).ToString(), tempScript.Phrase, (xstart + seperator + (ix * spacing)).ToString(), (ystart + (iy * seperator)).ToString());
@@ -415,7 +478,7 @@ namespace PromptMaker.Assets.Scripts.Views
                 mi.Invoke(synth, new object[] { ret, fmt, true, true });
                 synth.SelectVoiceByHints(VoiceGender.Female, VoiceAge.Adult);
                 synth.Speak(verbiage);
-                // Testing code:
+                // Testing code:                
                 using (var fs = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.None))
                 {
                     ret.Position = 0;

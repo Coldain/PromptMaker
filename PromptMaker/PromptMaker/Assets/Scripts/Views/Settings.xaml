@@ -79,7 +79,7 @@
                     <Button Content="⇩" Click="ButtonDown_Click" Grid.Column="4" Height="20" Width="20"/>
                     <Button Content="..." Click="ButtonMore_Click" Grid.Column="6" Height="17" Width="20" Padding="0" Margin="0" VerticalContentAlignment="Center"/>
                 </Grid>
-                <ListBox Name="listViewSubDirectories" ItemsSource="{Binding Variations}" BorderBrush="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" 
+                <ListBox Name="listViewSubDirectories" ItemsSource="{Binding Variations}" BorderBrush="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden" 
                      Grid.Row="3" Margin="0,0,-1,0" IsSynchronizedWithCurrentItem="True" Background="#FFB2B2B2">
                     <ListBox.ItemTemplate>
                         <!-- Template for the variations, bound to a subdirectory datatype-->
@@ -106,7 +106,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
             <RowDefinition Height="75"/>
-            <RowDefinition Height="25"/>
+            <RowDefinition Height="10"/>
             <RowDefinition Height="116*"/>
             <RowDefinition Height="25"/>
             <RowDefinition Height="115"/>
@@ -136,12 +136,12 @@
         </Grid>
         <Grid Margin="0" Grid.Row="3" Grid.Column="1" Grid.RowSpan="3" >
             <Grid.RowDefinitions>
-                <RowDefinition Height="40"/>
+                <RowDefinition Height="20"/>
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="105*"/>
             </Grid.RowDefinitions>
-            <TextBlock Text="If move subdirectories up or down it will clear the inuse checks at the moment." TextWrapping="Wrap" Margin="0,0,-0.8,-0.4" Grid.RowSpan="2"/>
+            <TextBlock Text="Assign Subdirectories before scripts." TextWrapping="Wrap" Margin="0,0,-0.8,-0.4" Grid.RowSpan="2"/>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -158,7 +158,7 @@
                 <Label Content="Subdirectories" VerticalAlignment="Bottom" HorizontalAlignment="Left" Padding="0" FontWeight="Bold"/>
                 <Label Content="In-Use" VerticalAlignment="Bottom" HorizontalAlignment="Right" Padding="0" FontWeight="Bold"/>
             </Grid>
-            <ListBox Name="listViewSubDirectories" ItemsSource="{Binding SubDirectories}" BorderBrush="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" 
+            <ListBox Name="listViewSubDirectories" ItemsSource="{Binding SubDirectories}" BorderBrush="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden" 
                      Grid.Row="3" Margin="0,0,-1,0" IsSynchronizedWithCurrentItem="True" ItemTemplate="{StaticResource directories}" Background="#FFB2B2B2"/>
         </Grid>
         <Grid  Grid.Row="1" Grid.Column="3" Grid.RowSpan="3">
@@ -194,6 +194,12 @@
             <Label Content="User Cluster Email:" Margin="0,0,0,0.2" Padding="0" Grid.Row="5" FontWeight="Bold"/>
             <TextBox Margin="1" Padding="0" Grid.Column="3" Grid.Row="5" Background="#FFB2B2B2" Text="{Binding UserEmail}" Style="{StaticResource EllipsisBG}"/>
             <Button Content="Lookup BU and User ID" Grid.Row="7" Grid.ColumnSpan="3" Width="150" Margin="0,5,0,0" Height="20" Click="Lookup_Click" VerticalAlignment="Top" />-->
+            <Label Content="Prompt Name?" Margin="0" Padding="0" Grid.Row="1" FontWeight="Bold"/>
+            <CheckBox Grid.Row="1" Grid.Column="2" Margin="0,2,0,0" IsChecked="{Binding PromptName}" />
+            <Label Content="PromptName_{Region}_{Lang}.wav?" Margin="0,0,0,0.2" Padding="0" Grid.Row="3" Foreground="Black" HorizontalAlignment="Center" Grid.ColumnSpan="3" />
+            <Label Content="Subdirectories?" Margin="0" Padding="0" Grid.Row="5" FontWeight="Bold"/>
+            <CheckBox Grid.Row="5" Grid.Column="2" Margin="0,2,0,0" IsChecked="{Binding SubDirectory}" />
+            <Label Content="Prompts/{Region}/{Lang}/?" Margin="0,0,0,0.2" Padding="0" Grid.Row="7" Foreground="Black" HorizontalAlignment="Center" Grid.ColumnSpan="3" />
             <Label Content="Place Holder .wav?" Margin="0" Padding="0" Grid.Row="9" FontWeight="Bold"/>
             <CheckBox Grid.Row="9" Grid.Column="2" Margin="0,2,0,0" IsChecked="{Binding PlaceHolder}" />
             <Label Content="Create placeholder .wav files via TTS from verbiage?" Margin="0,0,0,0.2" Padding="0" Grid.Row="11" Foreground="Black" HorizontalAlignment="Center" Grid.ColumnSpan="3" />

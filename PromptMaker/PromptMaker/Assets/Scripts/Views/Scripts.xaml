@@ -147,12 +147,12 @@
                     <CheckBox Tag="Directory" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center" Click="UsageAll_Checked" />
                     <Button Tag="Directory" Content="..." Click="ButtonMore_Click" Grid.Column="8" Height="17" Width="20" Padding="0" Margin="0" VerticalContentAlignment="Center"/>
                 </Grid>
-                <ListBox Tag="{Binding Owner}" Name="listViewSubDirectories" ItemsSource="{Binding Variations}" BorderBrush="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" 
+                <ListBox Tag="{Binding Owner}" Name="listViewSubDirectories" ItemsSource="{Binding Variations}" BorderBrush="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden"
                      Grid.Row="3" Margin="0,0,-1,0" IsSynchronizedWithCurrentItem="True" Background="#FFB2B2B2">
                     <ListBox.ItemTemplate>
                         <!-- Template for the variations, bound to a subdirectory datatype-->
                         <DataTemplate DataType="{x:Type binder:SubDirectory}">
-                            <StackPanel>
+                            <StackPanel ScrollViewer.VerticalScrollBarVisibility="Visible">
                                 <Grid Margin="0,3,0,0">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="175"/>  
@@ -178,8 +178,8 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
-            <RowDefinition Height="75"/>
             <RowDefinition Height="25"/>
+            <RowDefinition Height="10"/>
             <RowDefinition Height="116*"/>
             <RowDefinition Height="25"/>
         </Grid.RowDefinitions>
@@ -209,12 +209,12 @@
         </Grid>
         <Grid Margin="0" Grid.Row="3" Grid.Column="1" >
             <Grid.RowDefinitions>
-                <RowDefinition Height="40"/>
+                <RowDefinition Height="20"/>
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="105*"/>
             </Grid.RowDefinitions>
-            <TextBlock Text="Semi workaround: Move and adjacent (not checked on any script) subdirectory into target place." TextWrapping="Wrap" Margin="0,0,-0.8,-0.4" Grid.RowSpan="2"/>
+            <TextBlock Text="Assign Subdirectories before scripts." TextWrapping="Wrap" Margin="0,0,-0.8,-0.4" Grid.RowSpan="2"/>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>

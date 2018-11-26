@@ -20,6 +20,8 @@ namespace PromptMaker.Assets.Scripts.Models
         string _userID;
         bool _placeHolder;
         bool _environment;
+        bool _subDirectory;
+        bool _promptName;
         #endregion
 
         #region Properties
@@ -131,6 +133,30 @@ namespace PromptMaker.Assets.Scripts.Models
             {
                 _environment = value;
                 NotifyPropertyChanged("Environment");
+            }
+        }
+        public bool SubDirectory
+        {
+            get
+            {
+                return _subDirectory;
+            }
+            set
+            {
+                _subDirectory = value;
+                NotifyPropertyChanged("SubDirectory");
+            }
+        }
+        public bool PromptName
+        {
+            get
+            {
+                return _promptName;
+            }
+            set
+            {
+                _promptName = value;
+                NotifyPropertyChanged("PromptName");
             }
         }
         #endregion

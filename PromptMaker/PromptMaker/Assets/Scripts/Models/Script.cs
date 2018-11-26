@@ -29,6 +29,7 @@ namespace PromptMaker.Assets.Scripts.Models
             {
                 _subDirectories = value;
                 NotifyPropertyChanged("SubDirectories");
+                NotifyPropertyChanged("Usages");
             }
         }
         public ObservableCollection<InUse> Usages
